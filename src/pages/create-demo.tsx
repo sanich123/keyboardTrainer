@@ -1,14 +1,15 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState, ChangeEvent } from 'react';
 import { TextInput } from '../components/demo/input-text';
 import { NumberInput } from '../components/demo/input-number';
 import FormInput from '../components/demo/form';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { decrementValue, incrementValue } from '../redux/increment-decrement/increment-decrement';
+import { decrementValue, incrementValue, setValue } from '../redux/increment-decrement/increment-decrement';
 import { Link, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../utils/const';
-import Insect from '../img/insect.webp';
+import Insect from '../assets/img/insect.webp';
 import '../components/demo/demo-page.scss';
+import { getTodos, TodosProps } from '../components/demo/demo-get-todos';
 
 interface IncDecState {
   incrementDecrement: {
@@ -17,44 +18,41 @@ interface IncDecState {
 }
 
 export default function CreateDemo() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([] as TodosProps[]);
   const [inputText, setInputText] = useState('initialValue');
   const [inputNumber, setInputNumber] = useState('234');
-  const {value: reduxValue} = useSelector(({incrementDecrement}: IncDecState) => incrementDecrement);
+  const { value: reduxValue } = useSelector(({ incrementDecrement }: IncDecState) => incrementDecrement);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
-    (async function getTodos() {
-      const response = await fetch('https://jsonplaceholder.typicode.com/todos');
-      const todos = await response.json();
-      setData(todos);
-    })();
-    if (reduxValue === 5) {navigate(ROUTES.game);}
-    // getTodos();
+    getTodos(setData);
+    if (reduxValue === 5) {
+      navigate(ROUTES.game);
+    }
   }, [navigate, reduxValue]);
 
   if (!data.length) {
     return <h1>Loading...</h1>;
   }
 
+  const handleInput = ({ target }: ChangeEvent<HTMLInputElement>) => {
+    if (target instanceof HTMLInputElement) {
+      const { value } = target;
+      dispatch(setValue(value));
+    }
+  };
+
   return (
     <>
-      {data.length > 0 &&
-        data.slice(0, 20).map(({ id, title }) => (
-          <li className="todo-li" key={id} onClick={({ target }) => console.log(target)}>
-            {title}
-          </li>
-        ))}
+      {data.length > 0 && data.slice(0, 20).map(({ id, title }) => <li className="todo-li" key={id}>{title}</li>)}
       {<FormInput />}
       <form>
         <TextInput text={inputText} setInputText={setInputText} />
-        <NumberInput
-          inputNumber={inputNumber}
-          setInputNumber={setInputNumber}
-        />
+        <NumberInput inputNumber={inputNumber} setInputNumber={setInputNumber} />
       </form>
       <button type="button" onClick={() => dispatch(incrementValue())}>Increment</button>
+      <input type="number" onInput={handleInput} />
       <span>{reduxValue}</span>
       <button type="button" onClick={() => dispatch(decrementValue())}>Decrement</button>
       <Link to={ROUTES.main}>

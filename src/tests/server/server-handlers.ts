@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { mockComments, mockGuitars } from '../../mocks/mocks';
+import { mockComments, mockGuitars } from '../../utils/mocks/mocks';
 import { apiRoutes, BASE_URL } from '../../utils/const';
 
 const handlers = [
