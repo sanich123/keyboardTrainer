@@ -1,9 +1,9 @@
 import { combineReducers, configureStore, PreloadedState } from '@reduxjs/toolkit';
-import { guitarsApi } from './guitars-api';
+import { jsonPlaceholderAPI } from './json-placeholder-API';
 import incrementDecrement from './increment-decrement/increment-decrement';
 
 const rootReducer = combineReducers({
-  [guitarsApi.reducerPath]: guitarsApi.reducer,
+  [jsonPlaceholderAPI.reducerPath]: jsonPlaceholderAPI.reducer,
   incrementDecrement: incrementDecrement,
 });
 
@@ -11,7 +11,7 @@ export const setupStore = (preloadedState?: PreloadedState<RootState>) => config
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: false,
-  }).concat(guitarsApi.middleware),
+  }).concat(jsonPlaceholderAPI.middleware),
   preloadedState,
 });
 

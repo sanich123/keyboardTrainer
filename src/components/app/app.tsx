@@ -9,6 +9,7 @@ import { ROUTES } from '../../utils/const';
 import '../../styles/entry.scss';
 //точка выхода tailwind
 import '../../index.css';
+import { CreateDemo2 } from '../../pages/create-demo-2';
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Route path={ROUTES.game} element={<CreateGamePage />} />
         <Route path={ROUTES.cabinet} element={<CreateUserCabinet />} />
         <Route path={ROUTES.demo} element={<CreateDemo />} />
+        <Route path={ROUTES.demo2} element={<CreateDemo2/>} />
       </Routes>
     </Router>
   );

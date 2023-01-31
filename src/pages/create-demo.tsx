@@ -1,4 +1,4 @@
-import React, { useEffect, useState, ChangeEvent } from 'react';
+import { useEffect, useState, ChangeEvent } from 'react';
 import { TextInput } from '../components/demo/input-text';
 import { NumberInput } from '../components/demo/input-number';
 import FormInput from '../components/demo/form';
@@ -55,9 +55,7 @@ export default function CreateDemo() {
       <input type="number" onInput={handleInput} />
       <span>{reduxValue}</span>
       <button type="button" onClick={() => dispatch(decrementValue())}>Decrement</button>
-      <Link to={ROUTES.main}>
-        Сюда можно жмякнуть, чтобы перейти на главную
-      </Link>
+      <Link to={ROUTES.main}>Сюда можно жмякнуть, чтобы перейти на главную</Link>
       <img src={Insect} alt="some img"/>
     </>
   );
