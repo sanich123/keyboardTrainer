@@ -26,33 +26,34 @@ export function CreateDemo2() {
   const [comment, setComment] = useState('type comment');
   const [idComment, setId] = useState<null | number>(null);
   const { isLoading: todosLoading, data: todos, isError: todosError } = useGetTodosQuery('');
-  const { isLoading: postsLoading, data: comments, isError: postsError, error: sendCommentError } = useGetCommentsQuery('');
-  const [addComment, { isSuccess, isError, data: response }] = useAddCommentMutation();
+  const { isLoading: postsLoading, data: comments, isError: postsError } = useGetCommentsQuery('');
+  const [addComment, { isSuccess, isError, error: postCommentError, data: response }] = useAddCommentMutation();
 
   useEffect(() => {
-    if (isSuccess && response) {
-      const { response: commentResponse } = response;
-      if (commentResponse) {
-        const { ok, status, url } = commentResponse;
-        toast.warn(`Сервер ответил нам: была успешная операция - ${isSuccess}, была ошибка = ${isError}, и вот вам объект ${ok} ${status} ${url}`);
-      }
+    if (isSuccess) {
+      toast.warn('Вы успешно отправили данные на сервер');
     }
-  }, [isSuccess, response, isError, sendCommentError]);
+    if (isError) {
+      toast.warn('Что-то пошло не так');
+      console.log(postCommentError);
+    }
+    if (response) {
+      console.log(response);
+    }
+  }, [isSuccess, isError, response, postCommentError]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    try {
-      await addComment({
-        idComment, ...{
-          id: idComment,
-          title: 'some title',
-          body: comment,
-          userId: idComment,
-        },
-      }).unwrap();
-    } catch (err) {
-      console.log(err);
-    }
+    await addComment({
+      idComment, ...{
+        id: idComment,
+        title: 'some title',
+        body: comment,
+        userId: idComment,
+      },
+    }).unwrap();
+    // .then((onFullfilled) => console.log(onFullfilled))
+    // .then((onRejected) => console.log(onRejected));
   };
   const handleChange = ({ target }: ChangeEvent) => {
     if (target instanceof HTMLInputElement) {
