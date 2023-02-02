@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { LANG_VALUES, REDUCER_NAMES, THEME_VALUES } from '../../utils/const';
+import { getFromLocalStorage, LS_KEYS } from '../../utils/local-storage';
 
 export type GlobalStateType = {
   authorization: boolean,
@@ -7,18 +9,18 @@ export type GlobalStateType = {
 }
 
 const globalState = createSlice({
-  name: 'global-values',
-  initialState: {
+  name: REDUCER_NAMES.globalState,
+  initialState: getFromLocalStorage(LS_KEYS.globalState) ?? {
     authorization: false,
-    theme: 'dark',
-    language: 'ru',
+    theme: THEME_VALUES.light,
+    language: LANG_VALUES.ru,
   },
   reducers: {
     changeTheme: (state) => {
-      state.theme === 'dark' ? state.theme = 'light' : state.theme = 'dark';
+      state.theme === THEME_VALUES.dark ? state.theme = THEME_VALUES.light : state.theme = THEME_VALUES.dark;
     },
     changeLanguage: (state) => {
-      state.language === 'ru' ? state.language = 'en' : state.language = 'ru';
+      state.language === LANG_VALUES.ru ? state.language = LANG_VALUES.eng : state.language = LANG_VALUES.ru;
     },
     changeAuthorization: (state) => {
       state.authorization = !state.authorization;
@@ -26,8 +28,5 @@ const globalState = createSlice({
   },
 });
 
-export const {
-  changeTheme, changeLanguage, changeAuthorization,
-} = globalState.actions;
-
+export const { changeTheme, changeLanguage, changeAuthorization } = globalState.actions;
 export default globalState.reducer;

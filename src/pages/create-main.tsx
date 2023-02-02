@@ -1,11 +1,9 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { changeLanguage, changeTheme, GlobalStateType } from '../redux/global-state/global-state';
+import { changeLanguage, changeTheme } from '../redux/global-state/global-state';
+import { useThemeLang } from '../utils/hooks/use-theme-lang/use-theme-lang';
 
 export default function CreateMainPage() {
-  const dispatch = useDispatch();
-  const { theme, language } = useSelector(({ globalState }:{globalState: GlobalStateType}) => globalState);
-  const isRu = language === 'ru';
-  const isLight = theme === 'light';
+  const { dispatch, isRu, isLight } = useThemeLang();
+
   return (
     <div style={{background: `${isLight ? 'grey' : 'blue'}`}}>
       <h1 className="text-3xl font-bold underline">
