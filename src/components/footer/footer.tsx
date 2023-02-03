@@ -11,7 +11,8 @@ export default function Footer() {
   const { isLight } = useThemeLang();
 
   return (
-    <div style={{background: `${isLight ? '#292827' : '#EBEBEB'}`, color: `${isLight ? '#FFFFFF' : '#000000'}`}}
+    <div style={{background: `${isLight ? '#292827' : '#EBEBEB'}`,
+      color: `${isLight ? '#FFFFFF' : '#000000'}`}}
       className="footer w-full absolute bottom-0"
     >
       <div className="footer-container">

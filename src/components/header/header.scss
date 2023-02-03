@@ -1,0 +1,36 @@
+.div-header {
+  width: 100%;
+  padding: 20px 60px 0px;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Open Sans';
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: 780px) {
+    padding: 0px 40px;
+  }
+}
+
+.div-header-component {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav {
+  display: flex;
+}
+
+.li-navigation:hover {
+  color: #E21022;
+}
+
+.div-settings,
+.div-login-navigation {
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
