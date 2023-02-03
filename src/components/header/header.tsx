@@ -16,10 +16,10 @@ function Navigation() {
 
   return (
     <nav className="header-nav">
-      <li className="li-navigation mr-[30px]">
+      <li className="li-navigation li-margin">
         <Link to={ROUTES.main}>{isRu ? 'Об игре' : 'About'}</Link>
       </li>
-      <li className="li-navigation mr-[30px]">
+      <li className="li-navigation li-margin">
         <Link to={ROUTES.game}>{isRu ? 'Гонка' : 'Race'}</Link>
       </li>
       <li className="li-navigation">
@@ -67,14 +67,14 @@ export default function Header() {
     <div className="div-header"
       style={{color: `${isLight ? '#000000' : '#FFFFFF'}`}}
     >
-      <div className="div-header-component">
+      <div className="div-header-component div-header-component-1">
         <img src={isLight ? LogoRaceBlack : LogoRace}
           width={128} height={40} alt="logo-race"
-          className="mr-[60px]"
+          className="img-logo"
         />
         <Navigation />
       </div>
-      <div className="div-header-component">
+      <div className="div-header-component div-header-component-2">
         <Settings />
         <LoginNavigation />
       </div>
