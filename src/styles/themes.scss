@@ -1,0 +1,57 @@
+:root {
+  .light {
+    --fontSize: 16px;
+    --h1FontSize: 50px;
+    --h2FontSize: 40px;
+    --h3FontSize: 30px;
+    --primaryColor: #E21022;
+    --secondaryColor: #514B4B;
+    --hColor: #000000;
+    --fontColor: #514B4B;
+    --primaryBgColor: #ffffff;
+    --secondaryBgColor: #F2F2F2;
+    --selectionHover: #514B4B;
+    --DimmedBorderPlaceholder: #A0A0A0;
+    --footerBgColor: #292827;
+    --shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
+    --primaryBtnBgColor: #E21022;
+    --secondaryBtnBgColor: #514B4B;
+    --trafficLightBgGreen: #B0FF9C;
+    --trafficLightBgGreenLight: #DDFFD5;
+    --trafficLightFontColorGreen: #48A500;
+    --trafficLightBgRed: #FF9C9C;
+    --trafficLightBgRedLight: #FFDBDB;
+    --trafficLightFontColorRed: #A50000;
+    --trafficLightBgYellow: #FFE39C;
+    --trafficLightBgYellowLight: #FFF3D2;
+    --trafficLightFontColorYellow: #A57700;
+  }
+
+  .dark {
+    --fontSize: 16px;
+    --h1FontSize: 50px;
+    --h2FontSize: 40px;
+    --h3FontSize: 30px;
+    --primaryColor: #E21022;
+    --secondaryColor: #514B4B;
+    --hColor: #000000;
+    --fontColor: #514B4B;
+    --primaryBgColor: #ffffff;
+    --secondaryBgColor: #F2F2F2;
+    --selectionHover: #514B4B;
+    --DimmedBorderPlaceholder: #A0A0A0;
+    --footerBgColor: #292827;
+    --shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
+    --primaryBtnBgColor: #E21022;
+    --secondaryBtnBgColor: #514B4B;
+    --trafficLightBgGreen: #B0FF9C;
+    --trafficLightBgGreenLight: #DDFFD5;
+    --trafficLightFontColorGreen: #48A500;
+    --trafficLightBgRed: #FF9C9C;
+    --trafficLightBgRedLight: #FFDBDB;
+    --trafficLightFontColorRed: #A50000;
+    --trafficLightBgYellow: #FFE39C;
+    --trafficLightBgYellowLight: #FFF3D2;
+    --trafficLightFontColorYellow: #A57700;
+  }
+}
