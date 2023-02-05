@@ -10,6 +10,7 @@ import { ROUTES } from '../utils/const';
 import Insect from '../assets/img/insect.webp';
 import '../components/demo/demo-page.scss';
 import { getTodos, TodosProps } from '../components/demo/demo-get-todos';
+import { useAuth0 } from '@auth0/auth0-react';
 
 interface IncDecState {
   incrementDecrement: {
@@ -24,6 +25,7 @@ export default function CreateDemo() {
   const { value: reduxValue } = useSelector(({ incrementDecrement }: IncDecState) => incrementDecrement);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
   useEffect(() => {
     getTodos(setData);
@@ -45,18 +47,46 @@ export default function CreateDemo() {
 
   return (
     <>
-      {data.length > 0 && data.slice(0, 20).map(({ id, title }) => <li className="todo-li" key={id}>{title}</li>)}
+      {data.length > 0 &&
+        data.slice(0, 20).map(({ id, title }) => (
+          <li className="todo-li" key={id}>
+            {title}
+          </li>
+        ))}
       {<FormInput />}
       <form>
         <TextInput text={inputText} setInputText={setInputText} />
-        <NumberInput inputNumber={inputNumber} setInputNumber={setInputNumber} />
+        <NumberInput
+          inputNumber={inputNumber}
+          setInputNumber={setInputNumber}
+        />
       </form>
-      <button type="button" onClick={() => dispatch(incrementValue())}>Increment</button>
+      <button type="button" onClick={() => dispatch(incrementValue())}>
+        Increment
+      </button>
       <input type="number" onInput={handleInput} />
       <span>{reduxValue}</span>
-      <button type="button" onClick={() => dispatch(decrementValue())}>Decrement</button>
-      <Link to={ROUTES.main}>Сюда можно жмякнуть, чтобы перейти на главную</Link>
-      <img src={Insect} alt="some img"/>
+      <button type="button" onClick={() => dispatch(decrementValue())}>
+        Decrement
+      </button>
+      <Link to={ROUTES.main}>
+        Сюда можно жмякнуть, чтобы перейти на главную
+      </Link>
+      <img src={Insect} alt="some img" />
+      <h1>User Info</h1>
+      {isLoading && <h2>Loading...</h2>}
+      {isAuthenticated && (
+        <>
+          <div>About user</div>
+          {user && (
+            <>
+              <p>{user.email}</p>
+              <p>{user.name}</p>
+              <img src="user.picture" alt={user.name} />
+            </>
+          )}
+        </>
+      )}
     </>
   );
 }

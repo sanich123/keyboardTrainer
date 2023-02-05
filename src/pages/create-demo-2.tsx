@@ -1,5 +1,7 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import LoginButton from '../components/auth/login-button';
+import LogoutButton from '../components/auth/logout-button';
 import {
   useGetCommentsQuery,
   useGetTodosQuery,
@@ -86,6 +88,8 @@ export function CreateDemo2() {
       <form onSubmit={ handleSubmit }>
         <input type="text" value={comment} onChange={ handleChange } />
       </form>
+      <LoginButton/>
+      <LogoutButton/>
     </>
   );
 }
