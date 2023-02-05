@@ -38,7 +38,7 @@ function Settings() {
       <img src={isLight ? SettingsLight : SettingsDarck}
         alt="settings" className="mr-[5px]"
       />
-      <p>{isRu ? 'Настройки' : 'Settings'}</p>
+      <p className="hover:text-[#E21022]">{isRu ? 'Настройки' : 'Settings'}</p>
     </div>
   );
 }
@@ -53,7 +53,7 @@ function LoginNavigation() {
       <img src={isLight ? PersonLight : PersonDarck}
         alt="settings" className="mr-[5px]"
       />
-      <p>{isRu ? 'Войти' : 'Login'}</p>
+      <p className="hover:text-[#E21022]">{isRu ? 'Войти' : 'Login'}</p>
     </div>
   );
 }
