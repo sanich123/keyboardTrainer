@@ -54,3 +54,8 @@ export interface ModalProps {
   place?: string,
   price: number,
 }
+
+export type Lang = {
+  [key: string]: { [key: string]: { [key: string]: string | { [key: string]: string } } }
+}
+
