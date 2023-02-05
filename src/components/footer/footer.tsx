@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <div style={{background: `${isLight ? '#292827' : '#EBEBEB'}`,
       color: `${isLight ? '#FFFFFF' : '#000000'}`}}
-      className="footer w-full absolute bottom-0"
+      className="footer"
     >
       <div className="footer-container">
         <div className="footer-div-component">
