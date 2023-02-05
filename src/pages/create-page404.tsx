@@ -1,8 +1,8 @@
 import './create-page404.scss';
 import BgLight404 from '../assets/img/bg-light404.png';
 import BgDarck404 from '../assets/img/bg-darck404.png';
-import Num404 from '../assets/img/404-num.png';
-import Car404 from '../assets/img/404-car.png';
+import Num404 from '../assets/img/404-num.webp';
+import Car404 from '../assets/img/404-car.webp';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../utils/const';
 import Header from '../components/header/header';
