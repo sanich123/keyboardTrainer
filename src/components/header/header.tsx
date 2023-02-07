@@ -7,6 +7,7 @@ import PersonDarck from '../../assets/img/person-dark.webp';
 import { ROUTES } from '../../utils/const';
 import { Link } from 'react-router-dom';
 import Settings from '../Settings';
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 export default function Header() {
@@ -31,13 +32,37 @@ export default function Header() {
   }
 
   function LoginNavigation() {
-
+    const { loginWithRedirect, user, isAuthenticated, isLoading, logout } = useAuth0();
+    const btnText = isRu ? 'Войти' : 'Login';
+    const logoutBtnText = isRu ? 'Выйти' : 'Log out';
+    const themeImg = isLight ? PersonLight : PersonDarck;
     return (
       <div className="div-login-navigation">
-        <img src={isLight ? PersonLight : PersonDarck}
-          alt="settings" className="mr-[5px]"
-        />
-        <p className="text-login">{isRu ? 'Войти' : 'Login'}</p>
+        <Link to={ROUTES.cabinet}>
+          <img
+            src={isAuthenticated ? user?.picture : themeImg}
+            alt="settings"
+            className="mr-[5px]"
+          />
+        </Link>
+
+        <Link
+          className="text-login"
+          onClick={() => loginWithRedirect()}
+          to={ROUTES.cabinet}
+        >
+          {isAuthenticated && user?.email}
+          {!isAuthenticated && !isLoading && btnText}
+          {isLoading && 'Loading...'}
+        </Link>
+        {isAuthenticated && (
+          <button
+            onClick={() =>
+              logout({ logoutParams: { returnTo: window.location.origin } })}
+          >
+            {logoutBtnText}
+          </button>
+        )}
       </div>
     );
   }

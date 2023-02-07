@@ -20,7 +20,7 @@ export default function CreateUserCabinet() {
 
   return (
     <div className="all-div" style={{ background: `url(${isLight ? BgLight404 : BgDarck404})`,
-    backgroundSize: 'cover'}}
+      backgroundSize: 'cover'}}
     >
       {/* <div style={{ background: `${isLight ? 'grey' : 'blue'}` }}>
         <button type="button" onClick={() => dispatch(changeTheme())}>

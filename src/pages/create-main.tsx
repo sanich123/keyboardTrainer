@@ -13,8 +13,8 @@ export default function CreateMainPage() {
 
   return (
     <div className="mainpage-div"
-    style={{ background: `url(${isLight ? BgLight : BgDark})`,
-      backgroundSize: 'cover'}}
+      style={{ background: `url(${isLight ? BgLight : BgDark})`,
+        backgroundSize: 'cover'}}
     >
       <Header />
       {/* <div style={{background: `${isLight ? 'grey' : 'blue'}`}}>
