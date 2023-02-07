@@ -41,7 +41,7 @@
     position: absolute;
     right: 0;
     transform: translateY(-100vh);
-    padding: 25px 30px;
+    padding: 20px 20px;
     margin-top: 10px;
     z-index: -1;
     transition: var(--transition-menu-close);
@@ -49,6 +49,10 @@
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     background: var(--primary-bg-color);
+
+    @media screen and (max-width: 850px) {
+      right: -137px;
+    }
 
     &.active {
       transform: translateY(0);
