@@ -1,5 +1,5 @@
 export type LangData = {
-  [key: string]: { [key: string]: { [key: string]: string | { [key: string]: string } } }
+  [key: string]: { [key: string]: { [key: string]: { [key: string]: string } | string } }
 }
 
 export const langsData: LangData = {
@@ -17,6 +17,9 @@ export const langsData: LangData = {
         elapsedTime: 'Elapsed time',
         speed: 'Speed',
         accuracy: 'Accuracy',
+        elapsedTimeUnit: 'min',
+        speedUnit: 'char/min',
+        accuracyUnit: '%',
       },
       hideShowKeyboard: 'Hide / Show keyboard',
     },
@@ -68,6 +71,9 @@ export const langsData: LangData = {
         elapsedTime: 'Пройденное время',
         speed: 'Скорость',
         accuracy: 'Точность',
+        elapsedTimeUnit: 'мин',
+        speedUnit: 'зн/мин',
+        accuracyUnit: '%',
       },
       hideShowKeyboard: 'Скрыть / показать клавиатуру',
     },
