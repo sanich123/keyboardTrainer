@@ -1,0 +1,32 @@
+.LangSwitch {
+  display: flex;
+  justify-content: space-between;
+  border-radius: var(--border-radius);
+  gap: 10px;
+
+  .select-lang-en,
+  .select-lang-ru {
+    display: flex;
+    gap: 10px;
+    padding: 15px 25px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    cursor: pointer;
+
+    .icon {
+      font-size: 20px;
+      color: var(--font-color);
+    }
+
+    &.active,
+    &.active {
+      transition: var(--transition);
+      background: var(--selection-bg-color);
+      color: var(--selection-font-color);
+
+      .icon {
+        color: var(--selection-font-color);
+      }
+    }
+  }
+}
