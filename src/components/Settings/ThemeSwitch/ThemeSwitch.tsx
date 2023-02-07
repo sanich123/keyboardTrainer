@@ -1,16 +1,13 @@
-import { Dispatch } from 'react';
-import { AnyAction } from '@reduxjs/toolkit';
-import { useThemeLang } from '../../../utils/hooks/use-theme-lang/use-theme-lang';
 import { RiMoonFill, RiSunFill } from 'react-icons/ri';
 import { changeTheme } from '../../../redux/global-state/global-state';
-import { LANG_VALUES } from '../../../utils/const';
 import { langsData } from '../LangSwitch/langsData';
+import { SettingsProps } from '../../../utils/types/types';
+import { THEME_VALUES } from '../../../utils/const';
 import style from './ThemeSwitch.module.scss';
 
-export default function ThemeSwitch() {
-  const { dispatch, isRu, isLight }: { dispatch: Dispatch<AnyAction>; isRu: boolean; isLight: boolean; } = useThemeLang();
-  const { ru, en } = LANG_VALUES;
-  const lang = isRu ? ru : en;
+export default function ThemeSwitch({ dispatch, theme, lang }: SettingsProps) {
+  const isLight = theme === THEME_VALUES.light;
+  document.body.className = theme;
 
   return (
     <div className={style.ThemeSwitch} onClick={() => { dispatch(changeTheme()); }}>
