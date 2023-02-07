@@ -31,7 +31,7 @@ export const langsData: LangData = {
     menuMain: {
       about: 'About',
       race: 'Race',
-      lessons: 'Lessons',
+      stats: 'Stats',
       rules: 'Rules',
     },
     menuSettings: {
@@ -82,7 +82,7 @@ export const langsData: LangData = {
     menuMain: {
       about: 'Об игре',
       race: 'Гонка',
-      lessons: 'Уроки',
+      stats: 'Статистика',
       rules: 'Правила',
     },
     menuSettings: {
