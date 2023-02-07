@@ -1,3 +1,6 @@
+import { Dispatch } from 'react';
+import { AnyAction } from '@reduxjs/toolkit';
+
 export interface Guitar {
   id: number,
   name: string,
@@ -55,7 +58,8 @@ export interface ModalProps {
   price: number,
 }
 
-export type Lang = {
-  [key: string]: { [key: string]: { [key: string]: string | { [key: string]: string } } }
+export interface SettingsProps {
+  dispatch: Dispatch<AnyAction>,
+  theme: string,
+  lang: string,
 }
-
