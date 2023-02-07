@@ -1,0 +1,91 @@
+.TrafficLight {
+
+  .yelowTextInfo,
+  .greenTextInfo,
+  .redTextInfo {}
+
+  .redLight,
+  .greenLight,
+  .yellowLight {
+    display: flex;
+    flex-direction: row-reverse;
+    border-radius: 65px;
+    align-items: center;
+    justify-content: left;
+    width: max-content;
+  }
+
+  .red,
+  .green,
+  .yellow {
+    border-radius: 50%;
+    // padding: 30px 18px;
+    font-size: 25px;
+    font-weight: 700;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .yellowTextDesc,
+  .greenTextDesc,
+  .redTextDesc {
+    display: block;
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--font-color);
+    font-size: 20px;
+  }
+
+  .red {
+    background: #FF9C9C;
+  }
+
+  .redLight {
+    background: #FFDBDB;
+  }
+
+  .redTextInfo {
+    color: #A50000;
+  }
+
+  .green {
+    background: #B0FF9C;
+  }
+
+  .greenLight {
+    background: #DDFFD5;
+  }
+
+  .greenTextInfo {
+    color: #48A500;
+  }
+
+  .yellow {
+    background: #FFE39C;
+  }
+
+  .yellowLight {
+    background: #FFF3D2;
+  }
+
+  .yellowTextInfo {
+    color: #A57700;
+  }
+
+  .unitWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    padding: 0 50px 0 30px;
+    text-align: left;
+
+    .unit {
+      text-align: left;
+      font-size: 12px;
+    }
+  }
+
+}
