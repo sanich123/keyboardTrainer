@@ -8,10 +8,6 @@
   display: flex;
   justify-content: space-between;
 
-  // @media screen and (max-width: 780px) {
-  //   padding: 20px 40px 0px;
-  // }
-
   @media screen and (max-width: 850px) {
     padding: 20px 20px 0px;
     flex-direction: column;
@@ -66,15 +62,21 @@
 }
 
 .li-navigation:hover {
-  color: #E21022;
+  text-decoration: underline;
 }
 
-.div-settings,
 .div-login-navigation {
   display: flex;
   align-items: center;
 
   &:hover {
     cursor: pointer;
+  }
+}
+
+.text-login {
+
+  &:hover {
+    text-decoration: underline;
   }
 }
