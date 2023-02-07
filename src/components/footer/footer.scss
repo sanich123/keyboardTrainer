@@ -1,0 +1,78 @@
+// :root {
+//   --footer-color:#292827;
+//   --footer-lightcolor: #EBEBEB;
+// }
+
+
+.footer {
+  grid-area: footer;
+  width: 100%;
+  padding: 60px 80px 20px;
+  font-size: 16px;
+  font-family: 'Open Sans';
+
+  @media screen and (max-width: 780px) {
+    padding: 40px 60px 10px;
+  }
+
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: 630px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.footer-div-component {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @media screen and (max-width: 630px) {
+    align-items: center;
+  }
+
+}
+
+.footer-div-component-right {
+  align-items: flex-end;
+
+  @media screen and (max-width: 630px) {
+    align-items: center;
+  }
+
+}
+
+.margin-after-img {
+  margin-bottom: 44px;
+
+  @media screen and (max-width: 780px) {
+    margin-bottom: 30px;
+  }
+
+  @media screen and (max-width: 630px) {
+    margin-bottom: 15px;
+  }
+
+}
+
+.div-links-github {
+  display: flex;
+
+  @media screen and (max-width: 630px) {
+    margin-bottom: 40px;
+  }
+}
+
+.link-github {
+  font-weight: 700;
+
+  &:active {
+    color: #fff;
+  }
+
+}
