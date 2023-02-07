@@ -47,6 +47,8 @@
 
     --border-radius: 10px;
 
+    transition: var(--transition);
+
   }
 
   .dark {
@@ -96,5 +98,7 @@
     --transition: all .3s;
 
     --border-radius: 10px;
+
+    transition: var(--transition);
   }
 }

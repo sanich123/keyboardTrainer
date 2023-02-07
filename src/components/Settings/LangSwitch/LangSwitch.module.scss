@@ -1,6 +1,7 @@
-.langSwitch {
+.LangSwitch {
   display: flex;
   justify-content: space-between;
+  border-radius: var(--border-radius);
   gap: 10px;
 
   .select-lang-en,
