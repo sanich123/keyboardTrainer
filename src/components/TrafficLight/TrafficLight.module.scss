@@ -1,8 +1,11 @@
 .TrafficLight {
+  transition: var(--transition);
 
-  .yelowTextInfo,
+  .yellowTextInfo,
   .greenTextInfo,
-  .redTextInfo {}
+  .redTextInfo {
+    line-height: 1;
+  }
 
   .redLight,
   .greenLight,
@@ -19,13 +22,13 @@
   .green,
   .yellow {
     border-radius: 50%;
-    // padding: 30px 18px;
     font-size: 25px;
     font-weight: 700;
     width: 100px;
     height: 100px;
-    display: flex;
     justify-content: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
   }
 
@@ -33,59 +36,65 @@
   .greenTextDesc,
   .redTextDesc {
     display: block;
-    font-size: 25px;
     font-weight: 700;
-    color: var(--font-color);
+    color: var(--traffic-light-font-color-desc);
     font-size: 20px;
+    padding: 0 50px 0 30px;
   }
 
   .red {
-    background: #FF9C9C;
+    background: var(--traffic-light-bg-red);
+
+    .unit {
+      color: var(--traffic-light-font-color-red);
+    }
   }
 
   .redLight {
-    background: #FFDBDB;
+    background: var(--traffic-light-bg-red-light);
   }
 
   .redTextInfo {
-    color: #A50000;
+    color: var(--traffic-light-font-color-red);
   }
 
   .green {
-    background: #B0FF9C;
+    background: var(--traffic-light-bg-green);
+
+    .unit {
+      color: var(--traffic-light-font-color-green);
+    }
   }
 
   .greenLight {
-    background: #DDFFD5;
+    background: var(--traffic-light-bg-green-light);
   }
 
   .greenTextInfo {
-    color: #48A500;
+    color: var(--traffic-light-font-color-green);
   }
 
   .yellow {
-    background: #FFE39C;
+    background: var(--traffic-light-bg-yellow);
+
+    .unit {
+      color: var(--traffic-light-font-color-yellow);
+    }
   }
 
   .yellowLight {
-    background: #FFF3D2;
+    background: var(--traffic-light-bg-yellow-light);
   }
 
   .yellowTextInfo {
-    color: #A57700;
+    color: var(--traffic-light-font-color-yellow);
   }
 
-  .unitWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: right;
-    padding: 0 50px 0 30px;
+  .unit {
     text-align: left;
-
-    .unit {
-      text-align: left;
-      font-size: 12px;
-    }
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 400;
   }
 
 }
