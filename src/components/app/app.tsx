@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CreateDemo from '../../pages/create-demo';
-import { CreateGamePage } from '../../pages/create-game';
 import CreateMainPage from '../../pages/create-main';
+import CreateGamePage from '../../pages/create-game';
 import CreatePage404 from '../../pages/create-page404';
 import CreateUserCabinet from '../../pages/create-user-cabinet';
 import { ROUTES } from '../../utils/const';
@@ -20,7 +20,7 @@ export default function App() {
         <Route path={ROUTES.game} element={<CreateGamePage />} />
         <Route path={ROUTES.cabinet} element={<CreateUserCabinet />} />
         <Route path={ROUTES.demo} element={<CreateDemo />} />
-        <Route path={ROUTES.demo2} element={<CreateDemo2/>} />
+        <Route path={ROUTES.demo2} element={<CreateDemo2 />} />
       </Routes>
     </Router>
   );

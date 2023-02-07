@@ -22,7 +22,8 @@ body {
   font-style: normal;
   list-style: none;
   min-height: 100vh;
-  background: #ebe2e2;
+  background: var(--primary-bg-color);
+  font-size: var(--font-size);
 }
 
 a {

@@ -17,10 +17,10 @@ const globalState = createSlice({
   },
   reducers: {
     changeTheme: (state) => {
-      state.theme === THEME_VALUES.dark ? state.theme = THEME_VALUES.light : state.theme = THEME_VALUES.dark;
+      state.theme = (state.theme === THEME_VALUES.dark) ? THEME_VALUES.light : THEME_VALUES.dark;
     },
     changeLanguage: (state) => {
-      state.language === LANG_VALUES.ru ? state.language = LANG_VALUES.eng : state.language = LANG_VALUES.ru;
+      state.language = (state.language === LANG_VALUES.ru) ? LANG_VALUES.en : LANG_VALUES.ru;
     },
     changeAuthorization: (state) => {
       state.authorization = !state.authorization;

@@ -1,0 +1,62 @@
+.Settings {
+  position: relative;
+  color: var(--font-color);
+  width: max-content;
+  margin-left: auto;
+
+  .buttonWrap {
+    color: var(--primary-font-color);
+
+    .buttonIcon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .btn {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      background: transparent;
+      padding: 10px;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      cursor: pointer;
+
+      &:hover,
+      &.active {
+        // background: var(--selection-bg-color);
+        // color: var(--selection-font-color);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    right: 0;
+    transform: translateY(-100vh);
+    padding: 25px 30px;
+    margin-top: 10px;
+    z-index: -1;
+    transition: var(--transition-menu-close);
+    opacity: 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    background: var(--primary-bg-color);
+
+    &.active {
+      transform: translateY(0);
+      transition: var(--transition-menu-open);
+      opacity: 1;
+      z-index: 10;
+    }
+  }
+
+
+}
