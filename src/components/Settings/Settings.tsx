@@ -25,7 +25,7 @@ export default function Settings() {
       </div>
       <div className={`${styles.menu} ${active}`}>
         <LangSwitch {...{ dispatch, theme, lang }} />
-        <ThemeSwitch />
+        <ThemeSwitch {...{ dispatch, theme, lang }} />
       </div>
     </div>
   );
