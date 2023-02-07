@@ -21,9 +21,15 @@ export const langsData: LangData = {
       hideShowKeyboard: 'Hide / Show keyboard',
     },
     pageStatistic: {
+      h1: 'Statistic',
+      h2Best: 'Your best results:',
+      countRaces: 'Races',
       bestTime: 'Best time',
       speed: 'Speed',
+      speedMeasure: 'chars / min',
       accuracy: 'Accuracy',
+      driver: 'Driver',
+
     },
     pageNotFound: {
       notFound: 'Page Not Found',
@@ -72,9 +78,14 @@ export const langsData: LangData = {
       hideShowKeyboard: 'Скрыть / показать клавиатуру',
     },
     pageStatistic: {
+      h1: 'Статистика',
+      h2Best: 'Твои лучшие результаты:',
+      countRaces: 'Заезды',
       bestTime: 'Лучшее время',
       speed: 'Скорость',
+      speedMeasure: 'симв / мин',
       accuracy: 'Точность',
+      driver: 'Водитель',
     },
     pageNotFound: {
       notFound: 'Страница не найдена',

@@ -1,0 +1,33 @@
+.all-card-driver {
+  width: 100%;
+  border-radius: 10px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  margin-left: 90px;
+}
+
+.card-driver-light {
+  background-color: #F5F5F5;
+}
+
+.card-driver-darck {
+  background-color: #4E4E4E;
+}
+
+.photo-block {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+}
+
+.driver-info-block {
+  padding-left: 30px;
+}
+
+.h3-driver {
+  color: #B51A1A;
+  font-size: 32px;
+  font-weight: 700;
+}
