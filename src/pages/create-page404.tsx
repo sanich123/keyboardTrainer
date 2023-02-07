@@ -3,8 +3,8 @@ import BgLight404 from '../assets/img/bg-light404.png';
 import BgDarck404 from '../assets/img/bg-darck404.png';
 import Num404 from '../assets/img/404-num.webp';
 import Car404 from '../assets/img/404-car.webp';
-import { Link } from 'react-router-dom';
-import { ROUTES } from '../utils/const';
+// import { Link } from 'react-router-dom';
+// import { ROUTES } from '../utils/const';
 import Header from '../components/header/header';
 import { useThemeLang } from '../utils/hooks/use-theme-lang/use-theme-lang';
 import Footer from '../components/footer/footer';
@@ -26,13 +26,13 @@ export default function CreatePage404() {
         </h1>
         <img src={Car404} alt="car-404" />
       </div>
-      <h1>Сильно старались, но не смогли найти запрашиваемую страницу.</h1>
+      {/* <h1>Сильно старались, но не смогли найти запрашиваемую страницу.</h1>
       <Link to={ROUTES.main}>
         При желании, можете перейти на главную страницу
       </Link>
       <Link to={ROUTES.game}>Или поиграть</Link>
       <Link to={ROUTES.cabinet}>Ну или если авторизованы, то можете и в кабинет пользователя заглянуть</Link>
-      <h2>Или тут потусить, если охота</h2>
+      <h2>Или тут потусить, если охота</h2> */}
       <Footer />
     </div>
   );

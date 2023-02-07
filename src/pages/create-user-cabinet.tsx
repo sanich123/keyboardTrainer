@@ -30,6 +30,7 @@ export default function CreateUserCabinet() {
           {isRu ? 'Поменять язык' : 'Change language'}
         </button>
       </div> */}
+      <div className="block"></div>
       <Header />
       <div className="main-cabinet">
       </div>

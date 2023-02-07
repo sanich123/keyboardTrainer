@@ -6,7 +6,6 @@ type TextBtn = {
 };
 
 export function BtnSecondary(text: TextBtn) {
-
   const { isLight } = useThemeLang();
 
   return (
@@ -15,7 +14,6 @@ export function BtnSecondary(text: TextBtn) {
 }
 
 export function BtnPrinary(text: TextBtn) {
-
   const { isLight } = useThemeLang();
 
   return (

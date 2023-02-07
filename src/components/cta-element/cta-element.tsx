@@ -10,7 +10,6 @@ export default function CtaElement() {
   const { isRu, isLight } = useThemeLang();
 
   return (
-    <>
       <div className="all-cta-div"
         style={{color: `${isLight ? '#000000' : '#FFFFFF'}`}}
       >
@@ -23,16 +22,15 @@ export default function CtaElement() {
         races, improve your skills and compete with others. Try different languages
         and see your results in the "Statistics" section.`}
         </p>
+        <div className="btns-cta"
+          style={{color: `${isLight ? '#FFFFFF' : '#000000'}`}}
+        >
+          <BtnSecondary text={isRu ? 'Правила' : 'Rules'}/>
+          <Link to={ROUTES.game}>
+            <BtnPrinary text={isRu ? 'Начать!' : 'Start now!'}/>
+          </Link>
+        </div>
       </div>
-      <div className="btns-cta"
-        style={{color: `${isLight ? '#FFFFFF' : '#000000'}`}}
-      >
-        <BtnSecondary text={isRu ? 'Правила' : 'Rules'}/>
-        <Link to={ROUTES.game}>
-          <BtnPrinary text={isRu ? 'Начать!' : 'Start now!'}/>
-        </Link>
-      </div>
-    </>
 
   );
 }
