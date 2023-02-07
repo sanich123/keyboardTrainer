@@ -4,10 +4,11 @@ import { langsData } from '../LangSwitch/langsData';
 import { SettingsProps } from '../../../utils/types/types';
 import { THEME_VALUES } from '../../../utils/const';
 import style from './ThemeSwitch.module.scss';
+import themes from './themes.module.scss';
 
 export default function ThemeSwitch({ dispatch, theme, lang }: SettingsProps) {
   const isLight = theme === THEME_VALUES.light;
-  document.body.className = theme;
+  document.body.className = themes[theme];
 
   return (
     <div className={style.ThemeSwitch} onClick={() => { dispatch(changeTheme()); }}>
