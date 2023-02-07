@@ -1,9 +1,3 @@
-// :root {
-//   --footer-color:#292827;
-//   --footer-lightcolor: #EBEBEB;
-// }
-
-
 .footer {
   grid-area: footer;
   width: 100%;
@@ -15,6 +9,16 @@
     padding: 40px 60px 10px;
   }
 
+}
+
+.footer-light {
+  background: #292827;
+  color: #FFFFFF;
+}
+
+.footer-darck {
+  background: #EBEBEB;
+  color: #000000;
 }
 
 .footer-container {
