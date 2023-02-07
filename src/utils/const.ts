@@ -17,7 +17,7 @@ export const THEME_VALUES = {
 };
 export const LANG_VALUES = {
   ru: 'ru',
-  eng: 'en',
+  en: 'en',
 };
 
 export const REDUCER_NAMES = {
