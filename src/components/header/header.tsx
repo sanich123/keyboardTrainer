@@ -35,6 +35,7 @@ export default function Header() {
     const { loginWithRedirect, user, isAuthenticated, isLoading, logout } = useAuth0();
     const btnText = isRu ? 'Войти' : 'Login';
     const logoutBtnText = isRu ? 'Выйти' : 'Log out';
+    const loadingText = isRu ? 'Загрузка...' : 'Loading...';
     const themeImg = isLight ? PersonLight : PersonDarck;
     return (
       <div className="div-login-navigation">
@@ -43,23 +44,21 @@ export default function Header() {
             src={isAuthenticated ? user?.picture : themeImg}
             alt="settings"
             className="mr-[5px]"
+            loading="lazy"
           />
         </Link>
 
         <Link
           className="text-login"
-          onClick={() => loginWithRedirect()}
+          onClick={() => !isAuthenticated && loginWithRedirect()}
           to={ROUTES.cabinet}
         >
           {isAuthenticated && user?.email}
           {!isAuthenticated && !isLoading && btnText}
-          {isLoading && 'Loading...'}
+          {isLoading && loadingText}
         </Link>
         {isAuthenticated && (
-          <button
-            onClick={() =>
-              logout({ logoutParams: { returnTo: window.location.origin } })}
-          >
+          <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
             {logoutBtnText}
           </button>
         )}
