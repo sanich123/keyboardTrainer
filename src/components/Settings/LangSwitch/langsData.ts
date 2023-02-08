@@ -29,7 +29,11 @@ export const langsData: LangData = {
       speedMeasure: 'chars / min',
       accuracy: 'Accuracy',
       driver: 'Driver',
-
+      name: 'Name:',
+      status: 'Status:',
+      start: 'First strt:',
+      startRace: 'Start race',
+      photo: 'Change photo',
     },
     pageNotFound: {
       notFound: 'Page Not Found',
@@ -86,6 +90,11 @@ export const langsData: LangData = {
       speedMeasure: 'симв / мин',
       accuracy: 'Точность',
       driver: 'Водитель',
+      name: 'Имя:',
+      status: 'Статус:',
+      start: 'Первый старт:',
+      startRace: 'Начать гонку',
+      photo: 'Сменить фото',
     },
     pageNotFound: {
       notFound: 'Страница не найдена',

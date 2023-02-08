@@ -24,10 +24,32 @@
 
 .driver-info-block {
   padding-left: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .h3-driver {
+  margin: 0px;
   color: #B51A1A;
   font-size: 32px;
   font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.p-driver {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.span-driver {
+  font-size: 26px;
+  font-weight: 400;
+  margin-left: 20px;
+}
+
+.btns-driver {
+  display: flex;
 }
