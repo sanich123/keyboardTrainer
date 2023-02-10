@@ -1,0 +1,352 @@
+.TextWindow {
+
+  --padding-horizontal: 35px;
+  --padding-vertical: 20px;
+
+  position: relative;
+  background: var(--text-window-bg-color);
+  padding: var(--padding-vertical) var(--padding-horizontal);
+  border-radius: var(--border-radius);
+  width: 86%;
+  height: 135px;
+  // overflow: auto;
+  margin: 0 auto;
+  font-size: 30px;
+  color: var(--dimmed-border-placeholder);
+  transition: var(--transition);
+
+  &:focus-visible {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    appearance: none;
+  }
+
+  .outFocus {
+    display: none;
+    transition: var(--transition);
+
+    &__active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: rgb(219 213 255 / 70%);
+      color: black;
+      z-index: 1;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+    }
+  }
+
+  &__textContainer {
+    font-size: 30px;
+    color: var(--text-window-font-color);
+    resize: none;
+    background: transparent;
+    padding: var(--padding-vertical) var(--padding-horizontal);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transition: var(--transition);
+    overflow: hidden;
+    z-index: 1;
+    font-size: 30px;
+    opacity: 0.5;
+    filter: blur(3px);
+
+    &:focus {
+      opacity: 1;
+      filter: blur(0);
+
+      .blink {
+        border-bottom: 3px solid;
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+        animation: blinker .6s step-start infinite;
+      }
+    }
+
+    &:focus-visible {
+      border: none;
+      outline: none;
+      appearance: none;
+      -moz-appearance: none;
+    }
+
+    .blink {
+      border-bottom: 3px solid;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+      animation: blinker .5s step-start infinite;
+    }
+
+    .blink {
+      border-bottom: none;
+    }
+
+    @keyframes blinker {
+      50% {
+        border-color: rgba(0, 255, 255, 0);
+      }
+    }
+
+    .text {
+      color: var(--text-window-font-color);
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .text,
+    .right,
+    .wrong {
+      border-radius: 5px;
+      padding: 2px;
+      margin: 1px;
+    }
+
+    .right {
+      color: var(--text-window-font-color-right);
+      background-color: var(--text-window-bg-color-right);
+    }
+
+    .wrong {
+      color: var(--text-window-font-color-wrong);
+      background-color: var(--text-window-bg-color-wrong);
+    }
+  }
+}
+
+// #vkeyboardkeys > svg {
+//   direction: ltr;
+//   background: none;
+
+//   &.standard-kb {
+//     .st0 {
+//       fill: none;
+//       stroke: #777777;
+//       stroke-width: 0.5;
+//       stroke-miterlimit: 10;
+//     }
+
+//     .st1 {
+//       opacity: 0;
+//       font-family: 'ArialMT', 'Arial', 'Helvetica', 'sans-serif';
+//       font-size: 15px;
+//     }
+
+//     .st2 {
+//       opacity: 1;
+//       fill: #777777;
+//     }
+
+//     .b {
+//       font-size: 26px;
+//     }
+
+//     .b2 {
+//       font-size: 24px;
+//     }
+
+//     .s {
+//       font-size: 12px;
+//     }
+
+//     path {
+//       &.active {
+//         fill: rgb(121, 187, 255);
+//       }
+
+//       &.deadkey {
+//         fill: orange;
+//       }
+
+//       &.correct {
+//         stroke: #c2ea9a;
+//         stroke-width: 4;
+//       }
+
+//       &.incorrect {
+//         fill: #e97e7e;
+//       }
+
+//       &.clickable:hover {
+//         cursor: pointer;
+//         stroke-width: 2px;
+//       }
+//     }
+
+//     text {
+//       user-select: none;
+//       opacity: 0;
+
+//       &.active {
+//         fill: #ffffff;
+//       }
+
+//       &.correct {}
+
+//       &.incorrect {
+//         fill: white;
+//       }
+//     }
+//   }
+
+//   &.theme-bone {
+//     .st0 {
+//       fill: #fff;
+//       stroke-width: 1;
+//       stroke: #d1d1d1;
+
+//       &.active {
+//         fill: #0383f2;
+//       }
+
+//       &.incorrect {
+//         transition: none;
+//         fill: #f5687c;
+//       }
+//     }
+
+//     .st1 {
+//       font-size: 14px;
+//     }
+
+//     .st2 {
+//       opacity: 0;
+//     }
+
+//     .s {
+//       font-size: 11px;
+//     }
+
+//     .b {
+//       font-size: 24px;
+
+//       &.incorrect {
+//         opacity: 1;
+//         transition: none;
+//       }
+
+//       &.focus-row {
+//         opacity: 1;
+//       }
+//     }
+
+//     .hide-on-bone {
+//       opacity: 0;
+//     }
+
+//     .st0,
+//     text {
+//       transition: fill 0.5s, opacity 1.2s;
+//       transition-delay: 0.25s;
+//     }
+//   }
+
+//   &.is-blind {
+//     .st0 {
+//       fill: #272822;
+//       stroke: #858585;
+//     }
+
+//     .st2 {
+//       fill: #d7ff12;
+//     }
+
+//     .b {
+//       font-size: 30px;
+//     }
+
+//     .b2 {
+//       font-size: 28px;
+//     }
+
+//     path {
+//       &.active {
+//         fill: rgb(121, 187, 255);
+//       }
+
+//       &.deadkey {
+//         fill: orange;
+//       }
+
+//       &.incorrect {
+//         fill: #e97e7e;
+//       }
+//     }
+//   }
+// }
+
+// .farsi-font {
+//   #vkeyboardkeys > svg {
+//     .b {
+//       font-size: 19px;
+//     }
+
+//     .st1 {
+//       font-family: YekanBold;
+//     }
+//   }
+// }
+
+// .keyboard-plugin {
+//   position: relative;
+//   margin: auto;
+// }
+
+// .keyboard-popup {
+//   position: absolute;
+//   display: none;
+//   background: #5293e2;
+//   padding: 10px;
+//   border-radius: 5px;
+//   z-index: 1000;
+//   box-sizing: initial;
+
+//   > div {
+//     position: relative;
+//     padding: 10px;
+//     font-family: roboto;
+//     font-size: 14px;
+//     color: white;
+//     line-height: 1.4;
+
+//     .right-indicator {
+//       position: absolute;
+//       right: 0;
+//       width: 0;
+//       margin-right: -20px;
+//       border-top: solid 10px transparent;
+//       border-bottom: solid 10px transparent;
+//       border-left: solid 10px #5293e2;
+//     }
+//   }
+
+//   .btn-link {
+//     color: white;
+//     margin-left: -5px;
+//     text-decoration: underline;
+//   }
+
+//   .btn-primary {
+//     float: right;
+//     border: solid 1px white;
+//     background: transparent;
+
+//     &:hover {
+//       background: rgba(255, 255, 255, 0.2);
+//     }
+//   }
+
+//   @media (max-width: 1200px) {
+//     position: fixed;
+//     left: 0 !important;
+//   }
+// }
