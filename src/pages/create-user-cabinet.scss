@@ -5,6 +5,10 @@
 .main-cabinet {
   grid-area: main;
   padding: 60px 60px;
+
+  @media screen and (max-width: 430px) {
+    padding: 40px 10px;
+  }
 }
 
 .h1-cabinet {
@@ -30,5 +34,25 @@
 
 .best-first-section {
   display: flex;
+  margin-bottom: 60px;
 }
 
+.h2-awards {
+  font-size: 27px;
+  font-weight: 700;
+  margin-right: 200px;
+}
+
+.awaards-section {
+  display: flex;
+
+  @media screen and (max-width: 1400px) {
+    flex-direction: column;
+  }
+}
+
+.all-awards {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

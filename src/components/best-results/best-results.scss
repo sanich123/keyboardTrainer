@@ -1,5 +1,5 @@
 .all-div-best {
-  width: 420px;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
 }
@@ -16,29 +16,28 @@
   justify-content: space-between;
 }
 
-.div-circule {
+.div-circle {
   width: 100px;
   height: 100px;
   border-radius: 100%;
   border: 10px solid #FFFFFF;
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
-}
-
-.best-index-name {
-  font-size: 22px;
-}
-
-.best-index-span {
-  font-size: 18px;
-  font-weight: 400;
-  margin-left: 10px;
-}
-
-.div-circule {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 30px;
   font-weight: 900;
+}
+
+.best-index-name {
+  font-size: 22px;
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.best-index-span {
+  font-size: 18px;
+  font-weight: 400;
 }

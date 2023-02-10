@@ -34,6 +34,11 @@ export const langsData: LangData = {
       start: 'First strt:',
       startRace: 'Start race',
       photo: 'Change photo',
+      award: 'Awards:',
+      sp100: 'Speed over 100 char/min',
+      sp200: 'Speed over 200 char/min',
+      sp300: 'Speed over 300 char/min',
+      acc: 'Accuracy 100%',
     },
     pageNotFound: {
       notFound: 'Page Not Found',
@@ -95,6 +100,11 @@ export const langsData: LangData = {
       start: 'Первый старт:',
       startRace: 'Начать гонку',
       photo: 'Сменить фото',
+      award: 'Награды:',
+      sp100: 'Скорость более 100 симв/мин',
+      sp200: 'Скорость более 200 симв/мин',
+      sp300: 'Скорость более 300 симв/мин',
+      acc: 'Аккуратность 100%',
     },
     pageNotFound: {
       notFound: 'Страница не найдена',
