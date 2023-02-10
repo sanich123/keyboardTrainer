@@ -39,6 +39,7 @@ export const langsData: LangData = {
       sp200: 'Speed over 200 char/min',
       sp300: 'Speed over 300 char/min',
       acc: 'Accuracy 100%',
+      chartName: 'Speed and Accuracy statistics of the last 10 races:',
     },
     pageNotFound: {
       notFound: 'Page Not Found',
@@ -105,6 +106,7 @@ export const langsData: LangData = {
       sp200: 'Скорость более 200 симв/мин',
       sp300: 'Скорость более 300 симв/мин',
       acc: 'Аккуратность 100%',
+      chartName: 'Статистика Скорости и Аккуратности 10 последних заездов:',
     },
     pageNotFound: {
       notFound: 'Страница не найдена',

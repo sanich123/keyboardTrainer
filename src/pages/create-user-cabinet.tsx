@@ -10,6 +10,7 @@ import BestResults from '../components/best-results/best-results';
 import DriverCard from '../components/driver-card/driver-card';
 import Award from '../components/award/award';
 import { STATS_INFO } from '../data/stats-info';
+import ChartStats from '../components/chart/chart';
 
 
 export default function CreateUserCabinet() {
@@ -29,6 +30,12 @@ export default function CreateUserCabinet() {
         <div className="best-first-section">
           <BestResults />
           <DriverCard />
+        </div>
+        <div className="chart-section">
+          <h2 className="h2-chart">{`${langsData[lang].pageStatistic.chartName}`}</h2>
+          <div className="chart">
+            <ChartStats />
+          </div>
         </div>
         <div className="awaards-section">
           <h2 className="h2-awards">{`${langsData[lang].pageStatistic.award}`}</h2>

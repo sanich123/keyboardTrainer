@@ -37,10 +37,17 @@
   margin-bottom: 60px;
 }
 
-.h2-awards {
+.h2-awards{
   font-size: 27px;
   font-weight: 700;
   margin-right: 200px;
+}
+
+.h2-chart {
+  padding-top: 40px;
+  margin-right: 20px;
+  font-size: 27px;
+  font-weight: 700;
 }
 
 .awaards-section {
@@ -55,4 +62,15 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+.chart-section {
+  width: 100%;
+  display: flex;
+  max-height: 300px;
+  margin-bottom: 100px;
+}
+
+.chart {
+  width: 100%;
 }

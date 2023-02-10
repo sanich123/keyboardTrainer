@@ -54,3 +54,4 @@ export default function Award({ nameAward, text }: PropsAward) {
     </div>
   );
 }
+
