@@ -49,6 +49,14 @@
 
     --border-radius: 10px;
 
+    --text-window-font-color: var(--font-color);
+    --text-window-font-color-right: #48A500;
+    --text-window-font-color-wrong: #A50000;
+
+    --text-window-bg-color: #F2F2F2;
+    --text-window-bg-color-right: #DDFFD5;
+    --text-window-bg-color-wrong: #FFDBDB;
+
     transition: var(--transition);
 
   }
@@ -102,6 +110,14 @@
     --transition: all .3s;
 
     --border-radius: 10px;
+
+    --text-window-font-color: var(--font-color);
+    --text-window-font-color-right: #48A500;
+    --text-window-font-color-wrong: #A50000;
+
+    --text-window-bg-color: #F2F2F2;
+    --text-window-bg-color-right: #DDFFD5;
+    --text-window-bg-color-wrong: #FFDBDB;
 
     transition: var(--transition);
   }
