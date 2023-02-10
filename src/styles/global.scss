@@ -1,3 +1,10 @@
+:root {
+  --desktop: 1600px;
+  --notebook: 1280px;
+  --tablet: 900px;
+  --mobile: 600px;
+}
+
 *,
 *::before,
 *::after {
@@ -22,7 +29,7 @@ body {
   font-style: normal;
   list-style: none;
   min-height: 100vh;
-  background: var(--primary-bg-color);
+  background-color: var(--primary-bg-color);
   font-size: var(--font-size);
 }
 
