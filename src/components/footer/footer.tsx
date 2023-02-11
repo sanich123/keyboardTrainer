@@ -11,23 +11,25 @@ export default function Footer() {
   const { isLight } = useThemeLang();
 
   return (
-    <div
-      className={`footer ${isLight ? 'footer-light' : 'footer-darck'}`}
-    >
-      <div className="footer-container">
-        <div className="footer-div-component">
-          <img src={isLight ? LogoRace : LogoRaceBlack} className="margin-after-img" alt="logo-race"/>
-          <div className="div-links-github">
-            <a href="https://github.com/IrinaIID" className="link-github mr-[30px]">irinaiid</a>
-            <a href="https://github.com/sanich123" className="link-github mr-[30px]">sanich123</a>
-            <a href="https://github.com/predmaxim" className="link-github">predmaxim</a>
+    <div className={`footer-all ${isLight ? 'footer-light' : 'footer-darck'}`}>
+      <div
+        className={`footer ${isLight ? 'footer-light' : 'footer-darck'}`}
+      >
+        <div className="footer-container">
+          <div className="footer-div-component">
+            <img src={isLight ? LogoRace : LogoRaceBlack} className="margin-after-img" alt="logo-race"/>
+            <div className="div-links-github">
+              <a href="https://github.com/IrinaIID" className="link-github mr-[30px]">irinaiid</a>
+              <a href="https://github.com/sanich123" className="link-github mr-[30px]">sanich123</a>
+              <a href="https://github.com/predmaxim" className="link-github">predmaxim</a>
+            </div>
           </div>
-        </div>
-        <div className="footer-div-component footer-div-component-right">
-          <a href="https://rs.school/js/">
-            <img src={isLight ?  LogoRS : LogoRSBlack} alt="rs-logo"  className="margin-after-img"/>
-          </a>
-          <p>© 2023. Special for RS School</p>
+          <div className="footer-div-component footer-div-component-right">
+            <a href="https://rs.school/js/">
+              <img src={isLight ?  LogoRS : LogoRSBlack} alt="rs-logo"  className="margin-after-img"/>
+            </a>
+            <p>© 2023. Special for RS School</p>
+          </div>
         </div>
       </div>
     </div>

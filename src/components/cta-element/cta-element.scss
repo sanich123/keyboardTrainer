@@ -1,6 +1,7 @@
 .all-cta-div {
   grid-area: main;
-  width: 100%;
+  max-width: 1600px;
+  margin: auto;
   padding: 180px 0px 20px 60px;
 
   @media screen and (max-width: 700px) {
