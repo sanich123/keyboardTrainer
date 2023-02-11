@@ -11,7 +11,9 @@ export default function Footer() {
   const { isLight } = useThemeLang();
 
   return (
-    <div style={{background: `${isLight ? '#292827' : '#EBEBEB'}`, color: `${isLight ? '#FFFFFF' : '#000000'}`}} className="footer">
+    <div
+      className={`footer ${isLight ? 'footer-light' : 'footer-darck'}`}
+    >
       <div className="footer-container">
         <div className="footer-div-component">
           <img src={isLight ? LogoRace : LogoRaceBlack} className="margin-after-img" alt="logo-race"/>

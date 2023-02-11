@@ -1,0 +1,55 @@
+.all-card-driver {
+  max-width: 100%;
+  border-radius: 10px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  margin-left: 90px;
+}
+
+.card-driver-light {
+  background-color: #F5F5F5;
+}
+
+.card-driver-darck {
+  background-color: #4E4E4E;
+}
+
+.photo-block {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+}
+
+.driver-info-block {
+  padding-left: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.h3-driver {
+  margin: 0px;
+  color: #B51A1A;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.p-driver {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.span-driver {
+  font-size: 26px;
+  font-weight: 400;
+  margin-left: 20px;
+}
+
+.btns-driver {
+  display: flex;
+}
