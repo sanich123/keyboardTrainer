@@ -17,32 +17,32 @@ export default function Award({ nameAward, text }: PropsAward) {
 
   let name: string;
   switch (nameAward) {
-    case 'acc-on':
-      name = AccOn;
-      break;
-    case 'acc-off':
-      name = AccOff;
-      break;
-    case 'sp100-on':
-      name = Sp100On;
-      break;
-    case 'sp100-off':
-      name = Sp100Off;
-      break;
-    case 'sp200-on':
-      name = Sp200On;
-      break;
-    case 'sp200-off':
-      name = Sp200Off;
-      break;
-    case 'sp300-on':
-      name = Sp300On;
-      break;
-    case 'sp300-off':
-      name = Sp300Off;
-      break;
-    default:
-      name = 'undefined';
+  case 'acc-on':
+    name = AccOn;
+    break;
+  case 'acc-off':
+    name = AccOff;
+    break;
+  case 'sp100-on':
+    name = Sp100On;
+    break;
+  case 'sp100-off':
+    name = Sp100Off;
+    break;
+  case 'sp200-on':
+    name = Sp200On;
+    break;
+  case 'sp200-off':
+    name = Sp200Off;
+    break;
+  case 'sp300-on':
+    name = Sp300On;
+    break;
+  case 'sp300-off':
+    name = Sp300Off;
+    break;
+  default:
+    name = 'undefined';
   }
 
   return (
