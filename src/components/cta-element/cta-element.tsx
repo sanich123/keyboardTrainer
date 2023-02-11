@@ -22,7 +22,7 @@ export default function CtaElement() {
         races, improve your skills and compete with others. Try different languages
         and see your results in the "Statistics" section.`}
         </p>
-        <div className="btns-cta mb-[200px]"
+        <div className="btns-cta"
           style={{color: `${isLight ? '#FFFFFF' : '#000000'}`}}
         >
           <BtnSecondary text={isRu ? 'Правила' : 'Rules'}/>

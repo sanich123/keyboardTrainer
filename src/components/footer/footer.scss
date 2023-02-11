@@ -9,6 +9,10 @@
     padding: 40px 60px 10px;
   }
 
+  @media screen and (max-width: 630px) {
+    padding: 40px 0px 10px;
+  }
+
 }
 
 .footer-light {
