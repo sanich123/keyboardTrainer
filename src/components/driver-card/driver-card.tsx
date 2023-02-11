@@ -1,20 +1,18 @@
-import { useSelector } from 'react-redux';
+import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
 import { DRIVER_STATUS, STATS_INFO } from '../../data/stats-info';
-import { GlobalStateType } from '../../redux/global-state/global-state';
-import { LANG_VALUES, ROUTES, THEME_VALUES } from '../../utils/const';
-import { applyToLocalStorage, LS_KEYS } from '../../utils/local-storage';
+import { useGetStatisticsQuery } from '../../redux/keyboard-trainer-api';
+import { ROUTES } from '../../utils/const';
+import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 import { BtnPrinary, BtnSecondary } from '../buttons/buttons';
 import { langsData } from '../Settings';
 import './driver-card.scss';
 
-
 export default function DriverCard() {
+  const { user } = useAuth0();
+  const { isRu, isLight } = useThemeLang();
+  const { data: statisticData, isLoading, error } = useGetStatisticsQuery(user?.email);
 
-  const { theme, language, authorization } = useSelector(({ globalState }: { globalState: GlobalStateType }) => globalState);
-  applyToLocalStorage(LS_KEYS.globalState, { theme, language, authorization });
-  const isRu = language === LANG_VALUES.ru;
-  const isLight = theme === THEME_VALUES.light;
   const lang = isRu ? 'ru' : 'en';
   const countOfRaces = STATS_INFO[0].bestResults.races;
   let status: string;
@@ -29,25 +27,33 @@ export default function DriverCard() {
   }
 
   return (
-    <div className={ `all-card-driver ${isLight ? 'card-driver-light' : 'card-driver-darck'}` }>
+    <div
+      className={`all-card-driver ${ isLight ? 'card-driver-light' : 'card-driver-darck'}`}
+    >
       <div className="photo-block"></div>
       <div className="driver-info-block">
         <h3 className="h3-driver">{`${langsData[lang].pageStatistic.driver}`}</h3>
-        <p className="p-driver">{`${langsData[lang].pageStatistic.name}`}
-          <span className="span-driver">{`${STATS_INFO[0].user.name.toUpperCase()}`}</span>
+        <p className="p-driver">
+          {`${langsData[lang].pageStatistic.name}`}
+          <span className="span-driver">{user?.name}</span>
         </p>
-        <p className="p-driver">{`${langsData[lang].pageStatistic.status}`}
+        <p className="p-driver">
+          {`${langsData[lang].pageStatistic.status}`}
           <span className="span-driver">{`${status.toUpperCase()}`}</span>
         </p>
-        <p className="p-driver">{`${langsData[lang].pageStatistic.start}`}
-          <span className="span-driver">{`${STATS_INFO[0].user.dateReg}`}</span>
+        <p className="p-driver">
+          {`${langsData[lang].pageStatistic.start}`}
+          {isLoading && <span className="span-driver">Loading...</span>}
+          {statisticData && <span className="span-driver">{statisticData.firstRace}</span>}
+          {error && <span className="span-driver">An error occured</span>}
         </p>
-        <div className="btns-driver"
-          style={{color: `${isLight ? '#FFFFFF' : '#000000'}`}}
+        <div
+          className="btns-driver"
+          style={{ color: `${isLight ? '#FFFFFF' : '#000000'}` }}
         >
-          <BtnSecondary text={`${langsData[lang].pageStatistic.photo}`}/>
+          <BtnSecondary text={`${langsData[lang].pageStatistic.photo}`} />
           <Link to={ROUTES.game}>
-            <BtnPrinary text={`${langsData[lang].pageStatistic.startRace}`}/>
+            <BtnPrinary text={`${langsData[lang].pageStatistic.startRace}`} />
           </Link>
         </div>
       </div>
