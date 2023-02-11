@@ -1,11 +1,9 @@
 import { combineReducers, configureStore, PreloadedState } from '@reduxjs/toolkit';
-import { jsonPlaceholderAPI } from './json-placeholder-API';
-import incrementDecrement from './increment-decrement/increment-decrement';
+import { keyboardTrainerApi } from './keyboard-trainer-api';
 import globalState from './global-state/global-state';
 
 const rootReducer = combineReducers({
-  [jsonPlaceholderAPI.reducerPath]: jsonPlaceholderAPI.reducer,
-  incrementDecrement: incrementDecrement,
+  [keyboardTrainerApi.reducerPath]: keyboardTrainerApi.reducer,
   globalState: globalState,
 });
 
@@ -13,7 +11,7 @@ export const setupStore = (preloadedState?: PreloadedState<RootState>) => config
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: false,
-  }).concat(jsonPlaceholderAPI.middleware),
+  }).concat(keyboardTrainerApi.middleware),
   preloadedState,
 });
 

@@ -1,8 +1,4 @@
 import './create-user-cabinet.scss';
-import { useSelector } from 'react-redux';
-import { GlobalStateType } from '../redux/global-state/global-state';
-import { LANG_VALUES, THEME_VALUES } from '../utils/const';
-import { applyToLocalStorage, LS_KEYS } from '../utils/local-storage';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import { langsData } from '../components/Settings';
@@ -11,16 +7,11 @@ import DriverCard from '../components/driver-card/driver-card';
 import Award from '../components/award/award';
 import { STATS_INFO } from '../data/stats-info';
 import ChartStats from '../components/chart/chart';
-
+import { useThemeLang } from '../utils/hooks/use-theme-lang/use-theme-lang';
 
 export default function CreateUserCabinet() {
-  // const dispatch = useDispatch();
-  const { theme, language, authorization } = useSelector(({ globalState }: { globalState: GlobalStateType }) => globalState);
-  applyToLocalStorage(LS_KEYS.globalState, { theme, language, authorization });
-  const isRu = language === LANG_VALUES.ru;
-  const isLight = theme === THEME_VALUES.light;
+  const { isLight, isRu } = useThemeLang();
   const lang = isRu ? 'ru' : 'en';
-
 
   return (
     <div className={`all-div ${isLight ? 'light-theme' : 'darck-theme'}`}>

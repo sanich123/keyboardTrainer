@@ -1,3 +1,4 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,6 +11,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { LAST_RACES } from '../../data/stats-info';
+import { useGetStatisticsQuery } from '../../redux/keyboard-trainer-api';
 
 ChartJS.register(
   CategoryScale,
@@ -55,5 +57,14 @@ export const data = {
 };
 
 export default function ChartStats() {
-  return <Line options={options} data={data} width={400} height={200} />;
+  const { user } = useAuth0();
+  const { data: statisticData, isLoading, error } = useGetStatisticsQuery(user?.email);
+  return (
+    <>
+      {isLoading && <h1>Loading...</h1>}
+      {statisticData && <Line options={options} data={data} width={400} height={200} />}
+      {error && <h1>An error occured</h1>}
+
+    </>
+  );
 }
