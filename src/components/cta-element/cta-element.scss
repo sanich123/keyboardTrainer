@@ -35,10 +35,12 @@
 
 .btns-cta {
   margin-bottom: 200px;
+}
 
-  // @media screen and (max-width: 430px) {
-  //   display: flex;
-  //   flex-direction: column;
-  //   margin-bottom: 100px;
-  // }
+.darck-theme-cta {
+  color: #FFFFFF;
+}
+
+.light-theme-cta {
+  color: #514B4B;
 }

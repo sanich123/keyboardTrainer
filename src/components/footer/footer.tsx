@@ -4,6 +4,7 @@ import LogoRaceBlack from '../../assets/img/logo-race-bl.webp';
 import LogoRS from '../../assets/img/rs-logo.webp';
 import LogoRSBlack from '../../assets/img/rs-logo-bl.webp';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
+import { DEVELOPERS } from './developers-info';
 
 
 export default function Footer() {
@@ -12,16 +13,12 @@ export default function Footer() {
 
   return (
     <div className={`footer-all ${isLight ? 'footer-light' : 'footer-darck'}`}>
-      <div
-        className={`footer ${isLight ? 'footer-light' : 'footer-darck'}`}
-      >
+      <div className="footer">
         <div className="footer-container">
           <div className="footer-div-component">
             <img src={isLight ? LogoRace : LogoRaceBlack} className="margin-after-img" alt="logo-race"/>
             <div className="div-links-github">
-              <a href="https://github.com/IrinaIID" className="link-github mr-[30px]">irinaiid</a>
-              <a href="https://github.com/sanich123" className="link-github mr-[30px]">sanich123</a>
-              <a href="https://github.com/predmaxim" className="link-github">predmaxim</a>
+              { DEVELOPERS.map((data) => <a href={data.gitHub} className="link-github" key={data.id}>{data.name}</a>) }
             </div>
           </div>
           <div className="footer-div-component footer-div-component-right">

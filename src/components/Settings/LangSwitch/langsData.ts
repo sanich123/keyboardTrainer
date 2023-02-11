@@ -10,7 +10,7 @@ export const langsData: LangData = {
      to overtake your opponent on a typewriter and not break`,
       btnRules: 'Rules',
       btnStartNow: 'Start Now!',
-
+      ctaText: 'Start your race! Find out your typing speed and accuracy. Do various races, improve your skills and compete with others. Try different languages and see your results in the "Statistics" section.',
     },
     pageGame: {
       trafficLight: {
@@ -77,7 +77,7 @@ export const langsData: LangData = {
       обогнать соперника на машинке и не сломаться`,
       btnRules: 'Правила',
       btnStartNow: 'Старт!',
-
+      ctaText: 'Начни свою гонку! Узнай свою скорость печати и точность. Делай различные заезды, совершенствуй свои навыки и соревнуйся с другими. Попробуй разные языки, и смотри свои результаты в разделе "Статистика".',
     },
     pageGame: {
       trafficLight: {
