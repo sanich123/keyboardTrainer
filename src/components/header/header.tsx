@@ -4,6 +4,10 @@ import LogoRace from '../../assets/img/logo-race.webp';
 import LogoRaceBlack from '../../assets/img/logo-race-bl.webp';
 import Settings from '../Settings';
 import { useAuth0 } from '@auth0/auth0-react';
+import { Link } from 'react-router-dom';
+import { ROUTES } from '../../utils/const';
+import PersonLight from '../../assets/img/person-light.webp';
+import PersonDarck from '../../assets/img/person-dark.webp';
 
 
 export default function Header() {
