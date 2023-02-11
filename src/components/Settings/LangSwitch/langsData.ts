@@ -1,5 +1,9 @@
 export type LangData = {
-  [key: string]: { [key: string]: { [key: string]: { [key: string]: string } | string } }
+  [key: string]: {
+    [key: string]: {
+      [key: string]: (string | { [key: string]: string })
+    }
+  }
 }
 
 export const langsData: LangData = {
@@ -13,6 +17,12 @@ export const langsData: LangData = {
 
     },
     pageGame: {
+      hideShowKeyboard: 'Hide / Show keyboard',
+      textWindow: {
+        startMessage: 'Click me to Start',
+        continueMessage: 'Click me to Continue',
+        gameOverMessage: 'Game over!',
+      },
       trafficLight: {
         elapsedTime: 'Elapsed time',
         speed: 'Speed',
@@ -21,7 +31,7 @@ export const langsData: LangData = {
         speedUnit: 'char/min',
         accuracyUnit: '%',
       },
-      hideShowKeyboard: 'Hide / Show keyboard',
+
     },
     pageStatistic: {
       bestTime: 'Best time',
@@ -67,6 +77,12 @@ export const langsData: LangData = {
 
     },
     pageGame: {
+      hideShowKeyboard: 'Скрыть / показать клавиатуру',
+      textWindow: {
+        startMessage: 'Нажми меня для начала',
+        continueMessage: 'Нажми меня для продолжения',
+        gameOverMessage: 'Игра окончена!',
+      },
       trafficLight: {
         elapsedTime: 'Пройденное время',
         speed: 'Скорость',
@@ -75,7 +91,6 @@ export const langsData: LangData = {
         speedUnit: 'зн/мин',
         accuracyUnit: '%',
       },
-      hideShowKeyboard: 'Скрыть / показать клавиатуру',
     },
     pageStatistic: {
       bestTime: 'Лучшее время',
