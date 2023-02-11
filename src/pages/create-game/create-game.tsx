@@ -1,4 +1,4 @@
-import Settings, { TextWindow, TrafficLight } from '../../components';
+import Settings, { Keyboard, TextWindow, TrafficLight } from '../../components';
 import { langsData } from '../../components/Settings';
 import { TextWindowProps } from '../../components/TextWindow';
 import { TrafficLightProps } from '../../components/TrafficLight';
@@ -51,6 +51,7 @@ export default function CreateGamePage() {
       </div>
 
       <TextWindow {...textWindowProps} />
+      <Keyboard />
     </div>
   );
 }

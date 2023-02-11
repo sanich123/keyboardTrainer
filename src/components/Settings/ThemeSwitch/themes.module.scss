@@ -57,6 +57,9 @@
     --text-window-bg-color-right: #DDFFD5;
     --text-window-bg-color-wrong: #FFDBDB;
 
+    --text-window-onfocus-bg-color: rgb(219 213 255 / 70%);
+    --text-window-onfocus-font-color: var(--font-color);
+
     transition: var(--transition);
 
   }
@@ -118,6 +121,9 @@
     --text-window-bg-color: #F2F2F2;
     --text-window-bg-color-right: #DDFFD5;
     --text-window-bg-color-wrong: #FFDBDB;
+
+    --text-window-onfocus-bg-color: rgb(126 114 195 / 70%);
+    --text-window-onfocus-font-color: #000;
 
     transition: var(--transition);
   }

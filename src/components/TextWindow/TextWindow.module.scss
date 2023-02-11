@@ -35,8 +35,8 @@
       right: 0;
       top: 0;
       bottom: 0;
-      background-color: rgb(219 213 255 / 70%);
-      color: black;
+      background-color: var(--text-window-onfocus-bg-color);
+      color: var(--text-window-onfocus-font-color);
       z-index: 1;
       border-radius: var(--border-radius);
       transition: var(--transition);
@@ -91,7 +91,7 @@
 
     @keyframes blinker {
       50% {
-        border-color: rgba(0, 255, 255, 0);
+        border-color: rgba(0, 0, 0, 0);
       }
     }
 

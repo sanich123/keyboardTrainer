@@ -1,0 +1,37 @@
+.Keyboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  .hideShowKeyboardBtn {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dimmed-border-placeholder);
+    width: max-content;
+    margin: 0 auto;
+    transition: var(--transition);
+
+    &:hover {
+      color: var(--font-color);
+    }
+  }
+
+  .keyboardImg {
+    position: absolute;
+    transition: var(--transition-menu-close);
+    opacity: 0;
+    visibility: hidden;
+    z-index: -999;
+    transform: translate(0, -999%);
+
+
+    &__active {
+      position: static;
+      transition: var(--transition-menu-open);
+      opacity: 1;
+      visibility: visible;
+      z-index: 0;
+    }
+  }
+}
