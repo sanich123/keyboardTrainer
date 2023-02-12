@@ -1,4 +1,10 @@
 :root {
+  --transition-menu-close: transform .6s, opacity .1s, background-color .1s, z-index .6s;
+  --transition-menu-open: transform .3s, opacity .5s, background-color .5s, z-index .1s;
+  --transition: all .3s;
+
+  --border-radius: 10px;
+
   .light {
     --font-size: 16px;
 
@@ -42,12 +48,6 @@
 
     --shadow: 0px 4px 40px rgba(0, 0, 0, 0.2);
     --shadow-border: 0px 0px 3px var(--font-color);
-
-    --transition-menu-close: transform .6s, opacity .1s, background-color .1s, z-index .6s;
-    --transition-menu-open: transform .3s, opacity .5s, background-color .5s, z-index .1s;
-    --transition: all .3s;
-
-    --border-radius: 10px;
 
     --text-window-font-color: var(--font-color);
     --text-window-font-color-right: #48A500;
@@ -107,12 +107,6 @@
 
     --shadow: 0px 4px 40px rgba(255, 255, 255, 0.2);
     --shadow-border: 0px 0px 3px var(--font-color);
-
-    --transition-menu-close: transform .6s, opacity .1s, background-color .1s, z-index .6s;
-    --transition-menu-open: transform .3s, opacity .5s, background-color .5s, z-index .1s;
-    --transition: all .3s;
-
-    --border-radius: 10px;
 
     --text-window-font-color: var(--font-color);
     --text-window-font-color-right: #48A500;
