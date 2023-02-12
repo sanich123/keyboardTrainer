@@ -31,6 +31,10 @@ export const langsData: LangData = {
         speedUnit: 'char/min',
         accuracyUnit: '%',
       },
+      keyLayoutBtn: {
+        ru: 'Layout: Ru',
+        en: 'Layout: En',
+      },
 
     },
     pageStatistic: {
@@ -77,7 +81,7 @@ export const langsData: LangData = {
 
     },
     pageGame: {
-      hideShowKeyboard: 'Скрыть / показать клавиатуру',
+      hideShowKeyboard: 'Скрыть / Показать клавиатуру',
       textWindow: {
         startMessage: 'Нажми меня для начала',
         continueMessage: 'Нажми меня для продолжения',
@@ -90,6 +94,10 @@ export const langsData: LangData = {
         elapsedTimeUnit: 'мин',
         speedUnit: 'зн/мин',
         accuracyUnit: '%',
+      },
+      keyLayoutBtn: {
+        ru: 'Раскладка: Рус',
+        en: 'Раскладка: Англ',
       },
     },
     pageStatistic: {

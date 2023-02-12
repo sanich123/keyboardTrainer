@@ -1,0 +1,108 @@
+svg.standard-kb {
+  direction: ltr;
+  background: none;
+  max-width: 800px;
+
+  .st0 {
+    fill: none;
+    stroke: #777777;
+    stroke-width: 0.5;
+    stroke-miterlimit: 10;
+  }
+
+  .st1 {
+    opacity: 0;
+    font-family: 'ArialMT', 'Arial', 'Helvetica', 'sans-serif';
+    font-size: 15px;
+  }
+
+  .st2 {
+    opacity: 1;
+    fill: #777777;
+  }
+
+  .b {
+    font-size: 26px;
+  }
+
+  .b2 {
+    font-size: 24px;
+  }
+
+  .s {
+    font-size: 12px;
+  }
+
+  path {
+    &.active {
+      fill: rgb(121, 187, 255);
+    }
+
+    &.deadkey {
+      fill: orange;
+    }
+
+    &.correct {
+      stroke: #c2ea9a;
+      stroke-width: 4;
+    }
+
+    &.incorrect {
+      fill: #e97e7e;
+    }
+
+    &.clickable:hover {
+      cursor: pointer;
+      stroke-width: 2px;
+    }
+  }
+
+  text {
+    user-select: none;
+    opacity: 0;
+
+    &.active {
+      fill: #ffffff;
+    }
+
+    // &.correct {}
+
+    &.incorrect {
+      fill: white;
+    }
+  }
+
+  &.is-blind {
+    .st0 {
+      fill: #272822;
+      stroke: #858585;
+    }
+
+    .st2 {
+      fill: #d7ff12;
+    }
+
+    .b {
+      font-size: 30px;
+    }
+
+    .b2 {
+      font-size: 28px;
+    }
+
+    path {
+      &.active {
+        fill: rgb(121, 187, 255);
+      }
+
+      &.deadkey {
+        fill: orange;
+      }
+
+      &.incorrect {
+        fill: #e97e7e;
+      }
+    }
+  }
+
+}
