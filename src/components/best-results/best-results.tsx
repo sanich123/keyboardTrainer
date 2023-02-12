@@ -1,17 +1,11 @@
 import './best-results.scss';
 import { langsData } from '../Settings';
-import { useSelector } from 'react-redux';
-import { applyToLocalStorage, LS_KEYS } from '../../utils/local-storage';
-import { LANG_VALUES } from '../../utils/const';
-import { GlobalStateType } from '../../redux/global-state/global-state';
 import { BestIndex } from './best-results-components';
 import { STATS_INFO } from '../../data/stats-info';
+import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 
 export default function BestResults() {
-  const { theme, language, authorization } = useSelector(({ globalState }: { globalState: GlobalStateType }) => globalState);
-  applyToLocalStorage(LS_KEYS.globalState, { theme, language, authorization });
-  const isRu = language === LANG_VALUES.ru;
-  // const isLight = theme === THEME_VALUES.light;
+  const { isRu } = useThemeLang();
   const lang = isRu ? 'ru' : 'en';
 
   return (

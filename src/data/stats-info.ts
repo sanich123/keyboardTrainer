@@ -14,8 +14,8 @@ interface StatsInfo {
 export const STATS_INFO: StatsInfo[] = [
   {
     bestResults: {
-      races: 120,
-      speed: 258,
+      races: 12,
+      speed: 201,
       accuracy: 100,
     },
     user: {

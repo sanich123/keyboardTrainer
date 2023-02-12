@@ -7,16 +7,16 @@ interface BestIndexInfo {
   result: number
 }
 
-export function BestIndex(props: BestIndexInfo) {
+export function BestIndex({ name, span, color, result }: BestIndexInfo) {
 
   return (
     <div className="all-best-index">
-      <p className="best-index-name">{props.name}
-        <span className="best-index-span">{props.span}</span>
+      <p className="best-index-name">{name}
+        <span className="best-index-span">{span}</span>
       </p>
       <div className="div-circle"
-        style={{background: `${props.color}`}}
-      >{props.result}
+        style={{background: `${color}`}}
+      >{result}
       </div>
     </div>
   );

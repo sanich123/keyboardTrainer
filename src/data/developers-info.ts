@@ -1,6 +1,3 @@
-import './footer.scss';
-
-
 export const DEVELOPERS = [
   {
     id: 1,

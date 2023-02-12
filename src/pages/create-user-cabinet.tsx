@@ -42,15 +42,19 @@ export default function CreateUserCabinet() {
           <div className="all-awards">
             <Award nameAward={STATS_INFO[0].bestResults.speed > 100 ? 'sp100-on' : 'sp100-off'}
               text={`${langsData[lang].pageStatistic.sp100}`}
+              width={137}
             />
             <Award nameAward={STATS_INFO[0].bestResults.speed > 200 ? 'sp200-on' : 'sp200-off'}
               text={`${langsData[lang].pageStatistic.sp200}`}
+              width={137}
             />
             <Award nameAward={STATS_INFO[0].bestResults.speed > 300 ? 'sp300-on' : 'sp300-off'}
               text={`${langsData[lang].pageStatistic.sp300}`}
+              width={137}
             />
             <Award nameAward={STATS_INFO[0].bestResults.accuracy === 100 ? 'acc-on' : 'acc-off'}
               text={`${langsData[lang].pageStatistic.acc}`}
+              width={137}
             />
           </div>
         </div>

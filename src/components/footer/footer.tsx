@@ -4,7 +4,7 @@ import LogoRaceBlack from '../../assets/img/logo-race-bl.webp';
 import LogoRS from '../../assets/img/rs-logo.webp';
 import LogoRSBlack from '../../assets/img/rs-logo-bl.webp';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
-import { DEVELOPERS } from './developers-info';
+import { DEVELOPERS } from '../../data/developers-info';
 
 
 export default function Footer() {
