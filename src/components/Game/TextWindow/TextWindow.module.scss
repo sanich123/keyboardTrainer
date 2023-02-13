@@ -22,9 +22,18 @@
     appearance: none;
   }
 
-  .outFocus {
-    display: none;
+  .message {
+    // display: none;
+    position: absolute;
     transition: var(--transition);
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 
     &__active {
       display: flex;
@@ -35,11 +44,11 @@
       right: 0;
       top: 0;
       bottom: 0;
+      transition: var(--transition);
       background-color: var(--text-window-onfocus-bg-color);
       color: var(--text-window-onfocus-font-color);
-      z-index: 1;
       border-radius: var(--border-radius);
-      transition: var(--transition);
+      z-index: 1;
     }
   }
 
@@ -68,7 +77,7 @@
       .blink {
         border-bottom: 3px solid var(--dimmed-border-placeholder);
         border-radius: var(--border-radius) var(--border-radius) 0 0;
-        // animation: blinker .6s step-start infinite;
+        animation: blinker .6s step-start infinite;
       }
     }
 
@@ -105,8 +114,9 @@
 
     .text,
     .right,
-    .wrong {
-      border-radius: 5px;
+    .wrong,
+    .blink {
+      border-radius: 5px 5px 0;
       padding: 2px;
       margin: 1px;
     }

@@ -1,15 +1,13 @@
-import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
-import { LANG_VALUES } from '../../utils/const';
-import { langsData } from '../Settings';
+import { langsData } from '../../Settings';
 import { useState } from 'react';
 import styles from './Keyboard.module.scss';
 import './keyboardSVG.scss';
 import { RiKeyboardFill, RiTranslate } from 'react-icons/ri';
 
 export interface KeyboardProps {
-  prop?: string;
+  lang: string;
 }
-export function Keyboard() {
+export function Keyboard({ lang }: KeyboardProps) {
   // const randomIterableKey = getRandomNum(0, 10000000000000);
   const KeyboardSvgRu = (
     <svg className="standard-kb" viewBox="0 0 683.3 254" xmlns="http://www.w3.org/2000/svg">
@@ -66,10 +64,10 @@ export function Keyboard() {
         <path id="capslock" className="st0" d="M92.4,141.5c0,1.6-1.3,3-3,3H18.9c-1.6,0-3-1.4-3-3v-35.4c0-1.7,1.3-3,3-3h70.4c1.7,0,3,1.3,3,3V141.5z"></path>
         <path id="enter" className="st0" d="M668.8,141.5c0,1.6-1.3,3-3,3h-72.9c-1.7,0-3-1.4-3-3v-35.4c0-1.7,1.3-3,3-3h72.9c1.7,0,3,1.3,3,3V141.5z"></path>
         <path id="shift-left" className="st0" d="M115.8,185.4c0,1.7-1.3,3-3,3H18.9c-1.6,0-3-1.3-3-3v-35.3c0-1.6,1.3-3,3-3h93.8c1.7,0,3,1.4,3,3V185.4z"></path>
-        <path id="control" className="st0 hide-on-bone" d="M105,236c0,1.6-1.3,3-3,3H18.9c-1.6,0-3-1.4-3-3v-42c0-1.7,1.3-3,3-3H102c1.7,0,3,1.3,3,3V236z"></path>
-        <path id="option-left" className="st0 hide-on-bone" d="M182.4,236c0,1.7-1.4,3-3,3h-68.8c-1.7,0-3-1.3-3-3v-42c0-1.7,1.3-3,3-3h68.8c1.6,0,3,1.3,3,3V236z"></path>
-        <path id="option-right" className="st0 hide-on-bone" d="M531.8,191c1.7,0,3,1.4,3,3v42c0,1.7-1.3,3-3,3h-62.9c-1.6,0-3-1.3-3-3v-42c0-1.6,1.4-3,3-3H531.8z"></path>
-        <path className="st0 hide-on-bone" d="M668.8,236.1c0,1.7-1.3,3-3,3H540.3c-1.6,0-3-1.3-3-3v-42c0-1.6,1.4-3,3-3h125.5c1.7,0,3,1.4,3,3V236.1z"></path>
+        <path id="control" className="st0" d="M105,236c0,1.6-1.3,3-3,3H18.9c-1.6,0-3-1.4-3-3v-42c0-1.7,1.3-3,3-3H102c1.7,0,3,1.3,3,3V236z"></path>
+        <path id="option-left" className="st0" d="M182.4,236c0,1.7-1.4,3-3,3h-68.8c-1.7,0-3-1.3-3-3v-42c0-1.7,1.3-3,3-3h68.8c1.6,0,3,1.3,3,3V236z"></path>
+        <path id="option-right" className="st0" d="M531.8,191c1.7,0,3,1.4,3,3v42c0,1.7-1.3,3-3,3h-62.9c-1.6,0-3-1.3-3-3v-42c0-1.6,1.4-3,3-3H531.8z"></path>
+        <path className="st0" d="M668.8,236.1c0,1.7-1.3,3-3,3H540.3c-1.6,0-3-1.3-3-3v-42c0-1.6,1.4-3,3-3h125.5c1.7,0,3,1.4,3,3V236.1z"></path>
         <path id="space" className="st0" d="M460.4,191c1.6,0,3,1.4,3,3v42c0,1.7-1.4,3-3,3H187.5c-1.6,0-3-1.3-3-3v-42c0-1.6,1.4-3,3-3H460.4z"></path>
         <path id="shift-right" className="st0" d="M668.8,185.4c0,1.7-1.3,3-3,3h-94.5c-1.6,0-3-1.3-3-3v-35.3c0-1.6,1.4-3,3-3h94.5c1.7,0,3,1.4,3,3V185.4z"></path>
       </g>
@@ -236,10 +234,10 @@ export function Keyboard() {
         <path id="capslock" className="st0" d="M92.4,141.5c0,1.6-1.3,3-3,3H18.9c-1.6,0-3-1.4-3-3v-35.4c0-1.7,1.3-3,3-3h70.4c1.7,0,3,1.3,3,3V141.5z"></path>
         <path id="enter" className="st0" d="M668.8,141.5c0,1.6-1.3,3-3,3h-72.9c-1.7,0-3-1.4-3-3v-35.4c0-1.7,1.3-3,3-3h72.9c1.7,0,3,1.3,3,3V141.5z"></path>
         <path id="shift-left" className="st0" d="M115.8,185.4c0,1.7-1.3,3-3,3H18.9c-1.6,0-3-1.3-3-3v-35.3c0-1.6,1.3-3,3-3h93.8c1.7,0,3,1.4,3,3V185.4z"></path>
-        <path id="control" className="st0 hide-on-bone" d="M105,236c0,1.6-1.3,3-3,3H18.9c-1.6,0-3-1.4-3-3v-42c0-1.7,1.3-3,3-3H102c1.7,0,3,1.3,3,3V236z"></path>
-        <path id="option-left" className="st0 hide-on-bone" d="M182.4,236c0,1.7-1.4,3-3,3h-68.8c-1.7,0-3-1.3-3-3v-42c0-1.7,1.3-3,3-3h68.8c1.6,0,3,1.3,3,3V236z"></path>
-        <path id="option-right" className="st0 hide-on-bone" d="M531.8,191c1.7,0,3,1.4,3,3v42c0,1.7-1.3,3-3,3h-62.9c-1.6,0-3-1.3-3-3v-42c0-1.6,1.4-3,3-3H531.8z"></path>
-        <path className="st0 hide-on-bone" d="M668.8,236.1c0,1.7-1.3,3-3,3H540.3c-1.6,0-3-1.3-3-3v-42c0-1.6,1.4-3,3-3h125.5c1.7,0,3,1.4,3,3V236.1z"></path>
+        <path id="control" className="st0" d="M105,236c0,1.6-1.3,3-3,3H18.9c-1.6,0-3-1.4-3-3v-42c0-1.7,1.3-3,3-3H102c1.7,0,3,1.3,3,3V236z"></path>
+        <path id="option-left" className="st0" d="M182.4,236c0,1.7-1.4,3-3,3h-68.8c-1.7,0-3-1.3-3-3v-42c0-1.7,1.3-3,3-3h68.8c1.6,0,3,1.3,3,3V236z"></path>
+        <path id="option-right" className="st0" d="M531.8,191c1.7,0,3,1.4,3,3v42c0,1.7-1.3,3-3,3h-62.9c-1.6,0-3-1.3-3-3v-42c0-1.6,1.4-3,3-3H531.8z"></path>
+        <path className="st0" d="M668.8,236.1c0,1.7-1.3,3-3,3H540.3c-1.6,0-3-1.3-3-3v-42c0-1.6,1.4-3,3-3h125.5c1.7,0,3,1.4,3,3V236.1z"></path>
         <path id="space" className="st0" d="M460.4,191c1.6,0,3,1.4,3,3v42c0,1.7-1.4,3-3,3H187.5c-1.6,0-3-1.3-3-3v-42c0-1.6,1.4-3,3-3H460.4z"></path>
         <path id="shift-right" className="st0" d="M668.8,185.4c0,1.7-1.3,3-3,3h-94.5c-1.6,0-3-1.3-3-3v-35.3c0-1.6,1.4-3,3-3h94.5c1.7,0,3,1.4,3,3V185.4z"></path>
       </g>
@@ -352,8 +350,6 @@ export function Keyboard() {
     </svg>
   );
 
-  const { isRu } = useThemeLang();
-  const lang = isRu ? LANG_VALUES.ru : LANG_VALUES.en;
   const hideShowKeyboard = langsData[lang].pageGame.hideShowKeyboard as string;
   const keyLayoutBtn = langsData[lang].pageGame.keyLayoutBtn as { ru: string, en: string };
 
@@ -363,16 +359,20 @@ export function Keyboard() {
   const onClicksHideShowKeyboardBtnHandler = () => setShowKeyboard(!showKeyboard);
   const onClicksKeyLayoutBtnHandler = () => keyLayout === 'ru' ? setKeyLayout('en') : setKeyLayout('ru');
 
-  const enLetters = (): string[] =>
-    KeyboardSvgEn.props.children[0].props.children
-      .map((el: JSX.Element) => el.props.id).filter((el: string) => el);
+  // const enLetters = (): string[] =>
+  //   KeyboardSvgEn.props.children[0].props.children
+  //     .map((el: JSX.Element) => el.props.id).filter((el: string) => el);
 
-  const ruLetters = (): string[] =>
-    KeyboardSvgRu.props.children[0].props.children
-      .map((el: JSX.Element) => el.props.id).filter((el: string) => el);
+  // const ruLetters = (): string[] =>
+  //   KeyboardSvgRu.props.children[1].props.children
+  //     .map((el: JSX.Element) => el.props.children);
 
-  console.log('🚀 ~ Keyboard ~ ruLetters', enLetters());
-  console.log('🚀 ~ Keyboard ~ ruLetters', ruLetters());
+  // const rus = KeyboardSvgRu.props.children[1].props.children[27].props.children;
+  // console.log('🚀 ~ Keyboard ~ rus', rus);
+
+  // // console.log('🚀 ~ Keyboard ~ KeyboardSvgRu', KeyboardSvgRu);
+  // // console.log('🚀 ~ Keyboard ~ ruLetters', enLetters());
+  // console.log('🚀 ~ Keyboard ~ ruLetters', ruLetters());
 
   return (
     <div className={styles.Keyboard}>

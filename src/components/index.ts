@@ -1,4 +1,5 @@
 export { default } from './Settings';
-export { TrafficLight } from './TrafficLight';
-export { TextWindow } from './TextWindow';
-export { Keyboard } from './Keyboard';
+export { TrafficLight } from './Game/TrafficLight';
+export { TextWindow } from './Game/TextWindow';
+export { Keyboard } from './Game/Keyboard';
+export { Game } from './Game';

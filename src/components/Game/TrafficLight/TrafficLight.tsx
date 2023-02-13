@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './TrafficLight.module.scss';
 
 export interface TrafficLightProps {
@@ -11,7 +10,7 @@ export interface TrafficLightProps {
 
 export function TrafficLight({ id, color, textInfo, textDesc, unit }: TrafficLightProps) {
   return (
-    <div className={`${styles.TrafficLight} TrafficLight-${color}`}>
+    <div className={`${styles.TrafficLight} TrafficLight-${id}`}>
       <div className={styles[`${color}Light`]}>
         <p className={styles[`${color}TextDesc`]}>
           {textDesc}
