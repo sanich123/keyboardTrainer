@@ -1,16 +1,18 @@
+import { useState } from 'react';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 import { LANG_VALUES } from '../../utils/const';
 import { langsData } from '../../components/Settings';
 import { TextWindow, TextWindowProps } from './TextWindow';
 import { Keyboard, KeyboardProps } from './Keyboard';
 import { TrafficLight, TrafficLightProps } from './TrafficLight';
-import styles from './Game.module.scss';
-import { useState } from 'react';
 import { keys } from './TextWindow/specialKeys';
-
+import styles from './Game.module.scss';
 
 export function Game() {
-  const text = 'lorem';
+  const text = {
+    en: 'Lorem, .!?-:"`',
+    ru: 'Пре !,.-:"',
+  };
   const { isRu } = useThemeLang();
   const lang = isRu ? LANG_VALUES.ru : LANG_VALUES.en;
   const [errorCount, setErrorCount] = useState(0);
@@ -18,8 +20,11 @@ export function Game() {
   const [isGame, setIsGame] = useState(false);
   const [isRightKey, setIsRightKey] = useState(false);
   const [idx, setIdx] = useState(-1);
-  // const nexRef = useRef<SVGSVGElement>(null);
-
+  const [keyLang, setKeyLang] = useState<'ru' | 'en'>('en');
+  // const charToCode = (char) => {
+  //   const code = char
+  //   return charKey;
+  // }
   const trafficLightProps: TrafficLightProps[] = [
     {
       id: 1,
@@ -46,10 +51,16 @@ export function Game() {
 
   const keyboardProps: KeyboardProps = {
     lang: lang,
+    char: text[keyLang][idx + 1],
+    isRightKey: isRightKey,
+    idx: idx,
+    setIdx: setIdx,
+    keyLang: keyLang,
+    setKeyLang: setKeyLang,
   };
 
   const textWindowProps: TextWindowProps = {
-    lessonText: text,
+    lessonText: text[keyLang],
     lang: lang,
     idx: idx,
     isRightKey: isRightKey,
@@ -60,7 +71,7 @@ export function Game() {
   const checkKey = (e: React.KeyboardEvent<HTMLDivElement>): boolean | string => {
     if (e.code === 'Backspace') { return 'Backspace'; }
     if (keys.some((specialKey: string) => specialKey === e.key)) { return 'isSpecialKey'; }
-    return e.key === text[idx + 1];
+    return e.key === text[keyLang][idx + 1];
   };
 
   const onKeyUpHandle = (e: React.KeyboardEvent<HTMLDivElement>): void | undefined => {
@@ -95,7 +106,7 @@ export function Game() {
       setIsStoped(true);
     }
 
-    if (checkKey(e) && idx >= text.length - 2) {
+    if (checkKey(e) && idx >= text[keyLang].length - 2) {
       setIsGame(false);
     }
   };
