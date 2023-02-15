@@ -10,16 +10,37 @@ export interface TextWindowProps {
   isRightKey: boolean;
   isGame: boolean;
   setIsGame: React.Dispatch<React.SetStateAction<boolean>>,
+  setTime: React.Dispatch<React.SetStateAction<number>>,
+  setAccuracy: React.Dispatch<React.SetStateAction<number>>,
+  setSpeed: React.Dispatch<React.SetStateAction<number>>,
+  errorCount: number,
+  time: number,
 }
 
-export function TextWindow({ lessonText, lang, idx, isRightKey, isGame, setIsGame }: TextWindowProps) {
+export function TextWindow({
+  lessonText,
+  lang,
+  idx,
+  isRightKey,
+  isGame,
+  setIsGame,
+  setTime,
+  setAccuracy,
+  setSpeed,
+  errorCount,
+  time,
+}: TextWindowProps) {
   const randomIterableKey = getRandomNum(0, 10000000000000);
-  const { gameOverMessage, startMessage, continueMessage } = (langsData[lang].pageGame.textWindow as { [key: string]: string });
+
+  const { gameOverMessage, startMessage, continueMessage } = (langsData[lang]
+    .pageGame.textWindow as { [key: string]: string });
+
   const massageRef = useRef<HTMLDivElement>(null);
   const textAreaRef = useRef<HTMLDivElement>(null);
   const blinkRef = useRef<HTMLSpanElement>(null);
 
   const [inFocus, setInFocus] = useState(false);
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | number>(0);
 
   const setCharToJSX = (char: string, classNames: string): JSX.Element =>
     <span key={randomIterableKey()} className={classNames}>{char}</span>;
@@ -54,6 +75,24 @@ export function TextWindow({ lessonText, lang, idx, isRightKey, isGame, setIsGam
       inFocus ? massageRef.current.textContent = continueMessage : textAreaRef.current.focus();
       setInFocus(!inFocus);
     }
+    pauseTimer();
+  };
+
+  const pauseTimer = () => {
+    if (intervalId) {
+      clearInterval(intervalId as NodeJS.Timeout);
+      setIntervalId(0);
+      console.log('Timer pause');
+    }
+  };
+
+  const startTimer = () => {
+    const newIntervalId: NodeJS.Timeout = setInterval(() => {
+      setTime((t) => t + 1);
+    }, 1000);
+    setIntervalId(newIntervalId);
+    console.log('Timer start');
+
   };
 
   const startGame = (): void => {
@@ -69,6 +108,7 @@ export function TextWindow({ lessonText, lang, idx, isRightKey, isGame, setIsGam
     if (textAreaRef.current !== null && massageRef.current !== null) {
       textAreaRef.current.blur();
       massageRef.current.textContent = gameOverMessage;
+      pauseTimer();
     }
   };
 
@@ -77,12 +117,37 @@ export function TextWindow({ lessonText, lang, idx, isRightKey, isGame, setIsGam
       setIsGame(true);
       setFocusToTextWindow();
     }
+    if (!intervalId && idx === -1) {
+      setFocusToTextWindow();
+      startTimer();
+    }
   };
 
-  if (isGame) { startGame(); }
-  else { endGame(); }
+  const speedCount = () => {
+    const timeInMin = Math.ceil(time / 60);
+    const charPerMin = ((lessonText.length - errorCount) + errorCount) / timeInMin;
+    const charPerMinClear = charPerMin - (errorCount / timeInMin);
+    return charPerMinClear;
+  };
+  const accurancyCount = () => errorCount / lessonText.length * 100;
 
-  if (idx >= 0 && !text[idx] && isRightKey) { endGame(); }
+  console.log('🚀 ~ speedCount ~ speedCount', speedCount());
+  console.log('🚀 ~ accurancyCount', accurancyCount());
+
+  if (isGame) { startGame(); }
+  else {
+    endGame();
+  }
+
+  if (idx >= 0 && !text[idx] && isRightKey) {
+    endGame();
+  }
+
+  if (idx === - 1) {
+    if (massageRef.current !== null) {
+      massageRef.current.textContent = startMessage;
+    }
+  }
 
   return (
     <div
