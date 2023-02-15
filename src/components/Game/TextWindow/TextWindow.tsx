@@ -7,7 +7,7 @@ export interface TextWindowProps {
   lessonText: string;
   lang: string;
   idx: number;
-  isRightKey: null | boolean;
+  isRightKey: boolean;
   isGame: boolean;
   setIsGame: React.Dispatch<React.SetStateAction<boolean>>,
 }
@@ -73,7 +73,7 @@ export function TextWindow({ lessonText, lang, idx, isRightKey, isGame, setIsGam
   };
 
   const init = (): void => {
-    if (!isRightKey && idx <= text.length - 1) {
+    if (!isRightKey || idx < text.length - 1) {
       setIsGame(true);
       setFocusToTextWindow();
     }
@@ -83,12 +83,6 @@ export function TextWindow({ lessonText, lang, idx, isRightKey, isGame, setIsGam
   else { endGame(); }
 
   if (idx >= 0 && !text[idx] && isRightKey) { endGame(); }
-
-
-  console.log('🚀 ~ TextWindow ~ isRightKey', isRightKey);
-  console.log('🚀 ~ TextWindow ~ idx', idx);
-  console.log('🚀 ~ TextWindow ~ isGame', isGame);
-
 
   return (
     <div

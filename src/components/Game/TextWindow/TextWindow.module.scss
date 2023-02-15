@@ -49,6 +49,7 @@
       color: var(--text-window-onfocus-font-color);
       border-radius: var(--border-radius);
       z-index: 1;
+      cursor: pointer;
     }
   }
 
@@ -77,7 +78,7 @@
       .blink {
         border-bottom: 3px solid var(--dimmed-border-placeholder);
         border-radius: var(--border-radius) var(--border-radius) 0 0;
-        animation: blinker .6s step-start infinite;
+        // animation: blinker .6s step-start infinite;
       }
     }
 
