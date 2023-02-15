@@ -1,7 +1,7 @@
 import React from 'react';
 import { langsData } from '../../Settings';
 import { useState } from 'react';
-import { RiKeyboardFill, RiTranslate } from 'react-icons/ri';
+import { RiGamepadLine, RiKeyboardFill, RiTranslate } from 'react-icons/ri';
 import { getRandomNum } from '../../../utils/getRandomNum';
 import styles from './Keyboard.module.scss';
 import './keyboardSVG.scss';
@@ -14,8 +14,9 @@ export interface KeyboardProps {
   setIdx: React.Dispatch<React.SetStateAction<number>>,
   keyLang: 'ru' | 'en',
   setKeyLang: React.Dispatch<React.SetStateAction<'ru' | 'en'>>,
+  setTime: React.Dispatch<React.SetStateAction<number>>,
 }
-export function Keyboard({ lang, char, isRightKey, idx, setIdx, keyLang, setKeyLang }: KeyboardProps) {
+export function Keyboard({ lang, char, isRightKey, idx, setIdx, keyLang, setKeyLang, setTime }: KeyboardProps) {
   const randomIterableKey = getRandomNum(0, 10000000000000);
 
   const keyboardKeys = {
@@ -359,15 +360,23 @@ export function Keyboard({ lang, char, isRightKey, idx, setIdx, keyLang, setKeyL
       ],
   };
 
-  const hideShowKeyboardBtn = langsData[lang].pageGame.hideShowKeyboardBtn as string;
+  const { newGameBtn, hideShowKeyboardBtn } = langsData[lang].pageGame as { [key: string]: string; };
   const keyLangBtn = langsData[lang].pageGame.keyLangBtn as { ru: string, en: string };
 
   const [showKeyboard, setShowKeyboard] = useState(true);
 
-  const onClicksHideShowKeyboardBtnHandler = () => setShowKeyboard(!showKeyboard);
+  const onClicksHideShowKeyboardBtnHandler = () => {
+    setShowKeyboard(!showKeyboard);
+    setTime(0);
+  };
   const onClicksKeyLangBtnHandler = () => {
     setIdx(-1);
     keyLang === 'ru' ? setKeyLang('en') : setKeyLang('ru');
+  };
+
+  const onClicksNewGameBtnHandler = () => {
+    setIdx(-1);
+    setTime(0);
   };
 
   const setKeyboard = (keys: JSX.Element[], letters: JSX.Element[]) => (
@@ -456,6 +465,15 @@ export function Keyboard({ lang, char, isRightKey, idx, setIdx, keyLang, setKeyL
   return (
     <div className={styles.Keyboard}>
       <div className={styles.switchButtons}>
+
+        <button
+          type="button"
+          className={styles.hideShowKeyboardBtn}
+          onClick={onClicksNewGameBtnHandler}
+        >
+          <RiGamepadLine className={styles.btnIcons} />
+          {newGameBtn}
+        </button>
 
         <button
           type="button"

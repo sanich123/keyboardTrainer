@@ -27,7 +27,7 @@ export const langsData: LangData = {
         elapsedTime: 'Elapsed time',
         speed: 'Speed',
         accuracy: 'Accuracy',
-        elapsedTimeUnit: 'min',
+        elapsedTimeUnit: 'min:sec',
         speedUnit: 'char/min',
         accuracyUnit: '%',
       },
@@ -35,6 +35,7 @@ export const langsData: LangData = {
         ru: 'Layout: Ru',
         en: 'Layout: En',
       },
+      newGameBtn: 'New Game',
 
     },
     pageStatistic: {
@@ -91,7 +92,7 @@ export const langsData: LangData = {
         elapsedTime: 'Пройденное время',
         speed: 'Скорость',
         accuracy: 'Точность',
-        elapsedTimeUnit: 'мин',
+        elapsedTimeUnit: 'мин:сек',
         speedUnit: 'зн/мин',
         accuracyUnit: '%',
       },
@@ -99,6 +100,7 @@ export const langsData: LangData = {
         ru: 'Раскладка: Рус',
         en: 'Раскладка: Англ',
       },
+      newGameBtn: 'Новая игра',
     },
     pageStatistic: {
       bestTime: 'Лучшее время',
