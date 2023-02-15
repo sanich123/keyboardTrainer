@@ -15,27 +15,38 @@ export default function DriverCard() {
 
   const lang = isRu ? 'ru' : 'en';
   const countOfRaces = STATS_INFO[0].bestResults.races;
+
+  const NUM_RACES_STATUS = {
+    teamled: 100,
+    senior: 50,
+    midl: 25,
+  };
+
   let status: string;
-  if (countOfRaces > 100) {
+  if (countOfRaces > NUM_RACES_STATUS.teamled) {
     status = DRIVER_STATUS[lang].teamlead;
-  } else if (countOfRaces > 50) {
+  } else if (countOfRaces > NUM_RACES_STATUS.senior) {
     status = DRIVER_STATUS[lang].senior;
-  } else if (countOfRaces > 25) {
+  } else if (countOfRaces > NUM_RACES_STATUS.midl) {
     status = DRIVER_STATUS[lang].midl;
   } else {
     status = DRIVER_STATUS[lang].jun;
   }
 
+  console.log(user);
+
   return (
     <div
       className={`all-card-driver ${ isLight ? 'card-driver-light' : 'card-driver-darck'}`}
     >
-      <div className="photo-block"></div>
+      <div className="photo-block">
+        <img src={user?.picture} alt="photo" className="driver-photo" />
+      </div>
       <div className="driver-info-block">
         <h3 className="h3-driver">{`${langsData[lang].pageStatistic.driver}`}</h3>
         <p className="p-driver">
           {`${langsData[lang].pageStatistic.name}`}
-          <span className="span-driver">{user?.name}</span>
+          <span className="span-driver">{user?.nickname}</span>
         </p>
         <p className="p-driver">
           {`${langsData[lang].pageStatistic.status}`}
@@ -51,7 +62,7 @@ export default function DriverCard() {
           className="btns-driver"
           style={{ color: `${isLight ? '#FFFFFF' : '#000000'}` }}
         >
-          <BtnSecondary text={`${langsData[lang].pageStatistic.photo}`} />
+          <BtnSecondary text={`${langsData[lang].pageHome.btnRules}`}/>
           <Link to={ROUTES.game}>
             <BtnPrinary text={`${langsData[lang].pageStatistic.startRace}`} />
           </Link>

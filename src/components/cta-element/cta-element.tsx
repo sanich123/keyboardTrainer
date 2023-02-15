@@ -15,9 +15,9 @@ export default function CtaElement() {
         <h1 className="h1-cta">Keyboard Racing</h1>
         <p className="p-cta">{`${langsData[lang].pageHome.ctaText}`}</p>
         <div className="btns-cta" style={{color: `${isLight ? '#FFFFFF' : '#000000'}`}}>
-          <BtnSecondary text={isRu ? 'Правила' : 'Rules'}/>
+          <BtnSecondary text={`${langsData[lang].pageHome.btnRules}`}/>
           <Link to={ROUTES.game}>
-            <BtnPrinary text={isRu ? 'Начать!' : 'Start now!'}/>
+            <BtnPrinary text={`${langsData[lang].pageHome.btnStartNow}`}/>
           </Link>
         </div>
       </div>

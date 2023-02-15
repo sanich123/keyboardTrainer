@@ -8,23 +8,6 @@ import { langsData } from '../Settings/LangSwitch/langsData';
 import { useAuth0 } from '@auth0/auth0-react';
 
 
-// function Navigation() {
-
-//   return (
-//     <nav className="header-nav">
-//       <li className="li-navigation li-margin">
-//         <Link to={ROUTES.main}>{isRu ? 'Об игре' : 'About'}</Link>
-//       </li>
-//       <li className="li-navigation li-margin">
-//         <Link to={ROUTES.game}>{isRu ? 'Гонка' : 'Race'}</Link>
-//       </li>
-//       <li className="li-navigation">
-//         <Link to={ROUTES.cabinet}>{isRu ? 'Статистика' : 'Stats'}</Link>
-//       </li>
-//     </nav>
-//   );
-// }
-
 export function LoginNavigation() {
 
   const { isRu, isLight } = useThemeLang();
@@ -40,7 +23,7 @@ export function LoginNavigation() {
         <img
           src={isAuthenticated ? user?.picture : themeImg}
           alt="settings"
-          className="mr-[5px]"
+          className="img-user"
           loading="lazy"
         />
       </Link>
@@ -50,12 +33,12 @@ export function LoginNavigation() {
         onClick={() => !isAuthenticated && loginWithRedirect()}
         to={ROUTES.cabinet}
       >
-        {isAuthenticated && user?.email}
+        {isAuthenticated && user?.nickname}
         {!isAuthenticated && !isLoading && btnText}
         {isLoading && loadingText}
       </Link>
       {isAuthenticated && (
-        <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+        <button className="ml-[10px]" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
           {logoutBtnText}
         </button>
       )}
@@ -83,17 +66,3 @@ export function Navigation() {
     </nav>
   );
 }
-
-// export function LoginNavigation() {
-//   const { isRu, isLight } = useThemeLang();
-//   const lang = isRu ? 'ru' : 'en';
-
-//   return (
-//     <div className="div-login-navigation">
-//       <img src={isLight ? PersonLight : PersonDarck}
-//         alt="settings" className="mr-[5px]"
-//       />
-//       <p className="text-login">{`${langsData[lang].menuLogin.login}`}</p>
-//     </div>
-//   );
-// }
