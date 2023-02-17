@@ -10,7 +10,7 @@ import styles from './Game.module.scss';
 
 export function Game() {
   const text = {
-    en: 'Lorem',
+    en: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit rem at tempora corporis, omnis nemo',
     ru: 'Пре',
   };
   const { isRu } = useThemeLang();
@@ -26,6 +26,25 @@ export function Game() {
   const [speed, setSpeed] = useState(0);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [accuracy, setAccuracy] = useState(0);
+
+  const setTimeToString = (
+    min = 0,
+    minPref = 0,
+    sec = 0,
+    secPref = 0,
+    minRes = '',
+    secRes = '',
+  ): string => {
+    sec = time;
+    min = Math.floor(time / 60);
+    sec = sec >= 60 ? time - (min * 60) : time;
+    minRes = min < 10 ? `${minPref}${min}` : `${min}`;
+    secRes = sec < 10 ? `${secPref}${sec}` : `${sec}`;
+    return `${minRes}:${secRes}`;
+  };
+
+  const accuracyCount = Math.floor(((idx + 2) - errorCount) / (idx + 2) * 100);
+  const speedCount = Math.floor((idx + 2) / (time / 60 || 1));
 
   const checkKey = (e: React.KeyboardEvent<HTMLDivElement>)
     : boolean | string => {
@@ -71,25 +90,11 @@ export function Game() {
 
     if (checkKey(e) && idx >= text[keyLang].length - 2) {
       setIsGame(false);
-      // setTime(0);
+      setErrorCount(0);
     }
-  };
 
-  const setTimeToString = (
-    min = 0,
-    minPref = 0,
-    sec = 0,
-    secPref = 0,
-    minRes = '',
-    secRes = '',
-  ) => {
-    sec = time;
-    min = Math.floor(time / 60);
-    sec = sec >= 60 ? time - (min * 60) : time;
-    minRes = min < 10 ? `${minPref}${min}` : `${min}`;
-    secRes = sec < 10 ? `${secPref}${sec}` : `${sec}`;
-    console.log(`${minRes}:${secRes}`, time);
-    return `${minRes}:${secRes}`;
+    setSpeed(speedCount);
+    setAccuracy(accuracyCount);
   };
 
   const trafficLightProps: TrafficLightProps[] = [

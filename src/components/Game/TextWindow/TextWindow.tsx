@@ -91,8 +91,7 @@ export function TextWindow({
       setTime((t) => t + 1);
     }, 1000);
     setIntervalId(newIntervalId);
-    console.log('Timer start');
-
+    // console.log('Timer start');
   };
 
   const startGame = (): void => {
@@ -122,17 +121,6 @@ export function TextWindow({
       startTimer();
     }
   };
-
-  const speedCount = () => {
-    const timeInMin = Math.ceil(time / 60);
-    const charPerMin = ((lessonText.length - errorCount) + errorCount) / timeInMin;
-    const charPerMinClear = charPerMin - (errorCount / timeInMin);
-    return charPerMinClear;
-  };
-  const accurancyCount = () => errorCount / lessonText.length * 100;
-
-  console.log('🚀 ~ speedCount ~ speedCount', speedCount());
-  console.log('🚀 ~ accurancyCount', accurancyCount());
 
   if (isGame) { startGame(); }
   else {
