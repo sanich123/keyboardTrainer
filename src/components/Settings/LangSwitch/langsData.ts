@@ -40,6 +40,7 @@ export const langsData: LangData = {
       sp300: 'Speed over 300',
       acc: 'Accuracy 100%',
       chartName: 'Speed and Accuracy statistics of the last 10 races:',
+      statusDescription: 'The status depends on the number of races. Gain experience and get a TEAMLEAD status.',
     },
     pageNotFound: {
       notFound: 'Page Not Found',
@@ -107,6 +108,7 @@ export const langsData: LangData = {
       sp300: 'Скорость более 300',
       acc: 'Аккуратность 100%',
       chartName: 'Статистика Скорости и Аккуратности 10 последних заездов:',
+      statusDescription: 'Статус зависит от количества заездов. Набирайся опыта и получи статус ТИМЛИД.',
     },
     pageNotFound: {
       notFound: 'Страница не найдена',

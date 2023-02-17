@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import CreateMainPage from '../../pages/create-main';
-import CreateGamePage from '../../pages/create-game';
-import CreatePage404 from '../../pages/create-page404';
-import CreateUserCabinet from '../../pages/create-user-cabinet';
+import CreateMainPage from '../../pages/create-main/create-main';
+import CreateGamePage from '../../pages/create-game/create-game';
+import CreatePage404 from '../../pages/create-page404/create-page404';
+import CreateUserCabinet from '../../pages/create-user-cabinet/create-user-cabinet';
 import { ROUTES } from '../../utils/const';
 import '../../styles/entry.scss';
 import '../../index.css';

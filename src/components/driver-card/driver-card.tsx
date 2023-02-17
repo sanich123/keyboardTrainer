@@ -50,7 +50,9 @@ export default function DriverCard() {
         </p>
         <p className="p-driver">
           {`${langsData[lang].pageStatistic.status}`}
-          <span className="span-driver">{`${status.toUpperCase()}`}</span>
+          <span className="span-driver  span-driver-status" data-title={`${langsData[lang].pageStatistic.statusDescription}`}>
+            {`${status.toUpperCase()}`}
+          </span>
         </p>
         <p className="p-driver">
           {`${langsData[lang].pageStatistic.start}`}

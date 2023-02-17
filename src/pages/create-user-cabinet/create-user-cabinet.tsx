@@ -1,13 +1,13 @@
 import './create-user-cabinet.scss';
-import Header from '../components/header/header';
-import Footer from '../components/footer/footer';
-import { langsData } from '../components/Settings';
-import BestResults from '../components/best-results/best-results';
-import DriverCard from '../components/driver-card/driver-card';
-import Award from '../components/award/award';
-import { STATS_INFO } from '../data/stats-info';
-import ChartStats from '../components/chart/chart';
-import { useThemeLang } from '../utils/hooks/use-theme-lang/use-theme-lang';
+import Header from '../../components/header/header';
+import Footer from '../../components/footer/footer';
+import { langsData } from '../../components/Settings';
+import BestResults from '../../components/best-results/best-results';
+import DriverCard from '../../components/driver-card/driver-card';
+import Award from '../../components/award/award';
+import { STATS_INFO } from '../../data/stats-info';
+import ChartStats from '../../components/chart/chart';
+import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 
 
 const NUM_RACES_AWARD = {
@@ -64,7 +64,6 @@ export default function CreateUserCabinet() {
                   width={100}
                 />
               </div>
-
             </div>
           </div>
         </div>
