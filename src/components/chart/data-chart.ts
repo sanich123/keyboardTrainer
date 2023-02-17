@@ -8,8 +8,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { useAuth0 } from '@auth0/auth0-react';
-import { useGetStatisticsQuery } from '../../redux/keyboard-trainer-api';
+
 
 ChartJS.register(
   CategoryScale,
@@ -44,11 +43,8 @@ interface StatsData {
 
 }
 
-export default function GetDataChartLine() {
-  const { user } = useAuth0();
-  const { data: statisticData } = useGetStatisticsQuery(user?.nickname);
+export default function GetDataChartLine(arrData: StatsData[]) {
 
-  const arrData: StatsData[] = statisticData;
   const labels = arrData.map((data) => data.date);
 
   return (

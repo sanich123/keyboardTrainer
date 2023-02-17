@@ -37,7 +37,7 @@ export default function DriverCard() {
         <p className="p-driver">
           {`${langsData[lang].pageStatistic.start}`}
           {isLoading && <span className="span-driver">Loading...</span>}
-          {statisticData && <span className="span-driver">{statisticData.firstRace}</span>}
+          {statisticData && <span className="span-driver">{statisticData.firstRace.slice(0, 10)}</span>}
           {error && <span className="span-driver">An error occured</span>}
         </p>
         <div

@@ -1,9 +1,10 @@
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
+import './modal.scss';
+
 
 export default function ModalRules() {
 
   const { isLight } = useThemeLang();
-  // const lang = isRu ? 'ru' : 'en';
 
   return (
     <div className="modal">

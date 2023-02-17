@@ -1,7 +1,6 @@
 import './best-results.scss';
 import { langsData } from '../Settings';
 import { BestIndex } from './best-results-components';
-// import { STATS_INFO } from '../../data/stats-info';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useGetStatisticsQuery } from '../../redux/keyboard-trainer-api';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';

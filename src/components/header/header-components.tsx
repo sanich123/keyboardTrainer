@@ -49,6 +49,7 @@ export function LoginNavigation() {
 export function Navigation() {
   const { isRu } = useThemeLang();
   const lang = isRu ? 'ru' : 'en';
+  const { isAuthenticated } = useAuth0();
 
   console.log(langsData.en);
   return (
@@ -59,9 +60,11 @@ export function Navigation() {
       <li className="li-navigation li-margin">
         <Link to={ROUTES.game}>{`${langsData[lang].menuMain.race}`}</Link>
       </li>
-      <li className="li-navigation">
-        <Link to={ROUTES.cabinet}>{`${langsData[lang].menuMain.stats}`}</Link>
-      </li>
+      {isAuthenticated && (
+        <li className="li-navigation">
+          <Link to={ROUTES.cabinet}>{`${langsData[lang].menuMain.stats}`}</Link>
+        </li>
+      )}
     </nav>
   );
 }

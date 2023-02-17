@@ -1,14 +1,15 @@
-.modal {
+.modal-all {
   position: fixed;
   width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
-  z-index: 5;
-  background-color: rgba(0, 0, 0, 0.493);
+  z-index: 2;
+  background-color: rgba(170, 59, 59, 0.493);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 
 .modal-container {

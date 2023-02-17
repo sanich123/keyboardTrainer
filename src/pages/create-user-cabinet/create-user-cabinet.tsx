@@ -18,6 +18,8 @@ export default function CreateUserCabinet() {
   const lang = isRu ? 'ru' : 'en';
   const { user } = useAuth0();
   const { data: statisticData } = useGetStatisticsQuery(user?.nickname);
+  console.log(user);
+  console.log(statisticData);
 
   return (
     <div className={`all-div ${isLight ? 'light-theme' : 'darck-theme'}`}>
