@@ -64,7 +64,6 @@ export default function ChartStats() {
       {isLoading && <h1>Loading...</h1>}
       {statisticData && <Line options={options} data={data} width={400} height={200} />}
       {error && <h1>An error occured</h1>}
-
     </>
   );
 }
