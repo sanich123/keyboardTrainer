@@ -1,11 +1,8 @@
 import './footer.scss';
-import LogoRace from '../../assets/img/logo-race.webp';
-import LogoRaceBlack from '../../assets/img/logo-race-bl.webp';
-// import LogoRS from '../../assets/img/rs-logo.webp';
-// import LogoRSBlack from '../../assets/img/rs-logo-bl.webp';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 import { DEVELOPERS } from '../../data/developers-info';
 import LogoRS from '../../data/svg-functions/logo-rs';
+import LogoRace from '../../data/svg-functions/logo-race';
 
 
 export default function Footer() {
@@ -17,7 +14,7 @@ export default function Footer() {
       <div className="footer">
         <div className="footer-container">
           <div className="footer-div-component">
-            <img src={isLight ? LogoRace : LogoRaceBlack} alt="logo-race"/>
+            <LogoRace widthNum={'176'} heightNum={'55'} colorName={`${isLight ? '#FFFFFF' : '#514B4B'}`} />
             <div className="div-links-github">
               { DEVELOPERS.map((data) => <a href={data.gitHub} className="link-github margin-after-img" key={data.id}>{data.name}</a>) }
             </div>
