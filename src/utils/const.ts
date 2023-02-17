@@ -23,3 +23,15 @@ export const REDUCER_NAMES = {
   keyboardTrainerApi: 'keyboardTrainerApi',
 };
 
+export const NUM_RACES_STATUS = {
+  teamled: 15,
+  senior: 10,
+  midl: 5,
+};
+
+export const NUM_RACES_AWARD = {
+  speed100: 100,
+  speed200: 200,
+  speed300: 300,
+  accuracy: 100,
+};

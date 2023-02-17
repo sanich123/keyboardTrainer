@@ -22,7 +22,6 @@ export default function Footer() {
           <div className="footer-div-component footer-div-component-right">
             <a href="https://rs.school/js/">
               <LogoRS widthNum={'154'} heightNum={'57'} colorName={`${isLight ? '#FFFFFF' : '#514B4B'}`} />
-              {/* <img src={isLight ?  LogoRS : LogoRSBlack} alt="rs-logo"  className="margin-after-img"/> */}
             </a>
             <p className="margin-after-img">© 2023. Special for RS School</p>
           </div>

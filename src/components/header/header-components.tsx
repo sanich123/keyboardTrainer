@@ -27,7 +27,6 @@ export function LoginNavigation() {
           loading="lazy"
         />
       </Link>
-
       <Link
         className="text-login"
         onClick={() => !isAuthenticated && loginWithRedirect()}
