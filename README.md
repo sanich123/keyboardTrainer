@@ -1,6 +1,5 @@
 # keyboardTrainer
-**Before launching the project you must install dependencies (npm i).
-To launch the project, use *npm start*
-To build the project, use *npm run build*
-To run tests, use *npm run test*
+To launch project you should clone project via **git clone [link to the project]** and install dependencies **npm i**
+- To launch the project, type **npm start**
+- To run tests, type **npm run test**
 
