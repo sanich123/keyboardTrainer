@@ -1,12 +1,9 @@
 import { rest } from 'msw';
-import { mockComments, mockGuitars } from '../../utils/mocks/mocks';
+import { BASE_URL } from '../../utils/const';
+import { fakeResponse } from '../test-const';
 
-const handlers = [
-  rest.get('https://guitar-shop.accelerator.pages.academy/guitars', (req, res, ctx) => res(ctx.json(mockGuitars))),
-  rest.get('https://guitar-shop.accelerator.pages.academy/guitars/3/comments', (req, res, ctx) => res(ctx.json(mockComments))),
-  rest.get('https://guitar-shop.accelerator.pages.academy/guitars/2/comments', (req, res, ctx) => res(ctx.json(mockComments))),
-  rest.get('https://guitar-shop.accelerator.pages.academy/guitars/1/comments', (req, res, ctx) => res(ctx.json(mockComments))),
-  rest.get('https://guitar-shop.accelerator.pages.academy/guitars/guitars/3', (req, res, ctx) => res(ctx.json(mockGuitars[2]))),
+export const handlers = [
+  rest.get(`${BASE_URL}/races/johndoe@me.com`, (req, res, ctx) => res(ctx.json(fakeResponse))),
 ];
 
-export { handlers };
+// export { handlers };
