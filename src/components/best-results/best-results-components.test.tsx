@@ -7,7 +7,6 @@ describe('Best-result-components', () => {
     renderWithProviders(
       <BestIndex
         name="Какое-то имя"
-        span={'№'}
         color={'#FF9C9C'}
         result={585}
       />,
