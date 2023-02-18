@@ -10,7 +10,7 @@ export const langsData: LangData = {
      to overtake your opponent on a typewriter and not break`,
       btnRules: 'Rules',
       btnStartNow: 'Start Now!',
-
+      ctaText: 'Start your race! Find out your typing speed and accuracy. Do various races, improve your skills and compete with others. Try different languages and see your results in the "Statistics" section.',
     },
     pageGame: {
       trafficLight: {
@@ -31,15 +31,16 @@ export const langsData: LangData = {
       driver: 'Driver',
       name: 'Name:',
       status: 'Status:',
-      start: 'First strt:',
+      start: 'First start:',
       startRace: 'Start race',
       photo: 'Change photo',
       award: 'Awards:',
-      sp100: 'Speed over 100 char/min',
-      sp200: 'Speed over 200 char/min',
-      sp300: 'Speed over 300 char/min',
+      sp100: 'Speed over 100',
+      sp200: 'Speed over 200',
+      sp300: 'Speed over 300',
       acc: 'Accuracy 100%',
       chartName: 'Speed and Accuracy statistics of the last 10 races:',
+      statusDescription: 'The status depends on the number of races. Gain experience and get a TEAMLEAD status.',
     },
     pageNotFound: {
       notFound: 'Page Not Found',
@@ -76,8 +77,8 @@ export const langsData: LangData = {
       description: `Совершенствуйте свои навыки клавиатуры в игре, где вам нужно
       обогнать соперника на машинке и не сломаться`,
       btnRules: 'Правила',
-      btnStartNow: 'Старт!',
-
+      btnStartNow: 'Начать!',
+      ctaText: 'Начни свою гонку! Узнай свою скорость печати и точность. Делай различные заезды, совершенствуй свои навыки и соревнуйся с другими. Попробуй разные языки, и смотри свои результаты в разделе "Статистика".',
     },
     pageGame: {
       trafficLight: {
@@ -102,11 +103,12 @@ export const langsData: LangData = {
       startRace: 'Начать гонку',
       photo: 'Сменить фото',
       award: 'Награды:',
-      sp100: 'Скорость более 100 симв/мин',
-      sp200: 'Скорость более 200 симв/мин',
-      sp300: 'Скорость более 300 симв/мин',
+      sp100: 'Скорость более 100',
+      sp200: 'Скорость более 200',
+      sp300: 'Скорость более 300',
       acc: 'Аккуратность 100%',
       chartName: 'Статистика Скорости и Аккуратности 10 последних заездов:',
+      statusDescription: 'Статус зависит от количества заездов. Набирайся опыта и получи статус ТИМЛИД.',
     },
     pageNotFound: {
       notFound: 'Страница не найдена',

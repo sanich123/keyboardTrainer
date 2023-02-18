@@ -2,21 +2,18 @@ import './best-results.scss';
 
 interface BestIndexInfo {
   name: string
-  span: string
   color: string
   result: number
 }
 
-export function BestIndex(props: BestIndexInfo) {
+export function BestIndex({ name, color, result }: BestIndexInfo) {
 
   return (
     <div className="all-best-index">
-      <p className="best-index-name">{props.name}
-        <span className="best-index-span">{props.span}</span>
-      </p>
+      <p className="best-index-name">{name}</p>
       <div className="div-circle"
-        style={{background: `${props.color}`}}
-      >{props.result}
+        style={{background: `${color}`}}
+      >{result}
       </div>
     </div>
   );

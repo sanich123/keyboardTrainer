@@ -10,6 +10,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 export function Navigation() {
   const { isRu } = useThemeLang();
   const lang = isRu ? 'ru' : 'en';
+  const { isAuthenticated } = useAuth0();
 
   return (
     <nav className="header-nav">
@@ -19,9 +20,11 @@ export function Navigation() {
       <li className="li-navigation li-margin">
         <Link to={ROUTES.game}>{`${langsData[lang].menuMain.race}`}</Link>
       </li>
-      <li className="li-navigation">
-        <Link to={ROUTES.cabinet}>{`${langsData[lang].menuMain.stats}`}</Link>
-      </li>
+      {isAuthenticated && (
+        <li className="li-navigation">
+          <Link to={ROUTES.cabinet}>{`${langsData[lang].menuMain.stats}`}</Link>
+        </li>
+      )}
     </nav>
   );
 }
@@ -40,7 +43,7 @@ export function LoginNavigation() {
         <img
           src={isAuthenticated ? user?.picture : themeImg}
           alt="settings"
-          className="mr-[5px]"
+          className="img-user"
           loading="lazy"
         />
       </Link>

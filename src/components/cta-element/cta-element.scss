@@ -1,6 +1,7 @@
 .all-cta-div {
   grid-area: main;
-  width: 100%;
+  max-width: 1600px;
+  margin: auto;
   padding: 180px 0px 20px 60px;
 
   @media screen and (max-width: 700px) {
@@ -34,10 +35,12 @@
 
 .btns-cta {
   margin-bottom: 200px;
+}
 
-  // @media screen and (max-width: 430px) {
-  //   display: flex;
-  //   flex-direction: column;
-  //   margin-bottom: 100px;
-  // }
+.darck-theme-cta {
+  color: #FFFFFF;
+}
+
+.light-theme-cta {
+  color: #514B4B;
 }
