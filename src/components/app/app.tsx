@@ -7,6 +7,7 @@ import { ROUTES } from '../../utils/const';
 import '../../styles/entry.scss';
 import '../../index.css';
 import { useAuth0 } from '@auth0/auth0-react';
+import Experiment from '../../pages/experiment';
 
 export default function App() {
   const {isAuthenticated} = useAuth0();
@@ -17,6 +18,7 @@ export default function App() {
         <Route path={ROUTES.main} element={<CreateMainPage />} />
         <Route path={ROUTES.game} element={<CreateGamePage />} />
         <Route path={ROUTES.cabinet} element={isAuthenticated ? <CreateUserCabinet /> : <CreateMainPage/>} />
+        <Route path={'/experiment'} element={<Experiment/>} />
       </Routes>
     </Router>
   );

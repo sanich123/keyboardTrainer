@@ -1,0 +1,13 @@
+@keyframes moveRight {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.car1 {
+  background: red;
+  animation: moveRight 8s;
+}
