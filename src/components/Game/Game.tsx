@@ -5,12 +5,13 @@ import { langsData } from '../../components/Settings';
 import { TextWindow, TextWindowProps } from './TextWindow';
 import { Keyboard, KeyboardProps } from './Keyboard';
 import { TrafficLight, TrafficLightProps } from './TrafficLight';
+import { Racing, RacingProps } from './Racing';
 import { keys } from './TextWindow/specialKeys';
 import styles from './Game.module.scss';
 
 export function Game() {
   const text = {
-    en: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit rem at tempora corporis, omnis nemo',
+    en: 'Lorem ipsum',
     ru: 'Пре',
   };
   const { isRu } = useThemeLang();
@@ -22,10 +23,9 @@ export function Game() {
   const [idx, setIdx] = useState(-1);
   const [keyLang, setKeyLang] = useState<'ru' | 'en'>('en');
   const [time, setTime] = useState(0);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [speed, setSpeed] = useState(0);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [accuracy, setAccuracy] = useState(0);
+  const [wins, setWins] = useState(0);
 
   const setTimeToString = (
     min = 0,
@@ -146,13 +146,25 @@ export function Game() {
     time,
   };
 
+  const racingProps: RacingProps = {
+    gameSpeed: 3,
+    isGame,
+    wins,
+    setWins,
+    lettersNum: text[keyLang].length,
+    idx,
+  };
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const userData = {
     date: new Date().toLocaleTimeString(),
     time,
     speed,
     accuracy,
+    wins,
   };
+
+  console.log('🚀 ~ checkWinner ~ wins', wins);
 
   return (
     <div
@@ -166,6 +178,7 @@ export function Game() {
 
       <TextWindow {...textWindowProps} />
       <Keyboard {...keyboardProps} />
+      <Racing {...racingProps} />
     </div>
   );
 }

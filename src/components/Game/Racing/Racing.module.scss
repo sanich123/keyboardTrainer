@@ -1,0 +1,44 @@
+.Racing {
+
+  .road {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 50px;
+    background: #505050;
+    position: relative;
+    max-width: 86%;
+    margin: auto;
+    transition: var(--transition);
+
+    &:first-child {
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+      border-bottom: 10px dashed var(--dimmed-border-placeholder);
+    }
+
+    &:last-child {
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+    }
+  }
+
+  .start,
+  .finish path {
+    fill: var(--dimmed-border-placeholder);
+  }
+
+  .start {
+    margin-left: 100px;
+  }
+
+  .finish {
+    margin-right: 100px;
+  }
+
+  .car,
+  .userCar {
+    position: absolute;
+    width: 80px;
+    z-index: 1;
+    transition: 1s;
+  }
+
+}
