@@ -69,10 +69,6 @@ export function Racing({ gameSpeed, isGame, wins, setWins, lettersNum, idx }: Ra
     moveCarsToStart();
   }
 
-  // if (isGame && idx === -1) {
-  //   moveCarsToStart();
-  // }
-
   if (idx > -1 && idx <= lettersNum + 2) {
     checkWinner();
   }
@@ -106,7 +102,6 @@ export function Racing({ gameSpeed, isGame, wins, setWins, lettersNum, idx }: Ra
             ref={carRef}
             style={{
               transition: isGame && idx > -1 ? `${gameSpeed}s linear` : `${.6}s ease-in-out`,
-              // transform: isGame || (!isGame && idx === lettersNum - 1) ? `translateX(${tackWidth}px)` : 'translateX(0px)',
               x: carX,
             }}
           />
