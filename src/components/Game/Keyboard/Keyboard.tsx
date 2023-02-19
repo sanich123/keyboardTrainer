@@ -367,10 +367,11 @@ export function Keyboard({ lang, char, isRightKey, idx, setIdx, keyLang, setKeyL
 
   const onClicksHideShowKeyboardBtnHandler = () => {
     setShowKeyboard(!showKeyboard);
-    setTime(0);
   };
+
   const onClicksKeyLangBtnHandler = () => {
     setIdx(-1);
+    setTime(0);
     keyLang === 'ru' ? setKeyLang('en') : setKeyLang('ru');
   };
 
