@@ -13,6 +13,7 @@ export default function Footer() {
   const { ru, en } = LANG_VALUES;
   const lang = isRu ? ru : en;
   const colorLogo = isLight ? '#FFFFFF' : '#514B4B';
+  const colorLogo2 = isLight ? '#514B4B' : '#FFFFFF';
 
   return (
     <div className={`footer-all ${isLight ? 'footer-light' : 'footer-darck'}`}>
@@ -26,7 +27,7 @@ export default function Footer() {
           </div>
           <div className="footer-div-component footer-div-component-right">
             <a href="https://rs.school/js/">
-              <LogoRS widthNum={'154'} heightNum={'57'} colorName={colorLogo} />
+              <LogoRS widthNum={'154'} heightNum={'57'} colorName={colorLogo} colorName2={colorLogo2} />
             </a>
             <p className="margin-after-img">{`${langsData[lang].footer.sign}`}</p>
           </div>
