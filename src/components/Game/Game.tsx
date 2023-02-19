@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 import { LANG_VALUES } from '../../utils/const';
 import { langsData } from '../../components/Settings';
@@ -8,6 +8,9 @@ import { TrafficLight, TrafficLightProps } from './TrafficLight';
 import { Racing, RacingProps } from './Racing';
 import { keys } from './TextWindow/specialKeys';
 import styles from './Game.module.scss';
+import { useAuth0 } from '@auth0/auth0-react';
+import { toast } from 'react-toastify';
+import { useAddRaceDataMutation } from '../../redux/keyboard-trainer-api';
 
 export function Game() {
   const text = {
@@ -15,6 +18,8 @@ export function Game() {
     ru: 'Пре',
   };
   const { isRu } = useThemeLang();
+  const {user} = useAuth0();
+  const [sendRaceData] = useAddRaceDataMutation();
   const lang = isRu ? LANG_VALUES.ru : LANG_VALUES.en;
   const [errorCount, setErrorCount] = useState(0);
   const [isStoped, setIsStoped] = useState(false);
@@ -26,6 +31,32 @@ export function Game() {
   const [speed, setSpeed] = useState(0);
   const [accuracy, setAccuracy] = useState(0);
   const [wins, setWins] = useState(0);
+  const [isEnded, setIsEnded] = useState(false);
+
+
+  useEffect(() => {
+    async function sendData() {
+      return await sendRaceData({
+        name: user?.nickname,
+        speed,
+        mistakes: accuracy,
+        date: new Date(),
+      })
+        .unwrap()
+        .then((success) => {
+          console.log(success);
+          toast.warn('Данные отправлены на сервер');
+        })
+        .catch((error) => {
+          toast.warn('Во время передачи данных произошла ошибка');
+          console.log(error);
+        });
+    }
+    if (isEnded) {
+      toast.warn('Гонка закончилась');
+      sendData();
+    }
+  },[accuracy, isEnded, sendRaceData, speed, user?.nickname]);
 
   const setTimeToString = (
     min = 0,
@@ -45,6 +76,7 @@ export function Game() {
 
   const accuracyCount = Math.floor(((idx + 2) - errorCount) / (idx + 2) * 100);
   const speedCount = Math.floor((idx + 2) / (time / 60 || 1));
+  console.log(speed, accuracy, wins);
 
   const checkKey = (e: React.KeyboardEvent<HTMLDivElement>)
     : boolean | string => {
@@ -153,6 +185,7 @@ export function Game() {
     setWins,
     lettersNum: text[keyLang].length,
     idx,
+    setIsEnded,
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

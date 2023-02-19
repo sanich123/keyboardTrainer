@@ -13,7 +13,7 @@ export default function CreateMainPage() {
   return (
     <div className="mainpage-div"
       style={{ background: `url(${isLight ? BgLight : BgDark})`,
-      backgroundSize: 'cover'}}
+        backgroundSize: 'cover'}}
     >
       <Header />
       <CtaElement />
