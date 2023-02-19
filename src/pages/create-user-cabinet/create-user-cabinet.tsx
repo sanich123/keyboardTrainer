@@ -9,13 +9,14 @@ import ChartStats from '../../components/chart/chart';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 import { useGetStatisticsQuery } from '../../redux/keyboard-trainer-api';
 import { useAuth0 } from '@auth0/auth0-react';
-import { NUM_RACES_AWARD } from '../../utils/const';
+import { LANG_VALUES, NUM_RACES_AWARD } from '../../utils/const';
 
 
 export default function CreateUserCabinet() {
 
   const { isLight, isRu } = useThemeLang();
-  const lang = isRu ? 'ru' : 'en';
+  const { ru, en } = LANG_VALUES;
+  const lang = isRu ? ru : en;
   const { user } = useAuth0();
   const { data: statisticData, error, isLoading } = useGetStatisticsQuery(user?.nickname);
   console.log(user);

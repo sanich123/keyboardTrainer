@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../../utils/const';
+import { LANG_VALUES, ROUTES } from '../../utils/const';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 import { BtnPrinary, BtnSecondary } from '../buttons/buttons';
 import { langsData } from '../Settings';
@@ -7,7 +7,8 @@ import './cta-element.scss';
 
 export default function CtaElement() {
   const { isRu, isLight } = useThemeLang();
-  const lang = isRu ? 'ru' : 'en';
+  const { ru, en } = LANG_VALUES;
+  const lang = isRu ? ru : en;
 
   return (
     <div className="cta-block">

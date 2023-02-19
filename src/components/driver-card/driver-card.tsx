@@ -1,7 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
 import { useGetStatisticsQuery } from '../../redux/keyboard-trainer-api';
-import { ROUTES } from '../../utils/const';
+import { LANG_VALUES, ROUTES } from '../../utils/const';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 import { BtnPrinary, BtnSecondary } from '../buttons/buttons';
 import { langsData } from '../Settings';
@@ -13,7 +13,8 @@ export default function DriverCard() {
   const { isRu, isLight } = useThemeLang();
   const { data: statisticData, isLoading, error } = useGetStatisticsQuery(user?.nickname);
 
-  const lang = isRu ? 'ru' : 'en';
+  const { ru, en } = LANG_VALUES;
+  const lang = isRu ? ru : en;
 
   return (
     <div

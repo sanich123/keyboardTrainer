@@ -1,6 +1,5 @@
 .btns-cta {
   margin-top: 30px;
-  // margin-bottom: 200px;
   max-width: 340px;
   display: flex;
   justify-content: space-between;
@@ -34,6 +33,22 @@
 margin-right: 10px;
 }
 
+.btn-secondary-light {
+  background-color: #514B4B;
+}
+
+.btn-secondary-darck {
+  background-color: #F0B1B1;
+}
+
 .btn-primary {
   border-radius: 10px 50px 50px 10px;
+}
+
+.btn-primary-light {
+  background-color: #E21022;
+}
+
+.btn-primary-darck {
+  background-color: #F2F2F2;
 }

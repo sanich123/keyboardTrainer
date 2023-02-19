@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../../utils/const';
+import { LANG_VALUES, ROUTES } from '../../utils/const';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 import './header.scss';
 import PersonLight from '../../assets/img/person-light.webp';
@@ -9,7 +9,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 export function Navigation() {
   const { isRu } = useThemeLang();
-  const lang = isRu ? 'ru' : 'en';
+  const { ru, en } = LANG_VALUES;
+  const lang = isRu ? ru : en;
   const { isAuthenticated } = useAuth0();
 
   return (

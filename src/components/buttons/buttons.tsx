@@ -9,7 +9,7 @@ export function BtnSecondary(text: TextBtn) {
   const { isLight } = useThemeLang();
 
   return (
-    <button className="btn-secondary" style={{backgroundColor: `${isLight ? '#514B4B' : '#F0B1B1'}`}}>{text.text}</button>
+    <button className={`btn-secondary ${isLight ? 'btn-secondary-light' : 'btn-secondary-darck'}`}>{text.text}</button>
   );
 }
 
@@ -17,7 +17,7 @@ export function BtnPrinary(text: TextBtn) {
   const { isLight } = useThemeLang();
 
   return (
-    <button className="btn-primary" style={{backgroundColor: `${isLight ? '#E21022' : '#F2F2F2'}`}}>{text.text}
+    <button className={`btn-primary ${isLight ? 'btn-primary-light' : 'btn-primary-darck'}`} >{text.text}
     </button>
   );
 }

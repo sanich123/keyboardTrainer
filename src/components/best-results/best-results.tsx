@@ -4,13 +4,15 @@ import { BestIndex } from './best-results-components';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useGetStatisticsQuery } from '../../redux/keyboard-trainer-api';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
+import { LANG_VALUES } from '../../utils/const';
 
 
 export default function BestResults() {
   const { isRu } = useThemeLang();
   const { user } = useAuth0();
   const { data: statisticData, isLoading, error } = useGetStatisticsQuery(user?.nickname);
-  const lang = isRu ? 'ru' : 'en';
+  const { ru, en } = LANG_VALUES;
+  const lang = isRu ? ru : en;
   console.log(statisticData);
   console.log(user);
 

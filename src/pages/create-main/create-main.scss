@@ -3,3 +3,13 @@
   grid-template-areas: "header" "main" "footer";
   grid-template-rows: min-content 1fr min-content;
 }
+
+.mainpage-div-light {
+  background: url('../../assets/img/bg-light.png');
+  background-size: 'cover'
+}
+
+.mainpage-div-darck {
+  background: url('../../assets/img/bg-dark.png');
+  background-size: 'cover'
+}
