@@ -75,7 +75,8 @@ export function TextWindow({
       inFocus ? massageRef.current.textContent = continueMessage : textAreaRef.current.focus();
       setInFocus(!inFocus);
     }
-    pauseTimer();
+    // if (!inFocus) { startTimer(); }
+    // else { pauseTimer(); }
   };
 
   const pauseTimer = () => {
@@ -117,15 +118,13 @@ export function TextWindow({
       setFocusToTextWindow();
     }
     if (!intervalId && idx === -1) {
-      setFocusToTextWindow();
       startTimer();
+      setFocusToTextWindow();
     }
   };
 
   if (isGame) { startGame(); }
-  else {
-    endGame();
-  }
+  else { endGame(); }
 
   if (idx >= 0 && !text[idx] && isRightKey) {
     endGame();
