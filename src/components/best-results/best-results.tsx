@@ -38,7 +38,7 @@ export default function BestResults() {
             />
           </>
         )}
-        {error && <h1>An error occured</h1>}
+        {error && <h1>{`${langsData[lang].dataStatus.noDataTenRaces}`}</h1>}
       </div>
     </div>
   );

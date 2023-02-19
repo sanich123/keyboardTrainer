@@ -5,19 +5,24 @@ import Footer from '../../components/footer/footer';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 import Header from '../../components/header/header';
 import CtaElement from '../../components/cta-element/cta-element';
+// import ModalRules from '../../components/modal-rules/modal';
 
 
 export default function CreateMainPage() {
   const { isLight } = useThemeLang();
 
+
   return (
-    <div className="mainpage-div"
-      style={{ background: `url(${isLight ? BgLight : BgDark})`,
-      backgroundSize: 'cover'}}
-    >
-      <Header />
-      <CtaElement />
-      <Footer />
-    </div>
+    <>
+      {/* <ModalRules /> */}
+      <div className="mainpage-div"
+        style={{ background: `url(${isLight ? BgLight : BgDark})`,
+        backgroundSize: 'cover'}}
+      >
+        <Header />
+        <CtaElement />
+        <Footer />
+      </div>
+    </>
   );
 }

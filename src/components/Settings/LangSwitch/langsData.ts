@@ -70,6 +70,11 @@ export const langsData: LangData = {
     footer: {
       sign: '© 2023. Special for RS School',
     },
+    dataStatus: {
+      noDataFirstRace: 'Not started yet',
+      noDataTenRaces: 'To get statistics, you must complete the race.',
+
+    },
   },
   ru: {
     pageHome: {
@@ -137,6 +142,10 @@ export const langsData: LangData = {
     },
     footer: {
       sign: '© 2023. Специально для RS School',
+    },
+    dataStatus: {
+      noDataFirstRace: 'Ещё не стартовал',
+      noDataTenRaces: 'Для получения статистики необходимо закончить заезд.',
     },
   },
 };

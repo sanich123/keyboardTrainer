@@ -7,7 +7,7 @@ export default function ModalRules() {
   const { isLight } = useThemeLang();
 
   return (
-    <div className="modal">
+    <div className="modal-all">
       <div className={`modal-container ${isLight ? 'light-modal' : 'darck-modal'}` }>
         fdsf
       </div>

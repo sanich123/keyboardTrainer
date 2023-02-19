@@ -17,9 +17,10 @@ export default function CreateUserCabinet() {
   const { isLight, isRu } = useThemeLang();
   const lang = isRu ? 'ru' : 'en';
   const { user } = useAuth0();
-  const { data: statisticData } = useGetStatisticsQuery(user?.nickname);
+  const { data: statisticData, error, isLoading } = useGetStatisticsQuery(user?.nickname);
   console.log(user);
   console.log(statisticData);
+
 
   return (
     <div className={`all-div ${isLight ? 'light-theme' : 'darck-theme'}`}>
@@ -32,9 +33,15 @@ export default function CreateUserCabinet() {
           <BestResults />
           <div className="chart-section">
             <h2 className="h2-chart">{`${langsData[lang].pageStatistic.chartName}`}</h2>
-            <div className={`chart ${isLight ? '' : 'darck-theme-chart'}`}>
-              <ChartStats />
-            </div>
+            {isLoading && <h1>Loading...</h1>}
+            { statisticData && (
+              <div className={`chart ${isLight ? '' : 'darck-theme-chart'}`}>
+                <ChartStats />
+              </div>
+            ) }
+            { error && (
+              <p className="p-noinfo-chart">{`${langsData[lang].dataStatus.noDataTenRaces}`}</p>
+            ) }
           </div>
           <div className="awaards-section">
             <h2 className="h2-awards">{`${langsData[lang].pageStatistic.award}`}</h2>
