@@ -13,7 +13,7 @@ export interface SettingsProps {
   theme: string,
 }
 
-export default function Settings() {
+export function Settings() {
   const [show, setShow] = useState(false);
   const { dispatch, isRu, isLight } = useThemeLang();
   const lang = isRu ? LANG_VALUES.ru : LANG_VALUES.en;

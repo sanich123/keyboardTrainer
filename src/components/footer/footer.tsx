@@ -5,7 +5,7 @@ import LogoRS from '../../data/svg-functions/logo-rs';
 import LogoRace from '../../data/svg-functions/logo-race';
 
 
-export default function Footer() {
+export function Footer() {
 
   const { isLight } = useThemeLang();
 
@@ -16,7 +16,7 @@ export default function Footer() {
           <div className="footer-div-component">
             <LogoRace widthNum={'176'} heightNum={'55'} colorName={`${isLight ? '#FFFFFF' : '#514B4B'}`} />
             <div className="div-links-github">
-              { DEVELOPERS.map((data) => <a href={data.gitHub} className="link-github margin-after-img" key={data.id}>{data.name}</a>) }
+              {DEVELOPERS.map((data) => <a href={data.gitHub} className="link-github margin-after-img" key={data.id}>{data.name}</a>)}
             </div>
           </div>
           <div className="footer-div-component footer-div-component-right">

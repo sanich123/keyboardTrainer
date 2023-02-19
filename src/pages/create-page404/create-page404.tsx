@@ -5,23 +5,25 @@ import Num404 from '../../assets/img/404-num.webp';
 import Car404 from '../../assets/img/404-car.webp';
 // import { Link } from 'react-router-dom';
 // import { ROUTES } from '../utils/const';
-import Header from '../../components/header/header';
+import { Header } from '../../components/header/header';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
-import Footer from '../../components/footer/footer';
+import { Footer } from '../../components/footer/footer';
 
 export default function CreatePage404() {
 
   const { isRu, isLight } = useThemeLang();
 
   return (
-    <div className="all-div" style={{ background: `url(${isLight ? BgLight404 : BgDarck404})`,
-      backgroundSize: 'cover'}}
+    <div className="all-div" style={{
+      background: `url(${isLight ? BgLight404 : BgDarck404})`,
+      backgroundSize: 'cover',
+    }}
     >
       <Header />
       <div className="main">
         <img src={Num404} alt="num-404" />
         <h1 className="h1-page"
-          style={{color: `${isLight ? '#000000' : '#FFFFFF'}`}}
+          style={{ color: `${isLight ? '#000000' : '#FFFFFF'}` }}
         >{isRu ? 'Страница не найдена' : 'Page Not Found'}
         </h1>
         <img src={Car404} alt="car-404" />
