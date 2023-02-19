@@ -10,10 +10,10 @@ export const keyboardTrainerApi = createApi({
     }),
 
     addRaceData: builder.mutation({
-      query: ({id, ...body}) =>
+      query: (body) =>
         ({
-          url: `/posts/${id}`,
-          method: 'PUT',
+          url: '/race',
+          method: 'POST',
           body,
         }),
     }),
