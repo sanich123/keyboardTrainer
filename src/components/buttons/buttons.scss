@@ -1,9 +1,13 @@
 .btns-cta {
   margin-top: 30px;
-  margin-bottom: 200px;
+  // margin-bottom: 200px;
   max-width: 340px;
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 430px) {
+    max-width: 300px;
+  }
 }
 
 .btn-secondary,
@@ -16,8 +20,18 @@
 
   &:hover {
     cursor: pointer;
-    transform: scale(1.1);
+    filter: drop-shadow(0px 4px 20px rgba(255, 255, 255, 0.25));
   }
+
+  @media screen and (max-width: 430px) {
+    padding: 10px 37px;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+}
+
+.btn-secondary {
+margin-right: 10px;
 }
 
 .btn-primary {

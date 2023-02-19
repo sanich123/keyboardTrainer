@@ -1,6 +1,7 @@
 .div-header {
   grid-area: header;
-  width: 100%;
+  max-width: 1600px;
+  margin: auto;
   padding: 20px 60px 0px;
   font-size: 18px;
   font-weight: 700;
@@ -79,4 +80,11 @@
   &:hover {
     text-decoration: underline;
   }
+}
+
+.img-user {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  border-radius: 100%;
 }

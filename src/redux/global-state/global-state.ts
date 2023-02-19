@@ -22,11 +22,8 @@ const globalState = createSlice({
     changeLanguage: (state) => {
       state.language = (state.language === LANG_VALUES.ru) ? LANG_VALUES.en : LANG_VALUES.ru;
     },
-    changeAuthorization: (state) => {
-      state.authorization = !state.authorization;
-    },
   },
 });
 
-export const { changeTheme, changeLanguage, changeAuthorization } = globalState.actions;
+export const { changeTheme, changeLanguage } = globalState.actions;
 export default globalState.reducer;
