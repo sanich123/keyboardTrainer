@@ -1,0 +1,75 @@
+.Keyboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  .switchButtons {
+    // max-width: 86%;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: auto;
+    // font-size: 18px;
+    // font-weight: 700;
+    color: var(--dimmed-border-placeholder);
+
+    .btnIcons {
+      width: 35px;
+      height: 35px;
+      border-radius: 5px;
+      padding: 5px;
+      transition: var(--transition);
+    }
+
+    button {
+
+      &:hover,
+      &.active {
+        .btnIcons {
+          background: #ffe39c;
+          color: #000;
+        }
+      }
+    }
+
+    .hideShowKeyboardBtn {
+      width: max-content;
+      margin: auto;
+      transition: var(--transition);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      &:hover {
+        color: var(--font-color);
+      }
+    }
+  }
+
+
+
+  .keyboardImg {
+    position: absolute;
+    transition: var(--transition-menu-close);
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+    transform: translateY(-100%);
+
+
+    &__active {
+      position: static;
+      transition: var(--transition-menu-open);
+      opacity: 1;
+      visibility: visible;
+      z-index: 0;
+      display: flex;
+      justify-content: center;
+      background-color: var(--primary-bg-color);
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+}

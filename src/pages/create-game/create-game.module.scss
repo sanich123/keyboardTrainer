@@ -1,0 +1,22 @@
+body {
+  background: url('../../assets/img/background.png') no-repeat;
+  background-size: cover;
+  background-position: 50% 0%;
+
+  @media screen and (width <=var(--notebook)) {
+    max-width: var(--notebook);
+  }
+
+  @media screen and (width <=var(--tablet)) {
+    max-width: var(--tablet);
+  }
+
+  @media screen and (width <=var(--mobile)) {
+    max-width: var(--mobile);
+  }
+}
+
+.CreateGamePage {
+  margin: 0 auto;
+  max-width: var(--desktop);
+}

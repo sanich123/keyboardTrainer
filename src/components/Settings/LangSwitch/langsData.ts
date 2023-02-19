@@ -1,5 +1,9 @@
 export type LangData = {
-  [key: string]: { [key: string]: { [key: string]: string | { [key: string]: string } } }
+  [key: string]: {
+    [key: string]: {
+      [key: string]: (string | { [key: string]: string })
+    }
+  }
 }
 
 export const langsData: LangData = {
@@ -13,12 +17,26 @@ export const langsData: LangData = {
       ctaText: 'Start your race! Find out your typing speed and accuracy. Do various races, improve your skills and compete with others. Try different languages and see your results in the "Statistics" section.',
     },
     pageGame: {
+      hideShowKeyboardBtn: 'Hide / Show keyboard',
+      textWindow: {
+        startMessage: 'Click me to Start',
+        continueMessage: 'Click me to Continue',
+        gameOverMessage: 'Game over!',
+      },
       trafficLight: {
         elapsedTime: 'Elapsed time',
         speed: 'Speed',
         accuracy: 'Accuracy',
+        elapsedTimeUnit: 'min:sec',
+        speedUnit: 'char/min',
+        accuracyUnit: '%',
       },
-      hideShowKeyboard: 'Hide / Show keyboard',
+      keyLangBtn: {
+        ru: 'Layout: Ru',
+        en: 'Layout: En',
+      },
+      newGameBtn: 'New Game',
+
     },
     pageStatistic: {
       h1: 'Statistic',
@@ -81,12 +99,25 @@ export const langsData: LangData = {
       ctaText: 'Начни свою гонку! Узнай свою скорость печати и точность. Делай различные заезды, совершенствуй свои навыки и соревнуйся с другими. Попробуй разные языки, и смотри свои результаты в разделе "Статистика".',
     },
     pageGame: {
+      hideShowKeyboardBtn: 'Скрыть / Показать клавиатуру',
+      textWindow: {
+        startMessage: 'Нажми меня для начала',
+        continueMessage: 'Нажми меня для продолжения',
+        gameOverMessage: 'Игра окончена!',
+      },
       trafficLight: {
         elapsedTime: 'Пройденное время',
         speed: 'Скорость',
         accuracy: 'Точность',
+        elapsedTimeUnit: 'мин:сек',
+        speedUnit: 'зн/мин',
+        accuracyUnit: '%',
       },
-      hideShowKeyboard: 'Скрыть / показать клавиатуру',
+      keyLangBtn: {
+        ru: 'Раскладка: Рус',
+        en: 'Раскладка: Англ',
+      },
+      newGameBtn: 'Новая игра',
     },
     pageStatistic: {
       h1: 'Статистика',
