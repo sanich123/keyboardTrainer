@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../utils/const';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
-import './header.scss';
-import PersonLight from '../../assets/img/person-light.webp';
-import PersonDarck from '../../assets/img/person-dark.webp';
 import { langsData } from '../Settings/LangSwitch/langsData';
 import { useAuth0 } from '@auth0/auth0-react';
+import { RiUser3Fill } from 'react-icons/ri';
+import styles from './header-components.module.scss';
 
 export function Navigation() {
   const { isRu } = useThemeLang();
@@ -13,15 +12,15 @@ export function Navigation() {
   const { isAuthenticated } = useAuth0();
 
   return (
-    <nav className="header-nav">
-      <li className="li-navigation li-margin">
+    <nav className={styles.headerNav}>
+      <li className={`${styles.liNavigation} ${styles.liMargin}`}>
         <Link to={ROUTES.main}>{`${langsData[lang].menuMain.about}`}</Link>
       </li>
-      <li className="li-navigation li-margin">
+      <li className={`${styles.liNavigation} ${styles.liMargin}`}>
         <Link to={ROUTES.game}>{`${langsData[lang].menuMain.race}`}</Link>
       </li>
       {isAuthenticated && (
-        <li className="li-navigation">
+        <li className={styles.liNavigation}>
           <Link to={ROUTES.cabinet}>{`${langsData[lang].menuMain.stats}`}</Link>
         </li>
       )}
@@ -30,39 +29,42 @@ export function Navigation() {
 }
 
 export function LoginNavigation() {
-  const { isRu, isLight } = useThemeLang();
+  const { isRu } = useThemeLang();
   const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
     useAuth0();
-  const btnText = isRu ? 'Войти' : 'Login';
-  const logoutBtnText = isRu ? 'Выйти' : 'Log out';
-  const loadingText = isRu ? 'Загрузка...' : 'Loading...';
-  const themeImg = isLight ? PersonLight : PersonDarck;
+
+  const lang = isRu ? 'ru' : 'en';
+  const { logIn, logOut } = langsData[lang].menuLogin as { [key: string]: string };
+  const { loading } = langsData[lang].misc as { [key: string]: string };
+  const themeImg = <RiUser3Fill className={styles.imgUser} />;
+
   return (
-    <div className="div-login-navigation">
+    <div className={styles.divLoginNavigation}>
       <Link to={ROUTES.cabinet}>
-        <img
-          src={isAuthenticated ? user?.picture : themeImg}
-          alt="settings"
-          className="img-user"
-          loading="lazy"
-        />
+        {
+          isAuthenticated
+            ? <img src={user?.picture} alt="settings" className={styles.imgUser} loading="lazy" />
+            : themeImg
+        }
       </Link>
 
       <Link
-        className="text-login"
+        className={styles.textLogin}
         onClick={() => !isAuthenticated && loginWithRedirect()}
         to={ROUTES.cabinet}
       >
-        {isAuthenticated && user?.email}
-        {!isAuthenticated && !isLoading && btnText}
-        {isLoading && loadingText}
+        <>
+          {isAuthenticated && user?.email}
+          {!isAuthenticated && !isLoading && logIn}
+          {isLoading && loading}
+        </>
       </Link>
       {isAuthenticated && (
         <button
           onClick={() =>
             logout({ logoutParams: { returnTo: window.location.origin } })}
         >
-          {logoutBtnText}
+          {logOut}
         </button>
       )}
     </div>
