@@ -9,7 +9,7 @@ import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 export default function BestResults() {
   const { isRu } = useThemeLang();
   const { user } = useAuth0();
-  const { data: statisticData, isLoading, error } = useGetStatisticsQuery(user?.nickname);
+  const { data: statisticData, isLoading } = useGetStatisticsQuery(user?.nickname);
   const lang = isRu ? 'ru' : 'en';
 
   return (
@@ -36,7 +36,6 @@ export default function BestResults() {
             />
           </>
         )}
-        {error && <h1>An error occured</h1>}
       </div>
     </div>
   );
