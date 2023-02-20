@@ -10,6 +10,7 @@
   align-items: center;
   font-size: var(--font-size-desktop);
   font-weight: var(--font-weight-header);
+  color: var(--font-color);
   padding: var(--padding-desktop);
   margin: auto;
   transition: var(--transition);
@@ -41,6 +42,7 @@
 
     .headerLogo {
       width: var(--logo-width-desktop);
+      filter: var(--logo-color-white);
 
       @media screen and (width <=$tablet) {
         width: var(--logo-width-tablet);
