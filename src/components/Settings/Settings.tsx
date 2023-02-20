@@ -13,7 +13,7 @@ export interface SettingsProps {
   theme: string,
 }
 
-export default function Settings() {
+export function Settings() {
   const [show, setShow] = useState(false);
   const { dispatch, isRu, isLight } = useThemeLang();
   const lang = isRu ? LANG_VALUES.ru : LANG_VALUES.en;
@@ -25,7 +25,9 @@ export default function Settings() {
       <div className={styles.buttonWrap}>
         <button type="button" className={`${styles.btn} ${active}`} onClick={() => setShow(!show)}>
           <RiSettings2Fill className={styles.buttonIcon} />
-          {`${langsData[lang].menuSettings.settingsBtn}`}
+          <span className={styles.btnText}>
+            {`${langsData[lang].menuSettings.settingsBtn}`}
+          </span>
         </button>
       </div>
       <div className={`${styles.menu} ${active}`}>

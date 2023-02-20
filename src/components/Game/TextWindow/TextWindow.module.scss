@@ -1,3 +1,5 @@
+@import '../../../styles/vars.scss';
+
 .TextWindow {
 
   --padding-horizontal: 35px;
@@ -50,6 +52,15 @@
       border-radius: var(--border-radius);
       z-index: 1;
       cursor: pointer;
+
+      @media screen and (width <=$notebook) {}
+
+      @media screen and (width <=$tablet) {}
+
+      @media screen and (width <=$mobile) {
+        text-align: center;
+        line-height: 1;
+      }
     }
   }
 

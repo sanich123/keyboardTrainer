@@ -1,3 +1,5 @@
+@import "../../styles/vars.scss";
+
 .Settings {
   position: relative;
   color: var(--font-color);
@@ -6,11 +8,6 @@
 
   .buttonWrap {
     color: var(--primary-font-color);
-
-    .buttonIcon {
-      width: 20px;
-      height: 20px;
-    }
 
     .btn {
       display: flex;
@@ -27,9 +24,23 @@
 
       &:hover,
       &.active {
-        // background: var(--selection-bg-color);
-        // color: var(--selection-font-color);
+        color: var(--primary-color);
         text-decoration: underline;
+      }
+
+      .btnText {
+        @media screen and (width <=$mobile) {
+          display: none;
+        }
+      }
+
+      .buttonIcon {
+        width: 20px;
+        height: auto;
+
+        @media screen and (width <=$mobile) {
+          width: 25px;
+        }
       }
     }
   }
@@ -40,9 +51,9 @@
     gap: 15px;
     position: absolute;
     right: 0;
-    transform: translateY(-100%);
     padding: 20px 20px;
     margin-top: 10px;
+    transform: translateY(-100%);
     z-index: -1;
     transition: var(--transition-menu-close);
     opacity: 0;

@@ -1,0 +1,26 @@
+.btnSecondary,
+.btnPrimary {
+  padding: 13px 45px;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+
+.btnPrimary {
+  color: var(--btn-primary-font-color);
+  background: var(--btn-primary-bg-color);
+  border-radius: 20px 50px 50px 20px;
+}
+
+.btnSecondary {
+  color: var(--btn-secondary-font-color);
+  background: var(--btn-secondary-bg-color);
+}

@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 import { renderWithProviders } from '../../tests/test-utils';
-import Footer from './footer';
+import { Footer } from './footer';
 
 describe('Footer', () => {
   it('Render correct text', () => {
@@ -13,7 +13,7 @@ describe('Footer', () => {
     ).toBeInTheDocument();
   });
   it('The document has correct link', () => {
-    renderWithProviders(<Footer/>);
+    renderWithProviders(<Footer />);
     expect(screen.getAllByRole('link')).toHaveLength(4);
   });
 });

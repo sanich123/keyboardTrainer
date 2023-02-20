@@ -1,10 +1,12 @@
+@import '../../../styles/vars.scss';
+
 .Racing {
 
   .road {
     display: flex;
     justify-content: space-between;
     padding: 15px 50px;
-    background: #505050;
+    background: var(--race-road-bg-color);
     position: relative;
     max-width: 86%;
     margin: auto;
@@ -18,19 +20,38 @@
     &:last-child {
       border-radius: 0 0 var(--border-radius) var(--border-radius);
     }
+
+    @media screen and (width <=$mobile) {
+      padding: 5px 15px;
+    }
   }
 
-  .start,
+  .start path,
   .finish path {
     fill: var(--dimmed-border-placeholder);
   }
 
+  .start,
+  .finish {
+    @media screen and (width <=$mobile) {
+      width: 20px;
+    }
+  }
+
   .start {
     margin-left: 100px;
+
+    @media screen and (width <=$mobile) {
+      margin-left: 75px;
+    }
   }
 
   .finish {
     margin-right: 100px;
+
+    @media screen and (width <=$mobile) {
+      margin-right: 75px;
+    }
   }
 
   .car,
@@ -39,6 +60,10 @@
     width: 80px;
     z-index: 1;
     transition: 1s;
+
+    @media screen and (width <=$mobile) {
+      width: 60px;
+    }
   }
 
 }

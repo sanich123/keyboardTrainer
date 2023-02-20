@@ -1,0 +1,72 @@
+@import "../../styles/vars.scss";
+
+.footerSection {
+  grid-area: footer;
+  background: var(--footer-bg--color);
+  color: var(--footer-font-color);
+  margin-top: 50px;
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    max-width: $desktop;
+    padding: var(--padding-desktop);
+    margin: auto;
+    gap: 20px;
+    transition: var(--transition);
+
+    @media screen and (width <=$notebook) {}
+
+    @media screen and (width <=$tablet) {}
+
+    @media screen and (width <=$mobile) {
+      flex-direction: column;
+      gap: 50px;
+    }
+
+    .footer__leftSide,
+    .footer__rightSide {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 44px;
+    }
+
+    .logoRss,
+    .footerLogo {
+      height: 55px;
+      width: fit-content;
+      gap: 40px;
+    }
+
+    .footer__leftSide {
+
+      .footerLogo {
+        filter: contrast(0) brightness(10);
+      }
+
+      .divLinksGithub {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+
+        .linkGithub {
+          font-weight: 700;
+          transition: var(--transition);
+
+          &:hover {
+            color: var(--primary-color)
+          }
+        }
+      }
+    }
+
+    .footer__rightSide {
+
+      .logoRss {
+        // filter: contrast(0) brightness(10);
+      }
+    }
+  }
+
+}

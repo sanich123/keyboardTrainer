@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react';
 import { renderWithProviders } from '../../tests/test-utils';
 import { useAuth0 } from '@auth0/auth0-react';
 import { authorized, nonAuthorized, isLoading } from '../../tests/test-const';
-import Header from './header';
+import { Header } from './header';
 
 jest.mock('@auth0/auth0-react');
 

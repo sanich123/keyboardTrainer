@@ -89,6 +89,7 @@ export function Game() {
 
   const onKeyUpHandle = (e: React.KeyboardEvent<HTMLDivElement>)
     : void | undefined => {
+
     if (isGame === false) {
       return;
     }
@@ -208,9 +209,12 @@ export function Game() {
         {trafficLightProps.map((prop: TrafficLightProps) =>
           <TrafficLight key={`${prop.id}`} {...prop} />)}
       </div>
-
-      <TextWindow {...textWindowProps} />
-      <Keyboard {...keyboardProps} />
+      <div className={styles.textWindow}>
+        <TextWindow {...textWindowProps} />
+      </div>
+      <div className={styles.keyboard}>
+        <Keyboard {...keyboardProps} />
+      </div>
       <Racing {...racingProps} />
     </div>
   );

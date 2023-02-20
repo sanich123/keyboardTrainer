@@ -35,7 +35,7 @@ svg.standard-kb {
 
   path {
     &.active {
-      fill: rgb(232 105 105);
+      fill: var(--primary-color);
     }
 
     &.deadkey {
