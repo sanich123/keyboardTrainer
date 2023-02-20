@@ -1,17 +1,36 @@
 :root {
+
   --transition-menu-close: transform .6s, opacity .1s, background-color .1s, z-index .6s;
   --transition-menu-open: transform .3s, opacity .5s, background-color .5s, z-index .1s;
   --transition: all .3s;
 
   --border-radius: 10px;
 
+  --font-size-desktop: 18px;
+  --font-size-notebook: 18px;
+  --font-size-tablet: 16px;
+  --font-size-mobile: 16px;
+
+  --h1-font-size: 50px;
+  --h2-font-size: 40px;
+  --h3-font-size: 30px;
+
+  --font-weight-header: 700;
+
+  --padding-desktop: 70px 50px;
+  --padding-notebook: 70px 50px;
+  --padding-tablet: 50px 40px;
+  --padding-mobile: 40px 30px;
+
+  --logo-width-desktop: 130px;
+  --logo-width-notebook: 120px;
+  --logo-width-tablet: 110px;
+  --logo-width-mobile: 80px;
+
+  transition: var(--transition);
+
+
   .light {
-    --font-size: 16px;
-
-    --h1-font-size: 50px;
-    --h2-font-size: 40px;
-    --h3-font-size: 30px;
-
     --h-color: #000000;
     --font-color: #514B4B;
 
@@ -60,17 +79,11 @@
     --text-window-onfocus-bg-color: rgb(219 213 255 / 70%);
     --text-window-onfocus-font-color: var(--font-color);
 
-    transition: var(--transition);
+    --logo-color-white: contrast(0) brightness(10);
 
   }
 
   .dark {
-    --font-size: 16px;
-
-    --h1-font-size: 50px;
-    --h2-font-size: 40px;
-    --h3-font-size: 30px;
-
     --h-color: #ffffff;
     --font-color: #f0ebeb;
 
@@ -119,6 +132,7 @@
     --text-window-onfocus-bg-color: rgb(126 114 195 / 70%);
     --text-window-onfocus-font-color: #000;
 
-    transition: var(--transition);
+    --logo-color-white: contrast(0) brightness(10);
+
   }
 }
