@@ -79,7 +79,8 @@ export const langsData: LangData = {
       offBtn: 'Off',
     },
     menuLogin: {
-      login: 'Login',
+      logIn: 'LogIn',
+      logOut: 'LogOut',
       email: 'E-mail',
       password: 'Password',
       btnLogin: 'Login',
@@ -87,6 +88,9 @@ export const langsData: LangData = {
     },
     footer: {
       sign: '© 2023. Special for RS School',
+    },
+    misc: {
+      loading: 'Loading...',
     },
   },
   ru: {
@@ -160,7 +164,8 @@ export const langsData: LangData = {
       offBtn: 'Выкл',
     },
     menuLogin: {
-      login: 'Войти',
+      logIn: 'Войти',
+      logOut: 'Выйти',
       email: 'Почта',
       password: 'Пароль',
       btnLogin: 'Войти',
@@ -168,6 +173,9 @@ export const langsData: LangData = {
     },
     footer: {
       sign: '© 2023. Специально для RS School',
+    },
+    misc: {
+      loading: 'Загрузка...',
     },
   },
 };
