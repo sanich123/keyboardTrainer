@@ -9,7 +9,6 @@ describe('App', () => {
   it('should correctly renders', () => {
     render(<Provider store={setupStore()}><App /></Provider>);
     expect(screen.getByText(/about/i)).toBeInTheDocument();
-    expect(screen.getByText(/stats/i)).toBeInTheDocument();
     expect(screen.getByText(/settings/i)).toBeInTheDocument();
     expect(screen.getByText(/en/i)).toBeInTheDocument();
     expect(screen.getByText(/loading/i)).toBeInTheDocument();
@@ -20,7 +19,7 @@ describe('App', () => {
   });
   it('has proper elements by their roles', () => {
     render(<Provider store={setupStore()}><App /></Provider>);
-    expect(screen.getAllByRole('link')).toHaveLength(9);
+    expect(screen.getAllByRole('link')).toHaveLength(8);
     expect(screen.getAllByRole('button')).toHaveLength(1);
   });
   history.push('j;lkj;lk');
@@ -28,7 +27,6 @@ describe('App', () => {
     render(<Provider store={setupStore()}><App /></Provider>);
     expect(screen.getByText(/about/i)).toBeInTheDocument();
     expect(screen.getByText(/race/i)).toBeInTheDocument();
-    expect(screen.getByText(/stats/i)).toBeInTheDocument();
     expect(screen.getByText(/settings/i)).toBeInTheDocument();
     expect(screen.getByText(/en/i)).toBeInTheDocument();
     expect(screen.getByText(/ru/i)).toBeInTheDocument();

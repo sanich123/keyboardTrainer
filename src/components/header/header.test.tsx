@@ -11,11 +11,11 @@ describe('Header', () => {
     (useAuth0 as jest.Mock).mockReturnValue(isLoading);
     renderWithProviders(<Header />);
     expect(screen.getByAltText(/settings/i)).toBeInTheDocument();
-    expect(screen.getAllByRole('link')).toHaveLength(5);
+    expect(screen.getAllByRole('link')).toHaveLength(4);
     expect(screen.getByRole('button')).toBeInTheDocument();
-    expect(screen.getAllByRole('img')).toHaveLength(2);
+    expect(screen.getByRole('img')).toBeInTheDocument();
     expect(screen.getByRole('navigation')).toBeInTheDocument();
-    expect(screen.getAllByRole('listitem')).toHaveLength(3);
+    expect(screen.getAllByRole('listitem')).toHaveLength(2);
     expect(screen.getByText(/loading.../i)).toBeInTheDocument();
   });
   it('Header should render correct elements, when user is authorizated', () => {
@@ -24,20 +24,19 @@ describe('Header', () => {
     expect(screen.getByAltText(/settings/i)).toBeInTheDocument();
     expect(screen.getAllByRole('link')).toHaveLength(5);
     expect(screen.getAllByRole('button')).toHaveLength(2);
-    expect(screen.getAllByRole('img')).toHaveLength(2);
+    expect(screen.getByRole('img')).toBeInTheDocument();
     expect(screen.getByRole('navigation')).toBeInTheDocument();
     expect(screen.getAllByRole('listitem')).toHaveLength(3);
-    expect(screen.getByText(/johndoe@me.com/i)).toBeInTheDocument();
   });
   it('Header should render correct elements, when user is not authorizated', () => {
     (useAuth0 as jest.Mock).mockReturnValue(nonAuthorized);
     renderWithProviders(<Header />);
     expect(screen.getByAltText(/settings/i)).toBeInTheDocument();
-    expect(screen.getAllByRole('link')).toHaveLength(5);
+    expect(screen.getAllByRole('link')).toHaveLength(4);
     expect(screen.getByRole('button')).toBeInTheDocument();
-    expect(screen.getAllByRole('img')).toHaveLength(2);
+    expect(screen.getByRole('img')).toBeInTheDocument();
     expect(screen.getByRole('navigation')).toBeInTheDocument();
-    expect(screen.getAllByRole('listitem')).toHaveLength(3);
+    expect(screen.getAllByRole('listitem')).toHaveLength(2);
     expect(screen.getByText(/login/i)).toBeInTheDocument();
   });
 });

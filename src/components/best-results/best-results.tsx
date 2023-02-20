@@ -11,8 +11,6 @@ export default function BestResults() {
   const { user } = useAuth0();
   const { data: statisticData, isLoading, error } = useGetStatisticsQuery(user?.nickname);
   const lang = isRu ? 'ru' : 'en';
-  console.log(statisticData);
-  console.log(user);
 
   return (
     <div className="all-div-best">

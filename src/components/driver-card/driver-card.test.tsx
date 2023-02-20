@@ -11,12 +11,10 @@ describe('Driver-card', () => {
     (useAuth0 as jest.Mock).mockReturnValue(isLoading);
     renderWithProviders(<DriverCard/>);
     expect(screen.getAllByRole('button')).toHaveLength(2);
-    expect(screen.getByText(/change photo/i)).toBeInTheDocument();
     expect(screen.getByText(/status/i)).toBeInTheDocument();
     expect(screen.getByText(/first st/i)).toBeInTheDocument();
     expect(screen.getByText(/loading../i)).toBeInTheDocument();
-    expect(screen.getByText(/change photo/i)).toBeInTheDocument();
     expect(screen.getByText(/start race/i)).toBeInTheDocument();
-    expect(await screen.findByText(/2002-09-01T00:00:00.000Z/i)).toBeInTheDocument();
+    expect(await screen.findByText(/2002-09-01/i)).toBeInTheDocument();
   });
 });

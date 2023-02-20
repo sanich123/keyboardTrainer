@@ -53,7 +53,7 @@ export function LoginNavigation() {
         onClick={() => !isAuthenticated && loginWithRedirect()}
         to={ROUTES.cabinet}
       >
-        {isAuthenticated && user?.email}
+        {isAuthenticated && user?.nickname }
         {!isAuthenticated && !isLoading && btnText}
         {isLoading && loadingText}
       </Link>
