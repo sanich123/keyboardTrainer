@@ -1,32 +1,40 @@
-import './footer.scss';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 import { DEVELOPERS } from '../../data/developers-info';
-import LogoRS from '../../data/svg-functions/logo-rs';
-import LogoRace from '../../data/svg-functions/logo-race';
+import logo from '../../assets/img/logo.svg';
+import logoRss from '../../assets/img/logo-rss.svg';
+import { langsData } from '../Settings';
+import styles from './footer.module.scss';
 
 
 export function Footer() {
-
-  const { isLight } = useThemeLang();
+  const { isRu } = useThemeLang();
+  const lang = isRu ? 'ru' : 'en';
 
   return (
-    <div className={`footer-all ${isLight ? 'footer-light' : 'footer-darck'}`}>
-      <div className="footer">
-        <div className="footer-container">
-          <div className="footer-div-component">
-            <LogoRace widthNum={'176'} heightNum={'55'} colorName={`${isLight ? '#FFFFFF' : '#514B4B'}`} />
-            <div className="div-links-github">
-              {DEVELOPERS.map((data) => <a href={data.gitHub} className="link-github margin-after-img" key={data.id}>{data.name}</a>)}
-            </div>
-          </div>
-          <div className="footer-div-component footer-div-component-right">
-            <a href="https://rs.school/js/">
-              <LogoRS widthNum={'154'} heightNum={'57'} colorName={`${isLight ? '#FFFFFF' : '#514B4B'}`} />
-            </a>
-            <p className="margin-after-img">© 2023. Special for RS School</p>
+    <section className={styles.footerSection}>
+      <footer className={styles.footer}>
+        <div className={styles.footer__leftSide}>
+          <img src={logo} className={styles.footerLogo} alt="logo" />
+          <div className={styles.divLinksGithub}>
+            {DEVELOPERS.map((data) =>
+            (
+              <a
+                href={data.gitHub}
+                className={styles.linkGithub}
+                key={data.id}
+              >{data.name}
+              </a>
+            ),
+            )}
           </div>
         </div>
-      </div>
-    </div>
+        <div className={styles.footer__rightSide}>
+          <a href="https://rs.school/js/">
+            <img src={logoRss} className={styles.logoRss} alt="logo-rss" />
+          </a>
+          <p className={styles.marginAfterImg}>{langsData[lang].footer.sign as string}</p>
+        </div>
+      </footer>
+    </section>
   );
 }
