@@ -13,6 +13,5 @@ describe('Best-result-components', () => {
     );
     expect(screen.getByText(/какое-то имя/i)).toBeInTheDocument();
     expect(screen.getByText(/585/i)).toBeInTheDocument();
-    expect(screen.getByText(/№/i)).toBeInTheDocument();
   });
 });

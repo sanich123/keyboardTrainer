@@ -5,6 +5,7 @@ import userCar from './img/user-car.svg';
 import car from './img/car.svg';
 import styles from './Racing.module.scss';
 
+
 export interface RacingProps {
   gameSpeed: number;
   isGame: boolean;
@@ -12,10 +13,10 @@ export interface RacingProps {
   setWins: React.Dispatch<React.SetStateAction<number>>,
   lettersNum: number;
   idx: number;
+  setIsEnded: (arg: boolean) => void,
 }
 
-export function Racing({ gameSpeed, isGame, wins, setWins, lettersNum, idx }: RacingProps) {
-
+export function Racing({ gameSpeed, isGame, wins, setWins, lettersNum, idx, setIsEnded }: RacingProps) {
   const userCarRef = useRef<HTMLImageElement>(null);
   const carRef = useRef<HTMLImageElement>(null);
   const finishRef = useRef<HTMLImageElement>(null);
@@ -57,6 +58,9 @@ export function Racing({ gameSpeed, isGame, wins, setWins, lettersNum, idx }: Ra
       console.log('!!!!!!!!!!!Winner: Enemy');
     } else if (!isGame && idx === lettersNum - 1) {
       console.log('!!!!!!!!!!!Winner: User');
+      setIsEnded(true);
+      // setIsWin(true);
+
       // setWins(wins + 1);
     }
   };

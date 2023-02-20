@@ -55,7 +55,7 @@ export function LoginNavigation() {
         to={ROUTES.cabinet}
       >
         <>
-          {isAuthenticated && user?.email}
+          {isAuthenticated && user?.nickname}
           {!isAuthenticated && !isLoading && logIn}
           {isLoading && loading}
         </>

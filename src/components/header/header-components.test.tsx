@@ -7,6 +7,7 @@ import { authorized, nonAuthorized, isLoading } from '../../tests/test-const';
 jest.mock('@auth0/auth0-react');
 describe('Header components should render correctly', () => {
   it('Navigation should render correct links', () => {
+    (useAuth0 as jest.Mock).mockReturnValue(authorized);
     renderWithProviders(<Navigation/>);
     expect(screen.getAllByRole('link')).toHaveLength(3);
     expect(screen.getByText(/about/i)).toBeInTheDocument();
