@@ -1,3 +1,5 @@
+@import '../../../styles/vars.scss';
+
 .Keyboard {
   display: flex;
   flex-direction: column;
@@ -10,9 +12,24 @@
     justify-content: center;
     gap: 50px;
     margin: auto;
+    flex-wrap: wrap;
     // font-size: 18px;
     // font-weight: 700;
     color: var(--dimmed-border-placeholder);
+    margin-bottom: 10px;
+
+    @media screen and (width <=$notebook) {
+      gap: 30px;
+    }
+
+    @media screen and (width <=$tablet) {
+      gap: 20px;
+    }
+
+    @media screen and (width <=$mobile) {
+      gap: 5px;
+      flex-direction: column;
+    }
 
     .btnIcons {
       width: 35px;
@@ -27,7 +44,7 @@
       &:hover,
       &.active {
         .btnIcons {
-          background: #ffe39c;
+          background: var(--keyboard-btn-bg);
           color: #000;
         }
       }
@@ -67,7 +84,7 @@
       display: flex;
       justify-content: center;
       background-color: var(--primary-bg-color);
-      max-width: 800px;
+      max-width: 86%;
       margin: 0 auto;
       width: 100%;
     }

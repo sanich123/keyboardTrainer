@@ -26,8 +26,13 @@
   }
 }
 
-.liNavigation:hover {
-  text-decoration: underline;
+.liNavigation {
+  transition: var(--transition);
+
+  &:hover {
+    text-decoration: underline;
+    color: var(--primary-color);
+  }
 }
 
 .divLoginNavigation {

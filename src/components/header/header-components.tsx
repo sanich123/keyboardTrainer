@@ -10,18 +10,19 @@ export function Navigation() {
   const { isRu } = useThemeLang();
   const lang = isRu ? 'ru' : 'en';
   const { isAuthenticated } = useAuth0();
+  const { about, race, stats } = langsData[lang].menuMain as { [key: string]: string };
 
   return (
     <nav className={styles.headerNav}>
       <li className={`${styles.liNavigation} ${styles.liMargin}`}>
-        <Link to={ROUTES.main}>{`${langsData[lang].menuMain.about}`}</Link>
+        <Link to={ROUTES.main}>{about}</Link>
       </li>
       <li className={`${styles.liNavigation} ${styles.liMargin}`}>
-        <Link to={ROUTES.game}>{`${langsData[lang].menuMain.race}`}</Link>
+        <Link to={ROUTES.game}>{race}</Link>
       </li>
       {isAuthenticated && (
         <li className={styles.liNavigation}>
-          <Link to={ROUTES.cabinet}>{`${langsData[lang].menuMain.stats}`}</Link>
+          <Link to={ROUTES.cabinet}>{stats}</Link>
         </li>
       )}
     </nav>
