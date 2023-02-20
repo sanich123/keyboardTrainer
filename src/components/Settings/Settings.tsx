@@ -25,7 +25,9 @@ export function Settings() {
       <div className={styles.buttonWrap}>
         <button type="button" className={`${styles.btn} ${active}`} onClick={() => setShow(!show)}>
           <RiSettings2Fill className={styles.buttonIcon} />
-          {`${langsData[lang].menuSettings.settingsBtn}`}
+          <span className={styles.btnText}>
+            {`${langsData[lang].menuSettings.settingsBtn}`}
+          </span>
         </button>
       </div>
       <div className={`${styles.menu} ${active}`}>
