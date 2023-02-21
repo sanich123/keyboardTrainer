@@ -17,14 +17,14 @@ export function Footer() {
           <img src={logo} className={styles.footerLogo} alt="logo" />
           <div className={styles.divLinksGithub}>
             {DEVELOPERS.map((data) =>
-            (
-              <a
-                href={data.gitHub}
-                className={styles.linkGithub}
-                key={data.id}
-              >{data.name}
-              </a>
-            ),
+              (
+                <a
+                  href={data.gitHub}
+                  className={styles.linkGithub}
+                  key={data.id}
+                >{data.name}
+                </a>
+              ),
             )}
           </div>
         </div>
