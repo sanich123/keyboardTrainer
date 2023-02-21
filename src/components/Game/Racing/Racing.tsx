@@ -67,15 +67,13 @@ export function Racing({ gameSpeed, isGame, wins, setWins, lettersNum, idx, setI
 
   if (idx > -1 && idx <= lettersNum + 2) {
     moveCarsForward();
+    checkWinner();
   }
 
   if (idx === -1) {
     moveCarsToStart();
   }
 
-  if (idx > -1 && idx <= lettersNum + 2) {
-    checkWinner();
-  }
 
   return (
     <div className={styles.Racing}>

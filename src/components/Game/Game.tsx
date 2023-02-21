@@ -18,7 +18,7 @@ export function Game() {
     ru: 'Пре',
   };
   const { isRu } = useThemeLang();
-  const {user} = useAuth0();
+  const { user } = useAuth0();
   const [sendRaceData] = useAddRaceDataMutation();
   const lang = isRu ? LANG_VALUES.ru : LANG_VALUES.en;
   const [errorCount, setErrorCount] = useState(0);
@@ -56,7 +56,7 @@ export function Game() {
       toast.warn('Гонка закончилась');
       sendData();
     }
-  },[accuracy, isEnded, sendRaceData, speed, user?.nickname]);
+  }, [accuracy, isEnded, sendRaceData, speed, user?.nickname]);
 
   const setTimeToString = (
     min = 0,
@@ -76,7 +76,7 @@ export function Game() {
 
   const accuracyCount = Math.floor(((idx + 2) - errorCount) / (idx + 2) * 100);
   const speedCount = Math.floor((idx + 2) / (time / 60 || 1));
-  console.log(speed, accuracy, wins);
+  console.log('speed:', speed, 'accuracy:', accuracy, 'speed:', speed);
 
   const checkKey = (e: React.KeyboardEvent<HTMLDivElement>)
     : boolean | string => {
@@ -188,17 +188,6 @@ export function Game() {
     idx,
     setIsEnded,
   };
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const userData = {
-    date: new Date().toLocaleTimeString(),
-    time,
-    speed,
-    accuracy,
-    wins,
-  };
-
-  console.log('🚀 ~ checkWinner ~ wins', wins);
 
   return (
     <div
