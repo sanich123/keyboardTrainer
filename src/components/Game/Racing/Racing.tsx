@@ -6,7 +6,7 @@ import car from './img/car.svg';
 import styles from './Racing.module.scss';
 import { RacingProps } from './Racing.props';
 
-export function Racing({ gameSpeed, isGame, lettersNum, idx, setIsEnded }: RacingProps) {
+export function Racing({ gameSpeed, isGame, lettersNum, idx }: RacingProps) {
   const userCarRef = useRef<HTMLImageElement>(null);
   const carRef = useRef<HTMLImageElement>(null);
   const finishRef = useRef<HTMLImageElement>(null);
@@ -37,23 +37,22 @@ export function Racing({ gameSpeed, isGame, lettersNum, idx, setIsEnded }: Racin
     userCarX.set(0);
   };
 
-  const checkWinner = (): void => {
-    const finishLine = (finishRef.current as HTMLImageElement).getBoundingClientRect().x;
-    const finishLineWidth = (finishRef.current as HTMLImageElement).getBoundingClientRect().width;
-    const carPos = (carRef.current as HTMLImageElement).getBoundingClientRect().x;
-    const userCarPos = (userCarRef.current as HTMLImageElement).getBoundingClientRect().x;
+  // const checkWinner = (): void => {
+  //   const finishLine = (finishRef.current as HTMLImageElement).getBoundingClientRect().x;
+  //   const finishLineWidth = (finishRef.current as HTMLImageElement).getBoundingClientRect().width;
+  //   const carPos = (carRef.current as HTMLImageElement).getBoundingClientRect().x;
+  //   const userCarPos = (userCarRef.current as HTMLImageElement).getBoundingClientRect().x;
 
-    if (carPos >= (finishLine + finishLineWidth) && carPos > userCarPos) {
-      console.log('Enemy won!');
-    } else if (!isGame && idx === lettersNum - 1) {
-      console.log('User won!');
-      setIsEnded(true);
-    }
-  };
+  //   if (carPos >= (finishLine + finishLineWidth) && carPos > userCarPos) {
+  //     console.log('Enemy won!');
+  //   } else if (!isGame && idx === lettersNum - 1) {
+  //     console.log('User won!');
+  //   }
+  // };
 
   if (idx > -1 && lettersNum !== 0 && idx <= lettersNum + 2) {
     moveCarsForward();
-    checkWinner();
+    // checkWinner();
   }
 
   if (idx === -1) {
