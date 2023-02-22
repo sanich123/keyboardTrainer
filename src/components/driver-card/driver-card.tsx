@@ -8,7 +8,11 @@ import { langsData } from '../Settings';
 import './driver-card.scss';
 import GetDriverStatus from './driver-status';
 
-export default function DriverCard() {
+type Modal = {
+  setModal: (arg: boolean) => void
+};
+
+export default function DriverCard({ setModal }: Modal) {
   const { user } = useAuth0();
   const { isRu, isLight } = useThemeLang();
   const { data: statisticData, isLoading, error } = useGetStatisticsQuery(user?.nickname);
@@ -43,9 +47,9 @@ export default function DriverCard() {
         </p>
         <div
           className="btns-driver"
-          style={{ color: `${isLight ? '#FFFFFF' : '#000000'}` }}
+          // style={{ color: `${isLight ? '#FFFFFF' : '#000000'}` }}
         >
-          <BtnSecondary text={`${langsData[lang].pageHome.btnRules}`}/>
+          <BtnSecondary setModal={setModal} text={`${langsData[lang].pageHome.btnRules}`}/>
           <Link to={ROUTES.game}>
             <BtnPrinary text={`${langsData[lang].pageStatistic.startRace}`} />
           </Link>
