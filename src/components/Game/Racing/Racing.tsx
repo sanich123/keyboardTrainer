@@ -4,19 +4,9 @@ import startFinish from './img/start-finish.svg';
 import userCar from './img/user-car.svg';
 import car from './img/car.svg';
 import styles from './Racing.module.scss';
+import { RacingProps } from './Racing.props';
 
-
-export interface RacingProps {
-  gameSpeed: number;
-  isGame: boolean;
-  wins: number,
-  setWins: React.Dispatch<React.SetStateAction<number>>,
-  lettersNum: number;
-  idx: number;
-  setIsEnded: (arg: boolean) => void,
-}
-
-export function Racing({ gameSpeed, isGame, wins, setWins, lettersNum, idx, setIsEnded }: RacingProps) {
+export function Racing({ gameSpeed, isGame, lettersNum, idx }: RacingProps) {
   const userCarRef = useRef<HTMLImageElement>(null);
   const carRef = useRef<HTMLImageElement>(null);
   const finishRef = useRef<HTMLImageElement>(null);
@@ -42,39 +32,31 @@ export function Racing({ gameSpeed, isGame, wins, setWins, lettersNum, idx, setI
     }
   };
 
-
   const moveCarsToStart = () => {
     carX.set(0);
     userCarX.set(0);
   };
 
-  const checkWinner = (): void => {
-    const finishLine = (finishRef.current as HTMLImageElement).getBoundingClientRect().x;
-    const finishLineWidth = (finishRef.current as HTMLImageElement).getBoundingClientRect().width;
-    const carPos = (carRef.current as HTMLImageElement).getBoundingClientRect().x;
-    const userCarPos = (userCarRef.current as HTMLImageElement).getBoundingClientRect().x;
+  // const checkWinner = (): void => {
+  //   const finishLine = (finishRef.current as HTMLImageElement).getBoundingClientRect().x;
+  //   const finishLineWidth = (finishRef.current as HTMLImageElement).getBoundingClientRect().width;
+  //   const carPos = (carRef.current as HTMLImageElement).getBoundingClientRect().x;
+  //   const userCarPos = (userCarRef.current as HTMLImageElement).getBoundingClientRect().x;
 
-    if (carPos >= (finishLine + finishLineWidth) && carPos > userCarPos) {
-      console.log('!!!!!!!!!!!Winner: Enemy');
-    } else if (!isGame && idx === lettersNum - 1) {
-      console.log('!!!!!!!!!!!Winner: User');
-      setIsEnded(true);
-      // setIsWin(true);
+  //   if (carPos >= (finishLine + finishLineWidth) && carPos > userCarPos) {
+  //     console.log('Enemy won!');
+  //   } else if (!isGame && idx === lettersNum - 1) {
+  //     console.log('User won!');
+  //   }
+  // };
 
-      // setWins(wins + 1);
-    }
-  };
-
-  if (idx > -1 && idx <= lettersNum + 2) {
+  if (idx > -1 && lettersNum !== 0 && idx <= lettersNum + 2) {
     moveCarsForward();
+    // checkWinner();
   }
 
   if (idx === -1) {
     moveCarsToStart();
-  }
-
-  if (idx > -1 && idx <= lettersNum + 2) {
-    checkWinner();
   }
 
   return (

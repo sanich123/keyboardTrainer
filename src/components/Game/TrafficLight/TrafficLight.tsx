@@ -1,15 +1,7 @@
 import styles from './TrafficLight.module.scss';
-
-export interface TrafficLightProps {
-  id: 'timer' | 'speed' | 'accuracy',
-  color: 'red' | 'green' | 'yellow',
-  textInfo: string | number,
-  textDesc: string,
-  unit: string,
-}
+import { TrafficLightProps } from './TrafficLight.props';
 
 export function TrafficLight({ id, color, textInfo, textDesc, unit }: TrafficLightProps) {
-
   return (
     <div id={`TrafficLight-${id}`} className={`${styles.TrafficLight}`}>
       <div className={styles[`${color}Light`]}>

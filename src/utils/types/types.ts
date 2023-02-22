@@ -54,4 +54,3 @@ export interface ModalProps {
   place?: string,
   price: number,
 }
-

@@ -10,8 +10,7 @@
   padding: var(--padding-vertical) var(--padding-horizontal);
   border-radius: var(--border-radius);
   width: 86%;
-  height: 135px;
-  // overflow: auto;
+  height: 130px;
   margin: 0 auto;
   font-size: 30px;
   color: var(--dimmed-border-placeholder);
@@ -25,7 +24,6 @@
   }
 
   .message {
-    // display: none;
     position: absolute;
     transition: var(--transition);
     z-index: -1;
@@ -65,7 +63,6 @@
   }
 
   &__textContainer {
-    font-size: 30px;
     color: var(--text-window-font-color);
     resize: none;
     background: transparent;
@@ -78,7 +75,7 @@
     transition: var(--transition);
     overflow: hidden;
     z-index: 1;
-    font-size: 30px;
+    // font-size: 30px;
     opacity: 0.5;
     filter: blur(3px);
 
