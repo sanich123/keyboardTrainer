@@ -105,6 +105,7 @@ export function TextWindow({
 
   const init = (): void => {
     window.addEventListener('keydown', (e: KeyboardEvent) => blockingScroll(e));
+    scroll();
 
     if (!isRightKey || idx < text.length - 1) {
       setIsGame(true);
