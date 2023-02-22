@@ -49,6 +49,7 @@ export function Keyboard({ lang, char, isRightKey, idx, setIdx, keyLang, setKeyL
     else if (nextLetter === ',') { nextKey = keyLang === 'en' ? 'comma' : 'slash'; }
     else if (nextLetter === '.') { nextKey = keyLang === 'en' ? 'dot' : 'slash'; }
     else if (nextLetter === '`') { nextKey = 'tilda'; }
+    else if (nextLetter === '\'') { nextKey = 'quote'; }
     else if (nextLetter === '!') { nextKey = 'key-1'; }
     else if (nextLetter === '?') { nextKey = 'slash'; }
     else if (nextLetter === '-') { nextKey = 'minus'; }
