@@ -4,19 +4,9 @@ import startFinish from './img/start-finish.svg';
 import userCar from './img/user-car.svg';
 import car from './img/car.svg';
 import styles from './Racing.module.scss';
+import { RacingProps } from './Racing.props';
 
-
-export interface RacingProps {
-  gameSpeed: number;
-  isGame: boolean;
-  wins: number,
-  setWins: React.Dispatch<React.SetStateAction<number>>,
-  lettersNum: number;
-  idx: number;
-  setIsEnded: (arg: boolean) => void,
-}
-
-export function Racing({ gameSpeed, isGame, wins, setWins, lettersNum, idx, setIsEnded }: RacingProps) {
+export function Racing({ gameSpeed, isGame, lettersNum, idx, setIsEnded }: RacingProps) {
   const userCarRef = useRef<HTMLImageElement>(null);
   const carRef = useRef<HTMLImageElement>(null);
   const finishRef = useRef<HTMLImageElement>(null);
@@ -42,7 +32,6 @@ export function Racing({ gameSpeed, isGame, wins, setWins, lettersNum, idx, setI
     }
   };
 
-
   const moveCarsToStart = () => {
     carX.set(0);
     userCarX.set(0);
@@ -55,17 +44,14 @@ export function Racing({ gameSpeed, isGame, wins, setWins, lettersNum, idx, setI
     const userCarPos = (userCarRef.current as HTMLImageElement).getBoundingClientRect().x;
 
     if (carPos >= (finishLine + finishLineWidth) && carPos > userCarPos) {
-      console.log('!!!!!!!!!!!Winner: Enemy');
+      console.log('Enemy won!');
     } else if (!isGame && idx === lettersNum - 1) {
-      console.log('!!!!!!!!!!!Winner: User');
+      console.log('User won!');
       setIsEnded(true);
-      // setIsWin(true);
-
-      // setWins(wins + 1);
     }
   };
 
-  if (idx > -1 && idx <= lettersNum + 2) {
+  if (idx > -1 && lettersNum !== 0 && idx <= lettersNum + 2) {
     moveCarsForward();
     checkWinner();
   }
@@ -73,7 +59,6 @@ export function Racing({ gameSpeed, isGame, wins, setWins, lettersNum, idx, setI
   if (idx === -1) {
     moveCarsToStart();
   }
-
 
   return (
     <div className={styles.Racing}>

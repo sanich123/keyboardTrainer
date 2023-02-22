@@ -2,22 +2,7 @@ import { useRef, useState } from 'react';
 import { langsData } from '../../Settings';
 import styles from './TextWindow.module.scss';
 import { getRandomNum } from '../../../utils/getRandomNum';
-
-export interface TextWindowProps {
-  text: string;
-  lang: string;
-  idx: number;
-  isRightKey: boolean;
-  isGame: boolean;
-  setIsGame: React.Dispatch<React.SetStateAction<boolean>>,
-  setTime: React.Dispatch<React.SetStateAction<number>>,
-  setAccuracy: React.Dispatch<React.SetStateAction<number>>,
-  setSpeed: React.Dispatch<React.SetStateAction<number>>,
-  errorCount: number,
-  time: number,
-  keyLang: 'ru' | 'en',
-  setText: React.Dispatch<React.SetStateAction<string>>;
-}
+import { TextWindowProps } from './TextWindow.props';
 
 export function TextWindow({
   text,
@@ -27,12 +12,6 @@ export function TextWindow({
   isGame,
   setIsGame,
   setTime,
-  setAccuracy,
-  setSpeed,
-  errorCount,
-  time,
-  keyLang,
-  setText,
 }: TextWindowProps) {
   const randomIterableKey = getRandomNum(0, 10000000000000);
 
@@ -73,16 +52,13 @@ export function TextWindow({
     if (newText[idx + 2]) {
       const next = setCharToJSX(newText[idx + 1].props.children, `${styles.text} ${styles.blink}`, blinkRef);
       const after = newText.slice(idx + 2).map((jsxChar) => setCharToJSX(jsxChar.props.children, styles.text, null));
-      console.log('🚀 ~ setNewText ~ [...before, current, next, ...after]:', [...before, current, next, ...after]);
       return [...before, current, next, ...after];
     }
     if (newText[idx + 1]) {
       const next = setCharToJSX(newText[idx + 1].props.children, `${styles.text} ${styles.blink}`, blinkRef);
-      console.log('🚀 ~ setNewText ~ [...before, current, next]:', [...before, current, next]);
       return [...before, current, next];
     }
 
-    console.log('🚀 ~ setNewText ~ [...before, current]:', [...before, current]);
     return [...before, current];
   };
 
@@ -100,7 +76,6 @@ export function TextWindow({
     if (intervalId) {
       clearInterval(intervalId as NodeJS.Timeout);
       setIntervalId(0);
-      console.log('Timer pause');
     }
   };
 
@@ -109,7 +84,6 @@ export function TextWindow({
       setTime((t) => t + 1);
     }, 1000);
     setIntervalId(newIntervalId);
-    // console.log('Timer start');
   };
 
   const startGame = (): void => {

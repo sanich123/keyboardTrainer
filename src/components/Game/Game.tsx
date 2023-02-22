@@ -8,14 +8,13 @@ import { Keyboard, KeyboardProps } from './Keyboard';
 import { TrafficLight, TrafficLightProps } from './TrafficLight';
 import { Racing, RacingProps } from './Racing';
 import { keys } from './TextWindow/specialKeys';
-import styles from './Game.module.scss';
 import { useAuth0 } from '@auth0/auth0-react';
 import { toast } from 'react-toastify';
 import { useAddRaceDataMutation } from '../../redux/keyboard-trainer-api';
+import { setTimeToString } from '../../utils/setTimeToString';
+import styles from './Game.module.scss';
 
 export function Game() {
-
-
   const { isRu } = useThemeLang();
   const lang = isRu ? LANG_VALUES.ru : LANG_VALUES.en;
   const [keyLang, setKeyLang] = useState<'ru' | 'en'>('en');
@@ -58,22 +57,6 @@ export function Game() {
     }
   }, [accuracy, isEnded, sendRaceData, speed, user?.nickname]);
 
-  const setTimeToString = (
-    min = 0,
-    minPref = 0,
-    sec = 0,
-    secPref = 0,
-    minRes = '',
-    secRes = '',
-  ): string => {
-    sec = time;
-    min = Math.floor(time / 60);
-    sec = sec >= 60 ? time - (min * 60) : time;
-    minRes = min < 10 ? `${minPref}${min}` : `${min}`;
-    secRes = sec < 10 ? `${secPref}${sec}` : `${sec}`;
-    return `${minRes}:${secRes}`;
-  };
-
   const accuracyCount = Math.floor((idx + 2 - errorCount) / (idx + 2) * 100);
   const speedCount = Math.floor((idx + 2) / (time / 60 || 1));
   // console.log('speed:', speed, 'accuracy:', accuracy, 'speed:', speed);
@@ -94,12 +77,10 @@ export function Game() {
       return;
     }
 
-    // if special kes pressed
     if (checkKey(e) === 'isSpecialKey') {
       return;
     }
 
-    // if Backspace key pressed
     if (checkKey(e) === 'Backspace') {
       setIdx(idx > -1 ? idx - 1 : -1);
       setIsStoped(false);
@@ -107,10 +88,8 @@ export function Game() {
       return;
     }
 
-    // if game stoped
     if (isStoped) { return; }
 
-    // if right key pressed
     if (checkKey(e)) {
       setIdx(idx + 1);
       setIsRightKey(true);
@@ -134,7 +113,7 @@ export function Game() {
     {
       id: 'timer',
       color: 'red',
-      textInfo: setTimeToString(),
+      textInfo: setTimeToString(time),
       textDesc: `${(langsData[lang].pageGame.trafficLight as { [key: string]: string }).elapsedTime}`,
       unit: `${(langsData[lang].pageGame.trafficLight as { [key: string]: string }).elapsedTimeUnit}`,
     },
@@ -155,7 +134,7 @@ export function Game() {
   ];
 
   const keyboardProps: KeyboardProps = {
-    char: text ? text[idx + 1] : initRandomText[idx + 1],
+    char: text[idx + 1],
     lang,
     isRightKey,
     idx,
@@ -167,25 +146,19 @@ export function Game() {
   };
 
   const textWindowProps: TextWindowProps = {
-    text: text ? text : initRandomText,
+    text,
     lang,
     idx,
     isRightKey,
     isGame,
     setIsGame,
     setTime,
-    setAccuracy,
-    setSpeed,
-    errorCount,
-    time,
-    keyLang,
-    setText,
   };
 
   const racingProps: RacingProps = {
-    gameSpeed: text.length / 120 * 60,
+    gameSpeed: text.length / 100 * 60,
     isGame,
-    lettersNum: text.length,// ? text.length : 0,
+    lettersNum: text.length,
     idx,
     setIsEnded,
   };
