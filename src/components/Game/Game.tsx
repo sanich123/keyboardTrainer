@@ -104,8 +104,10 @@ export function Game() {
       setErrorCount(0);
     }
 
-    setSpeed(speedCount);
-    setAccuracy(accuracyCount);
+    if (isGame && idx >= text.length - 2) {
+      setSpeed(speedCount);
+      setAccuracy(accuracyCount);
+    }
   };
 
   const trafficLightProps: TrafficLightProps[] = [
@@ -142,6 +144,8 @@ export function Game() {
     setKeyLang,
     setTime,
     setText,
+    setSpeed,
+    setAccuracy,
   };
 
   const textWindowProps: TextWindowProps = {
