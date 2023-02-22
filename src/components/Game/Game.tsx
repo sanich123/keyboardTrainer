@@ -9,7 +9,7 @@ import { TrafficLight, TrafficLightProps } from './TrafficLight';
 import { Racing, RacingProps } from './Racing';
 import { keys } from './TextWindow/specialKeys';
 import { useAuth0 } from '@auth0/auth0-react';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import { useAddRaceDataMutation } from '../../redux/keyboard-trainer-api';
 import { setTimeToString } from '../../utils/setTimeToString';
 import styles from './Game.module.scss';
@@ -30,7 +30,6 @@ export function Game() {
   const [time, setTime] = useState(0);
   const [speed, setSpeed] = useState(0);
   const [accuracy, setAccuracy] = useState(0);
-  const [isEnded, setIsEnded] = useState(false);
 
 
   useEffect(() => {
@@ -40,22 +39,22 @@ export function Game() {
         speed,
         mistakes: accuracy,
         date: new Date(),
-      })
-        .unwrap()
-        .then((success) => {
-          console.log(success);
-          toast.warn('Данные отправлены на сервер');
-        })
-        .catch((error) => {
-          toast.warn('Во время передачи данных произошла ошибка');
-          console.log(error);
-        });
+      });
+      // .unwrap()
+      // .then((success) => {
+      //   console.log(success);
+      //   toast.warn('Данные отправлены на сервер');
+      // })
+      // .catch((error) => {
+      //   toast.warn('Во время передачи данных произошла ошибка');
+      //   console.log(error);
+      // });
     }
-    if (isEnded) {
-      toast.warn('Гонка закончилась');
+    if (isGame && idx >= text.length - 2) {
+      // toast.warn('Гонка закончилась');
       sendData();
     }
-  }, [accuracy, isEnded, sendRaceData, speed, user?.nickname]);
+  }, [accuracy, idx, isGame, sendRaceData, speed, text.length, user?.nickname]);
 
   const accuracyCount = Math.floor((idx + 2 - errorCount) / (idx + 2) * 100);
   const speedCount = Math.floor((idx + 2) / (time / 60 || 1));
@@ -160,7 +159,6 @@ export function Game() {
     isGame,
     lettersNum: text.length,
     idx,
-    setIsEnded,
   };
 
   return (

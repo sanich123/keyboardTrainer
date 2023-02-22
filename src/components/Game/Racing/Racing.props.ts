@@ -3,5 +3,4 @@ export interface RacingProps {
   isGame: boolean;
   lettersNum: number;
   idx: number;
-  setIsEnded: (arg: boolean) => void,
 }
