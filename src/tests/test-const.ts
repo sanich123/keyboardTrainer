@@ -1,7 +1,7 @@
 import { LANG_VALUES, THEME_VALUES } from '../utils/const';
 
 const user = {
-  email: 'johndoe@me.com',
+  nickname: 'johndoe@me.com',
 };
 
 export const authorized = {

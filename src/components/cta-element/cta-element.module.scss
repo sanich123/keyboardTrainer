@@ -1,0 +1,46 @@
+@import '../../styles/vars.scss';
+
+.cta {
+  grid-area: main;
+  max-width: $desktop;
+  width: 100%;
+  margin: 3% auto 5%;
+  padding: var(--padding-desktop);
+
+  @media screen and (width <=$notebook) {
+    padding: var(--padding-notebook);
+  }
+
+  @media screen and (width <=$tablet) {
+    padding: var(--padding-tablet);
+    width: auto;
+  }
+
+  @media screen and (width <=$mobile) {
+    padding: var(--padding-mobile);
+    margin: 0 auto 15%;
+  }
+
+  .h1 {
+    font-size: 50px;
+    margin-bottom: 15px;
+    color: var(--h-color);
+
+    @media screen and (width <=$mobile) {
+      line-height: 1;
+    }
+  }
+
+  .p {
+    max-width: 600px;
+    font-size: 20px;
+    margin-bottom: 50px;
+    color: var(--font-color);
+  }
+
+  .btns {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+}

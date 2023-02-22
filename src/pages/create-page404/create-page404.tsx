@@ -1,29 +1,29 @@
-import './create-page404.scss';
-import BgLight404 from '../../assets/img/bg-light404.png';
-import BgDarck404 from '../../assets/img/bg-darck404.png';
-import Num404 from '../../assets/img/404-num.webp';
 import Car404 from '../../assets/img/404-car.webp';
 // import { Link } from 'react-router-dom';
 // import { ROUTES } from '../utils/const';
-import Header from '../../components/header/header';
+import { Header } from '../../components/header/header';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
-import Footer from '../../components/footer/footer';
+import { Footer } from '../../components/footer/footer';
+import { langsData } from '../../components/Settings';
+import styles from './create-page404.module.scss';
 
 export default function CreatePage404() {
 
-  const { isRu, isLight } = useThemeLang();
+  const { isRu } = useThemeLang();
+  const lang = isRu ? 'ru' : 'en';
+  const { notFound } = langsData[lang].pageNotFound as { [key: string]: string };
 
   return (
-    <div className="all-div" style={{ background: `url(${isLight ? BgLight404 : BgDarck404})`,
-      backgroundSize: 'cover'}}
-    >
+    <div className={styles.CreatePage404} >
       <Header />
-      <div className="main">
-        <img src={Num404} alt="num-404" />
-        <h1 className="h1-page"
-          style={{color: `${isLight ? '#000000' : '#FFFFFF'}`}}
-        >{isRu ? 'Страница не найдена' : 'Page Not Found'}
-        </h1>
+      <div className={styles.page404}>
+        <div className={styles.badge404}>
+          <p>404</p>
+        </div>
+
+        <h2 className={styles.h1}>
+          {notFound}
+        </h2>
         <img src={Car404} alt="car-404" />
       </div>
       {/* <h1>Сильно старались, но не смогли найти запрашиваемую страницу.</h1>
@@ -34,6 +34,6 @@ export default function CreatePage404() {
       <Link to={ROUTES.cabinet}>Ну или если авторизованы, то можете и в кабинет пользователя заглянуть</Link>
       <h2>Или тут потусить, если охота</h2> */}
       <Footer />
-    </div>
+    </div >
   );
 }

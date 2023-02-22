@@ -11,7 +11,7 @@ import GetDriverStatus from './driver-status';
 export default function DriverCard() {
   const { user } = useAuth0();
   const { isRu, isLight } = useThemeLang();
-  const { data: statisticData, isLoading, error } = useGetStatisticsQuery(user?.nickname);
+  const { data: statisticData, isLoading } = useGetStatisticsQuery(user?.nickname);
 
   const { ru, en } = LANG_VALUES;
   const lang = isRu ? ru : en;
@@ -39,7 +39,10 @@ export default function DriverCard() {
           {`${langsData[lang].pageStatistic.start}`}
           {isLoading && <span className="span-driver">Loading...</span>}
           {statisticData && <span className="span-driver">{statisticData.firstRace.slice(0, 10)}</span>}
+<<<<<<< HEAD
           {error && <span className="span-driver">{`${langsData[lang].dataStatus.noDataFirstRace}`}</span>}
+=======
+>>>>>>> develop
         </p>
         <div
           className="btns-driver"

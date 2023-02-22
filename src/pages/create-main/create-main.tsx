@@ -1,23 +1,17 @@
-import './create-main.scss';
 import Footer from '../../components/footer/footer';
-import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
-import Header from '../../components/header/header';
+import { Header } from '../../components/header/header';
 import CtaElement from '../../components/cta-element/cta-element';
-// import ModalRules from '../../components/modal-rules/modal';
+import styles from './create-main.module.scss';
 
 
 export default function CreateMainPage() {
-  const { isLight } = useThemeLang();
 
 
   return (
-    <>
-      {/* <ModalRules /> */}
-      <div className={`mainpage-div ${isLight ? 'mainpage-div-light' : 'mainpage-div-darck'}`}>
-        <Header />
-        <CtaElement />
-        <Footer />
-      </div>
-    </>
+    <main className={`base ${styles.mainpageDiv}`}>
+      <Header />
+      <CtaElement />
+      <Footer />
+    </main>
   );
 }

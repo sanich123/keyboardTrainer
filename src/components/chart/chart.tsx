@@ -38,13 +38,12 @@ interface StatsData {
 
 export default function ChartStats() {
   const { user } = useAuth0();
-  const { data: statisticData, isLoading, error } = useGetStatisticsQuery(user?.nickname);
+  const { data: statisticData, isLoading } = useGetStatisticsQuery(user?.nickname);
   const data: StatsData[] = statisticData?.lastTenRaces;
   return (
     <>
       {isLoading && <h1>Loading...</h1>}
       {statisticData && <Line options={options} data={GetDataChartLine(data)} />}
-      {error && <h1>An error occured</h1>}
     </>
   );
 }

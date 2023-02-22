@@ -1,21 +1,65 @@
-:root {
-  .light {
-    --font-size: 16px;
+@import '../../../styles/vars.scss';
 
+:root {
+
+  --transition-menu-close: transform .6s, opacity .1s, background-color .1s, z-index .6s;
+  --transition-menu-open: transform .3s, opacity .5s, background-color .5s, z-index .1s;
+  --transition: all .3s;
+
+  --border-radius: 10px;
+
+  --font-size-desktop: 18px;
+  --font-size-notebook: 18px;
+  --font-size-tablet: 16px;
+  --font-size-mobile: 16px;
+
+  --h1-font-size: 50px;
+  --h2-font-size: 40px;
+  --h3-font-size: 30px;
+
+  --font-weight-header: 700;
+
+  --padding-desktop: 50px;
+  --padding-notebook: 50px;
+  --padding-tablet: 40px;
+  --padding-mobile: 30px;
+
+  --logo-width-desktop: 130px;
+  --logo-width-notebook: 120px;
+  --logo-width-tablet: 110px;
+  --logo-width-mobile: 80px;
+
+  transition: var(--transition);
+
+  @media screen and (width <=$notebook) {
     --h1-font-size: 50px;
     --h2-font-size: 40px;
     --h3-font-size: 30px;
+  }
 
+  @media screen and (width <=$tablet) {
+    --h1-font-size: 45px;
+    --h2-font-size: 35px;
+    --h3-font-size: 25px;
+  }
+
+  @media screen and (width <=$mobile) {
+    --h1-font-size: 35px;
+    --h2-font-size: 25px;
+    --h3-font-size: 20px;
+  }
+
+  .light {
     --h-color: #000000;
     --font-color: #514B4B;
 
-    --primary-color: #E21022;
+    --primary-color: #d9626d;
     --secondary-color: #514B4B;
 
     --primary-bg-color: #FFFFFF;
     --secondary-bg-color: #d5d5d5;
 
-    --selection-bg-color: #514B4B;
+    --selection-bg-color: #3c3c3c;
     --selection-font-color: #FFFFFF;
 
     --dimmed-border-placeholder: #A0A0A0;
@@ -38,39 +82,54 @@
     --traffic-light-bg-yellow-light: #FFF3D2;
     --traffic-light-font-color-yellow: #A57700;
 
+    --traffic-light-font-color-desc: #514B4B;
+
     --shadow: 0px 4px 40px rgba(0, 0, 0, 0.2);
     --shadow-border: 0px 0px 3px var(--font-color);
 
-    --transition-menu-close: transform .6s, opacity .1s, background-color .1s, z-index .6s;
-    --transition-menu-open: transform .3s, opacity .5s, background-color .5s, z-index .1s;
-    --transition: all .3s;
+    --text-window-font-color: var(--font-color);
+    --text-window-font-color-right: #48A500;
+    --text-window-font-color-wrong: #A50000;
 
-    --border-radius: 10px;
+    --text-window-bg-color: #F2F2F2;
+    --text-window-bg-color-right: #DDFFD5;
+    --text-window-bg-color-wrong: #FFDBDB;
 
-    transition: var(--transition);
+    --text-window-onfocus-bg-color: rgb(219 213 255 / 70%);
+    --text-window-onfocus-font-color: var(--font-color);
+
+    --race-road-bg-color: #505050;
+
+    --keyboard-btn-bg: var(--traffic-light-bg-yellow);
+
+    --logo-color-white: none;
+
+    --btn-primary-font-color: #fff;
+    --btn-primary-bg-color: var(--primary-color);
+
+    --btn-secondary-font-color: #fff;
+    --btn-secondary-bg-color: var(--secondary-color);
+
+    --home-bg-color: transparent;
+
+    --body-bg: url('../../../assets/img/background.png') no-repeat transparent;
 
   }
 
   .dark {
-    --font-size: 16px;
-
-    --h1-font-size: 50px;
-    --h2-font-size: 40px;
-    --h3-font-size: 30px;
-
     --h-color: #ffffff;
-    --font-color: #f0ebeb;
+    --font-color: #bbbbbb;
 
-    --primary-color: #E21022;
-    --secondary-color: #514B4B;
+    --primary-color: #9b453b;
+    --secondary-color: #383838;
 
-    --primary-bg-color: #292827;
+    --primary-bg-color: #2a2a2a;
     --secondary-bg-color: #545250;
 
     --selection-bg-color: var(--secondary-bg-color);
     --selection-font-color: #FFFFFF;
 
-    --dimmed-border-placeholder: #A0A0A0;
+    --dimmed-border-placeholder: #646464;
 
     --footer-bg--color: #292827;
     --footer-font-color: #FFFFFF;
@@ -78,27 +137,48 @@
     --primary-btn-bg-color: var(--primary-color);
     --secondary-btn-bg-color: var(--secondary-color);
 
-    --traffic-light-bg-green: #B0FF9C;
-    --traffic-light-bg-green-light: #DDFFD5;
-    --traffic-light-font-color-green: #48A500;
+    --traffic-light-bg-red: #523535;
+    --traffic-light-bg-red-light: #3f3333;
+    --traffic-light-font-color-red: var(--font-color);
 
-    --traffic-light-bg-red: #FF9C9C;
-    --traffic-light-bg-red-light: #FFDBDB;
-    --traffic-light-font-color-red: #A50000;
+    --traffic-light-bg-yellow: #6f613e;
+    --traffic-light-bg-yellow-light: #484233;
+    --traffic-light-font-color-yellow: var(--font-color);
 
-    --traffic-light-bg-yellow: #FFE39C;
-    --traffic-light-bg-yellow-light: #FFF3D2;
-    --traffic-light-font-color-yellow: #A57700;
+    --traffic-light-bg-green: #374e31;
+    --traffic-light-bg-green-light: #2a3826;
+    --traffic-light-font-color-green: var(--font-color);
 
-    --shadow: 0px 4px 40px rgba(255, 255, 255, 0.2);
+    --traffic-light-font-color-desc: var(--font-color);
+
+    --shadow: 0px 4px 20px rgb(0 0 0 / 20%);
     --shadow-border: 0px 0px 3px var(--font-color);
 
-    --transition-menu-close: transform .6s, opacity .1s, background-color .1s, z-index .6s;
-    --transition-menu-open: transform .3s, opacity .5s, background-color .5s, z-index .1s;
-    --transition: all .3s;
+    --text-window-font-color: var(--font-color);
+    --text-window-font-color-right: var(--font-color);
+    --text-window-font-color-wrong: var(--font-color);
 
-    --border-radius: 10px;
+    --text-window-bg-color: #252525;
+    --text-window-bg-color-right: var(--traffic-light-bg-green);
+    --text-window-bg-color-wrong: var(--traffic-light-bg-red);
 
-    transition: var(--transition);
+    --text-window-onfocus-bg-color: rgb(112 105 146 / 70%);
+    --text-window-onfocus-font-color: var(--font-color);
+
+    --race-road-bg-color: #383636;
+
+    --keyboard-btn-bg: var(--traffic-light-bg-yellow);
+
+    --logo-color-white: contrast(0) brightness(10);
+
+    --btn-primary-font-color: #fff;
+    --btn-primary-bg-color: var(--primary-color);
+
+    --btn-secondary-font-color: #fff;
+    --btn-secondary-bg-color: var(--secondary-color);
+
+    --home-bg-color: #312f2f;
+
+    --body-bg: url('../../../assets/img/background.png') no-repeat var(--primary-bg-color);
   }
 }

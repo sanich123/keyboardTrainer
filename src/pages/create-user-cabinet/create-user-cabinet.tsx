@@ -1,6 +1,6 @@
 import './create-user-cabinet.scss';
-import Header from '../../components/header/header';
-import Footer from '../../components/footer/footer';
+import { Header } from '../../components/header/header';
+import { Footer } from '../../components/footer/footer';
 import { langsData } from '../../components/Settings';
 import BestResults from '../../components/best-results/best-results';
 import DriverCard from '../../components/driver-card/driver-card';

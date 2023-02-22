@@ -1,9 +1,14 @@
-import Settings from '../../components';
+import { Game, Header, Footer } from '../../components';
+import styles from './create-game.module.scss';
 
 export default function CreateGamePage() {
   return (
-    <div id="CreateGamePage">
-      <Settings />
-    </div>
+    <>
+      <Header />
+      <div className={`base ${styles.CreateGamePage}`}>
+        <Game />
+      </div>
+      <Footer />
+    </>
   );
 }

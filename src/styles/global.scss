@@ -1,3 +1,5 @@
+@import './vars.scss';
+
 *,
 *::before,
 *::after {
@@ -15,15 +17,56 @@ img {
 }
 
 body {
-  // position: relative;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  position: relative;
   font-family: "Droid Sans", "Arial", sans-serif;
   font-weight: 400;
   font-style: normal;
   list-style: none;
   min-height: 100vh;
-  background: #ffffff;
+  font-size: var(--font-size);
+  transition: var(--transition);
+  background: var(--body-bg);
+  background-size: cover;
+  background-position: 50% 0%;
+  background-blend-mode: color-burn;
+  overflow-x: hidden;
+}
+
+.base {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-rows: min-content 1fr min-content;
+  transition: var(--transition);
+  margin: auto;
+  height: 100vh;
+  overflow-x: clip;
+  // max-width: $desktop;
+  // padding: var(--padding-desktop);
+
+  // @media screen and (width <=$notebook) {
+  //   padding: var(--padding-notebook);
+  //   max-width: $notebook;
+  // }
+
+  // @media screen and (width <=$tablet) {
+  //   padding: var(--padding-tablet);
+  //   max-width: $tablet;
+  // }
+
+  // @media screen and (width <=$mobile) {
+  //   padding: var(--padding-mobile);
+  //   max-width: $mobile;
+  // }
+}
+
+
+h1,
+h2,
+h3 {
+  font-family: Baloo, "Arial", sans-serif;
 }
 
 a {
@@ -39,12 +82,4 @@ a {
   border: 0;
   clip: rect(0 0 0 0);
   overflow: hidden;
-}
-
-.text-light-theme {
-  color: #514B4B;
-}
-
-.text-darck-theme {
-  color: #FFFFFF;
 }
