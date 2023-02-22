@@ -9,7 +9,7 @@ import { getRandomText } from '../texts';
 import { KeyboardProps } from './Keyboard.props';
 import { keyboardKeys } from './keyboardKeys';
 
-export function Keyboard({ lang, char, isRightKey, idx, setIdx, keyLang, setKeyLang, setTime, setText }: KeyboardProps) {
+export function Keyboard({ lang, char, isRightKey, idx, setIdx, keyLang, setKeyLang, setTime, setText, setSpeed, setAccuracy }: KeyboardProps) {
   const randomIterableKey = getRandomNum(0, 10000000000000);
 
   const { newGameBtn, hideShowKeyboardBtn } = langsData[lang].pageGame as { [key: string]: string; };
@@ -24,12 +24,16 @@ export function Keyboard({ lang, char, isRightKey, idx, setIdx, keyLang, setKeyL
     setTime(0);
     setText(getRandomText(keyLang === 'ru' ? 'en' : 'ru'));
     keyLang === 'ru' ? setKeyLang('en') : setKeyLang('ru');
+    setSpeed(0);
+    setAccuracy(0);
   };
 
   const onClicksNewGameBtnHandler = () => {
     setIdx(-1);
     setTime(0);
     setText(getRandomText(keyLang));
+    setSpeed(0);
+    setAccuracy(0);
   };
 
   const setKeyboard = (keys: JSX.Element[], letters: JSX.Element[]) => (

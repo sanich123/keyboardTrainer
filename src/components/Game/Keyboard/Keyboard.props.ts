@@ -8,4 +8,6 @@ export interface KeyboardProps {
   setKeyLang: React.Dispatch<React.SetStateAction<'ru' | 'en'>>,
   setTime: React.Dispatch<React.SetStateAction<number>>,
   setText: React.Dispatch<React.SetStateAction<string>>,
+  setAccuracy: React.Dispatch<React.SetStateAction<number>>,
+  setSpeed: React.Dispatch<React.SetStateAction<number>>,
 }
