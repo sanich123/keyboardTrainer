@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { langsData } from '../../Settings';
 import styles from './TextWindow.module.scss';
 import { getRandomNum } from '../../../utils/getRandomNum';
@@ -104,7 +104,6 @@ export function TextWindow({
   };
 
   const init = (): void => {
-    window.addEventListener('keydown', (e: KeyboardEvent) => blockingScroll(e));
     scroll();
 
     if (!isRightKey || idx < text.length - 1) {
@@ -130,6 +129,11 @@ export function TextWindow({
       massageRef.current.textContent = startMessage;
     }
   }
+
+  useEffect(() => {
+    window.addEventListener('keydown', (e: KeyboardEvent) => blockingScroll(e));
+    return window.removeEventListener('keydown', (e: KeyboardEvent) => blockingScroll(e));
+  }, []);
 
   return (
     <div
