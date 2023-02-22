@@ -10,16 +10,9 @@ import { LANG_VALUES } from '../../utils/const';
 export default function BestResults() {
   const { isRu } = useThemeLang();
   const { user } = useAuth0();
-<<<<<<< HEAD
   const { data: statisticData, isLoading, error } = useGetStatisticsQuery(user?.nickname);
   const { ru, en } = LANG_VALUES;
   const lang = isRu ? ru : en;
-  console.log(statisticData);
-  console.log(user);
-=======
-  const { data: statisticData, isLoading } = useGetStatisticsQuery(user?.nickname);
-  const lang = isRu ? 'ru' : 'en';
->>>>>>> develop
 
   return (
     <div className="all-div-best">
@@ -36,19 +29,16 @@ export default function BestResults() {
             <BestIndex
               name={`${langsData[lang].pageStatistic.speed}`}
               color={'#FFE39C'}
-              result={Number(statisticData?.averageSpeed)}
+              result={Math.round(Number(statisticData?.averageSpeed))}
             />
             <BestIndex
               name={`${langsData[lang].pageStatistic.accuracy}`}
               color={'#B0FF9C'}
-              result={Number(statisticData?.averageMistakes)}
+              result={Math.round(Number(statisticData?.averageMistakes))}
             />
           </>
         )}
-<<<<<<< HEAD
         {error && <h1>{`${langsData[lang].dataStatus.noDataTenRaces}`}</h1>}
-=======
->>>>>>> develop
       </div>
     </div>
   );

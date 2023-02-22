@@ -35,7 +35,8 @@ export function LoginNavigation() {
   const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
     useAuth0();
 
-  const lang = isRu ? 'ru' : 'en';
+  const { ru, en } = LANG_VALUES;
+  const lang = isRu ? ru : en;
   const { logIn, logOut } = langsData[lang].menuLogin as { [key: string]: string };
   const { loading } = langsData[lang].misc as { [key: string]: string };
   const themeImg = <RiUser3Fill className={styles.imgUser} />;
@@ -63,6 +64,7 @@ export function LoginNavigation() {
       </Link>
       {isAuthenticated && (
         <button
+          className={styles.logoutBtn}
           onClick={() =>
             logout({ logoutParams: { returnTo: window.location.origin } })}
         >
