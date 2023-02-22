@@ -4,7 +4,7 @@ import styles from './TextWindow.module.scss';
 import { getRandomNum } from '../../../utils/getRandomNum';
 
 export interface TextWindowProps {
-  lessonText: string;
+  text: string;
   lang: string;
   idx: number;
   isRightKey: boolean;
@@ -15,10 +15,12 @@ export interface TextWindowProps {
   setSpeed: React.Dispatch<React.SetStateAction<number>>,
   errorCount: number,
   time: number,
+  keyLang: 'ru' | 'en',
+  setText: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export function TextWindow({
-  lessonText,
+  text,
   lang,
   idx,
   isRightKey,
@@ -29,6 +31,8 @@ export function TextWindow({
   setSpeed,
   errorCount,
   time,
+  keyLang,
+  setText,
 }: TextWindowProps) {
   const randomIterableKey = getRandomNum(0, 10000000000000);
 
@@ -37,36 +41,48 @@ export function TextWindow({
 
   const massageRef = useRef<HTMLDivElement>(null);
   const textAreaRef = useRef<HTMLDivElement>(null);
-  const blinkRef = useRef<HTMLSpanElement>(null);
-
+  const blinkRef = useRef<HTMLElement>(null);
   const [inFocus, setInFocus] = useState(false);
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout | number>(0);
 
-  const setCharToJSX = (char: string, classNames: string): JSX.Element =>
-    <span key={randomIterableKey()} className={classNames}>{char}</span>;
+  const setCharToJSX = (
+    char: string,
+    classNames: string,
+    ref: React.RefObject<HTMLElement> | null,
+  ): JSX.Element =>
+    <span key={randomIterableKey()} className={classNames} ref={ref}>{char}</span>;
 
-  let text: JSX.Element[] = lessonText.split('').map((char, i): JSX.Element =>
-    setCharToJSX(char, i === 0 ? `${styles.text} ${styles.blink}` : styles.text));
+  let newText: JSX.Element[] = text.split('').map((char, i): JSX.Element =>
+    setCharToJSX(char, i === 0 ? `${styles.text} ${styles.blink}` : styles.text, null));
 
   const scroll = (): void => {
     if (blinkRef.current !== null) {
-      blinkRef.current.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+      blinkRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+    }
+  };
+
+  const blockingScroll = (e: KeyboardEvent) => {
+    if (e.code === 'Space' && e.target === textAreaRef.current) {
+      e.preventDefault();
     }
   };
 
   const setNewText = (className: string): JSX.Element[] => {
-    const before = text.slice(0, idx).map((el) => setCharToJSX(el.props.children, styles.right));
-    const current = setCharToJSX(text[idx < 0 ? 0 : idx].props.children, className);
-    if (text[idx + 2]) {
-      const next = setCharToJSX(text[idx + 1].props.children, `${styles.text} ${styles.blink}`);
-      const after = text.slice(idx + 2).map((jsxChar) => setCharToJSX(jsxChar.props.children, styles.text));
+    const before = newText.slice(0, idx).map((el) => setCharToJSX(el.props.children, styles.right, null));
+    const current = setCharToJSX(newText[idx < 0 ? 0 : idx].props.children, className, null);
+    if (newText[idx + 2]) {
+      const next = setCharToJSX(newText[idx + 1].props.children, `${styles.text} ${styles.blink}`, blinkRef);
+      const after = newText.slice(idx + 2).map((jsxChar) => setCharToJSX(jsxChar.props.children, styles.text, null));
+      console.log('🚀 ~ setNewText ~ [...before, current, next, ...after]:', [...before, current, next, ...after]);
       return [...before, current, next, ...after];
     }
-    if (text[idx + 1]) {
-      const next = setCharToJSX(text[idx + 1].props.children, `${styles.text} ${styles.blink}`);
+    if (newText[idx + 1]) {
+      const next = setCharToJSX(newText[idx + 1].props.children, `${styles.text} ${styles.blink}`, blinkRef);
+      console.log('🚀 ~ setNewText ~ [...before, current, next]:', [...before, current, next]);
       return [...before, current, next];
     }
 
+    console.log('🚀 ~ setNewText ~ [...before, current]:', [...before, current]);
     return [...before, current];
   };
 
@@ -75,8 +91,9 @@ export function TextWindow({
       inFocus ? massageRef.current.textContent = continueMessage : textAreaRef.current.focus();
       setInFocus(!inFocus);
     }
-    // if (!inFocus) { startTimer(); }
-    // else { pauseTimer(); }
+    if (!inFocus) {
+      window.removeEventListener('keydown', (e: KeyboardEvent) => blockingScroll(e));
+    }
   };
 
   const pauseTimer = () => {
@@ -98,8 +115,8 @@ export function TextWindow({
   const startGame = (): void => {
     if (idx > -1) {
       const color = isRightKey ? styles.right : styles.wrong;
-      const newText = setNewText(color);
-      text = newText;
+      const newTextJsx = setNewText(color);
+      newText = newTextJsx;
       scroll();
     }
   };
@@ -113,6 +130,8 @@ export function TextWindow({
   };
 
   const init = (): void => {
+    window.addEventListener('keydown', (e: KeyboardEvent) => blockingScroll(e));
+
     if (!isRightKey || idx < text.length - 1) {
       setIsGame(true);
       setFocusToTextWindow();
@@ -121,6 +140,7 @@ export function TextWindow({
       startTimer();
       setFocusToTextWindow();
     }
+
   };
 
   if (isGame) { startGame(); }
@@ -147,7 +167,7 @@ export function TextWindow({
         onBlur={setFocusToTextWindow}
         tabIndex={0}
       >
-        {text}
+        {newText}
       </div>
       <div
         ref={massageRef}

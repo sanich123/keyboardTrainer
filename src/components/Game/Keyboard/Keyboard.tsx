@@ -5,6 +5,7 @@ import { RiGamepadLine, RiKeyboardFill, RiTranslate } from 'react-icons/ri';
 import { getRandomNum } from '../../../utils/getRandomNum';
 import styles from './Keyboard.module.scss';
 import './keyboardSVG.scss';
+import { getRandomText } from '../texts';
 
 export interface KeyboardProps {
   lang: string;
@@ -15,8 +16,10 @@ export interface KeyboardProps {
   keyLang: 'ru' | 'en',
   setKeyLang: React.Dispatch<React.SetStateAction<'ru' | 'en'>>,
   setTime: React.Dispatch<React.SetStateAction<number>>,
+  setText: React.Dispatch<React.SetStateAction<string>>,
 }
-export function Keyboard({ lang, char, isRightKey, idx, setIdx, keyLang, setKeyLang, setTime }: KeyboardProps) {
+
+export function Keyboard({ lang, char, isRightKey, idx, setIdx, keyLang, setKeyLang, setTime, setText }: KeyboardProps) {
   const randomIterableKey = getRandomNum(0, 10000000000000);
 
   const keyboardKeys = {
@@ -372,12 +375,14 @@ export function Keyboard({ lang, char, isRightKey, idx, setIdx, keyLang, setKeyL
   const onClicksKeyLangBtnHandler = () => {
     setIdx(-1);
     setTime(0);
+    setText(getRandomText(keyLang === 'ru' ? 'en' : 'ru'));
     keyLang === 'ru' ? setKeyLang('en') : setKeyLang('ru');
   };
 
   const onClicksNewGameBtnHandler = () => {
     setIdx(-1);
     setTime(0);
+    setText(getRandomText(keyLang));
   };
 
   const setKeyboard = (keys: JSX.Element[], letters: JSX.Element[]) => (

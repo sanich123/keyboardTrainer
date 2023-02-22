@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
+import { getRandomText } from './texts';
 import { LANG_VALUES } from '../../utils/const';
 import { langsData } from '../../components/Settings';
 import { TextWindow, TextWindowProps } from './TextWindow';
@@ -13,24 +14,23 @@ import { toast } from 'react-toastify';
 import { useAddRaceDataMutation } from '../../redux/keyboard-trainer-api';
 
 export function Game() {
-  const text = {
-    en: 'Lorem ipsum',
-    ru: 'Пре',
-  };
+
+
   const { isRu } = useThemeLang();
+  const lang = isRu ? LANG_VALUES.ru : LANG_VALUES.en;
+  const [keyLang, setKeyLang] = useState<'ru' | 'en'>('en');
+  const initRandomText = getRandomText(keyLang);
+  const [text, setText] = useState(initRandomText);
   const { user } = useAuth0();
   const [sendRaceData] = useAddRaceDataMutation();
-  const lang = isRu ? LANG_VALUES.ru : LANG_VALUES.en;
   const [errorCount, setErrorCount] = useState(0);
   const [isStoped, setIsStoped] = useState(false);
   const [isGame, setIsGame] = useState(false);
   const [isRightKey, setIsRightKey] = useState(false);
   const [idx, setIdx] = useState(-1);
-  const [keyLang, setKeyLang] = useState<'ru' | 'en'>('en');
   const [time, setTime] = useState(0);
   const [speed, setSpeed] = useState(0);
   const [accuracy, setAccuracy] = useState(0);
-  const [wins, setWins] = useState(0);
   const [isEnded, setIsEnded] = useState(false);
 
 
@@ -74,9 +74,9 @@ export function Game() {
     return `${minRes}:${secRes}`;
   };
 
-  const accuracyCount = Math.floor(((idx + 2) - errorCount) / (idx + 2) * 100);
+  const accuracyCount = Math.floor((idx + 2 - errorCount) / (idx + 2) * 100);
   const speedCount = Math.floor((idx + 2) / (time / 60 || 1));
-  console.log('speed:', speed, 'accuracy:', accuracy, 'speed:', speed);
+  // console.log('speed:', speed, 'accuracy:', accuracy, 'speed:', speed);
 
   const checkKey = (e: React.KeyboardEvent<HTMLDivElement>)
     : boolean | string => {
@@ -84,13 +84,13 @@ export function Game() {
     if (keys.some((specialKey: string) => specialKey === e.key)) {
       return 'isSpecialKey';
     }
-    return e.key === text[keyLang][idx + 1];
+    return e.key === text[idx + 1];
   };
 
   const onKeyUpHandle = (e: React.KeyboardEvent<HTMLDivElement>)
     : void | undefined => {
 
-    if (isGame === false) {
+    if (!isGame) {
       return;
     }
 
@@ -121,7 +121,7 @@ export function Game() {
       setIsStoped(true);
     }
 
-    if (checkKey(e) && idx >= text[keyLang].length - 2) {
+    if (checkKey(e) && idx >= text.length - 2) {
       setIsGame(false);
       setErrorCount(0);
     }
@@ -155,7 +155,7 @@ export function Game() {
   ];
 
   const keyboardProps: KeyboardProps = {
-    char: text[keyLang][idx + 1],
+    char: text ? text[idx + 1] : initRandomText[idx + 1],
     lang,
     isRightKey,
     idx,
@@ -163,10 +163,11 @@ export function Game() {
     keyLang,
     setKeyLang,
     setTime,
+    setText,
   };
 
   const textWindowProps: TextWindowProps = {
-    lessonText: text[keyLang],
+    text: text ? text : initRandomText,
     lang,
     idx,
     isRightKey,
@@ -177,14 +178,14 @@ export function Game() {
     setSpeed,
     errorCount,
     time,
+    keyLang,
+    setText,
   };
 
   const racingProps: RacingProps = {
-    gameSpeed: 3,
+    gameSpeed: text.length / 120 * 60,
     isGame,
-    wins,
-    setWins,
-    lettersNum: text[keyLang].length,
+    lettersNum: text.length,// ? text.length : 0,
     idx,
     setIsEnded,
   };
