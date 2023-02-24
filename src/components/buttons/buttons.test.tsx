@@ -9,7 +9,7 @@ describe('Primary and secondary btns', () => {
     expect(screen.getByRole('button')).toBeInTheDocument();
   });
   it('BtnSecondary should correctly render', () => {
-    renderWithProviders(<BtnSecondary text="Some fucking text" />);
+    renderWithProviders(<BtnSecondary text="Some fucking text" setModal={() => {}} />);
     expect(screen.getByText(/some fucking text/i)).toBeInTheDocument();
     expect(screen.getByRole('button')).toBeInTheDocument();
   });
