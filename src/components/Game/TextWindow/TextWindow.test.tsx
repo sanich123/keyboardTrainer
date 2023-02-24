@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { renderWithProviders } from '../../../tests/test-utils';
 import { TextWindow } from './TextWindow';
 import { screen } from '@testing-library/react';
@@ -8,7 +9,7 @@ const setAccuracy = jest.fn();
 const setSpeed = jest.fn();
 describe('TextWindow', () => {
   it('should render correctly', () => {
-    renderWithProviders(<TextWindow lessonText="asd;lfkj" lang="ru" idx={3} isRightKey isGame setIsGame={setIsGame} setTime={setTime} setAccuracy={setAccuracy} setSpeed={setSpeed} errorCount={0} time={3}/>);
+    renderWithProviders(<TextWindow text="asd;lfkj" lang="ru" idx={3} isRightKey isGame setIsGame={setIsGame} setTime={setTime} />);
     expect(screen.getByText(/a/i)).toBeInTheDocument();
     expect(screen.getByText(/s/i)).toBeInTheDocument();
     expect(screen.getByText(/d/i)).toBeInTheDocument();

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
+import { getRandomText } from './texts';
 import { LANG_VALUES } from '../../utils/const';
 import { langsData } from '../../components/Settings';
 import { TextWindow, TextWindowProps } from './TextWindow';
@@ -7,31 +8,28 @@ import { Keyboard, KeyboardProps } from './Keyboard';
 import { TrafficLight, TrafficLightProps } from './TrafficLight';
 import { Racing, RacingProps } from './Racing';
 import { keys } from './TextWindow/specialKeys';
-import styles from './Game.module.scss';
 import { useAuth0 } from '@auth0/auth0-react';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import { useAddRaceDataMutation } from '../../redux/keyboard-trainer-api';
+import { setTimeToString } from '../../utils/setTimeToString';
+import styles from './Game.module.scss';
 
 export function Game() {
-  const text = {
-    en: 'Lorem ipsum',
-    ru: 'Пре',
-  };
   const { isRu } = useThemeLang();
-  const {user} = useAuth0();
-  const [sendRaceData] = useAddRaceDataMutation();
   const lang = isRu ? LANG_VALUES.ru : LANG_VALUES.en;
+  const [keyLang, setKeyLang] = useState<'ru' | 'en'>('en');
+  const initRandomText = getRandomText(keyLang);
+  const [text, setText] = useState(initRandomText);
+  const { user } = useAuth0();
+  const [sendRaceData] = useAddRaceDataMutation();
   const [errorCount, setErrorCount] = useState(0);
   const [isStoped, setIsStoped] = useState(false);
   const [isGame, setIsGame] = useState(false);
   const [isRightKey, setIsRightKey] = useState(false);
   const [idx, setIdx] = useState(-1);
-  const [keyLang, setKeyLang] = useState<'ru' | 'en'>('en');
   const [time, setTime] = useState(0);
   const [speed, setSpeed] = useState(0);
   const [accuracy, setAccuracy] = useState(0);
-  const [wins, setWins] = useState(0);
-  const [isEnded, setIsEnded] = useState(false);
 
 
   useEffect(() => {
@@ -41,42 +39,26 @@ export function Game() {
         speed,
         mistakes: accuracy,
         date: new Date(),
-      })
-        .unwrap()
-        .then((success) => {
-          console.log(success);
-          toast.warn('Данные отправлены на сервер');
-        })
-        .catch((error) => {
-          toast.warn('Во время передачи данных произошла ошибка');
-          console.log(error);
-        });
+      });
+      // .unwrap()
+      // .then((success) => {
+      //   console.log(success);
+      //   toast.warn('Данные отправлены на сервер');
+      // })
+      // .catch((error) => {
+      //   toast.warn('Во время передачи данных произошла ошибка');
+      //   console.log(error);
+      // });
     }
-    if (isEnded) {
-      toast.warn('Гонка закончилась');
+    if (isGame && idx >= text.length - 2) {
+      // toast.warn('Гонка закончилась');
       sendData();
     }
-  },[accuracy, isEnded, sendRaceData, speed, user?.nickname]);
+  }, [accuracy, idx, isGame, sendRaceData, speed, text.length, user?.nickname]);
 
-  const setTimeToString = (
-    min = 0,
-    minPref = 0,
-    sec = 0,
-    secPref = 0,
-    minRes = '',
-    secRes = '',
-  ): string => {
-    sec = time;
-    min = Math.floor(time / 60);
-    sec = sec >= 60 ? time - (min * 60) : time;
-    minRes = min < 10 ? `${minPref}${min}` : `${min}`;
-    secRes = sec < 10 ? `${secPref}${sec}` : `${sec}`;
-    return `${minRes}:${secRes}`;
-  };
-
-  const accuracyCount = Math.floor(((idx + 2) - errorCount) / (idx + 2) * 100);
+  const accuracyCount = Math.floor((idx + 2 - errorCount) / (idx + 2) * 100);
   const speedCount = Math.floor((idx + 2) / (time / 60 || 1));
-  console.log(speed, accuracy, wins);
+  // console.log('speed:', speed, 'accuracy:', accuracy, 'speed:', speed);
 
   const checkKey = (e: React.KeyboardEvent<HTMLDivElement>)
     : boolean | string => {
@@ -84,22 +66,20 @@ export function Game() {
     if (keys.some((specialKey: string) => specialKey === e.key)) {
       return 'isSpecialKey';
     }
-    return e.key === text[keyLang][idx + 1];
+    return e.key === text[idx + 1];
   };
 
   const onKeyUpHandle = (e: React.KeyboardEvent<HTMLDivElement>)
     : void | undefined => {
 
-    if (isGame === false) {
+    if (!isGame) {
       return;
     }
 
-    // if special kes pressed
     if (checkKey(e) === 'isSpecialKey') {
       return;
     }
 
-    // if Backspace key pressed
     if (checkKey(e) === 'Backspace') {
       setIdx(idx > -1 ? idx - 1 : -1);
       setIsStoped(false);
@@ -107,10 +87,8 @@ export function Game() {
       return;
     }
 
-    // if game stoped
     if (isStoped) { return; }
 
-    // if right key pressed
     if (checkKey(e)) {
       setIdx(idx + 1);
       setIsRightKey(true);
@@ -121,20 +99,22 @@ export function Game() {
       setIsStoped(true);
     }
 
-    if (checkKey(e) && idx >= text[keyLang].length - 2) {
+    if (checkKey(e) && idx >= text.length - 2) {
       setIsGame(false);
       setErrorCount(0);
     }
 
-    setSpeed(speedCount);
-    setAccuracy(accuracyCount);
+    if (isGame && idx >= text.length - 2) {
+      setSpeed(speedCount);
+      setAccuracy(accuracyCount);
+    }
   };
 
   const trafficLightProps: TrafficLightProps[] = [
     {
       id: 'timer',
       color: 'red',
-      textInfo: setTimeToString(),
+      textInfo: setTimeToString(time),
       textDesc: `${(langsData[lang].pageGame.trafficLight as { [key: string]: string }).elapsedTime}`,
       unit: `${(langsData[lang].pageGame.trafficLight as { [key: string]: string }).elapsedTimeUnit}`,
     },
@@ -155,7 +135,7 @@ export function Game() {
   ];
 
   const keyboardProps: KeyboardProps = {
-    char: text[keyLang][idx + 1],
+    char: text[idx + 1],
     lang,
     isRightKey,
     idx,
@@ -163,42 +143,27 @@ export function Game() {
     keyLang,
     setKeyLang,
     setTime,
+    setText,
+    setSpeed,
+    setAccuracy,
   };
 
   const textWindowProps: TextWindowProps = {
-    lessonText: text[keyLang],
+    text,
     lang,
     idx,
     isRightKey,
     isGame,
     setIsGame,
     setTime,
-    setAccuracy,
-    setSpeed,
-    errorCount,
-    time,
   };
 
   const racingProps: RacingProps = {
-    gameSpeed: 3,
+    gameSpeed: text.length / 100 * 60,
     isGame,
-    wins,
-    setWins,
-    lettersNum: text[keyLang].length,
+    lettersNum: text.length,
     idx,
-    setIsEnded,
   };
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const userData = {
-    date: new Date().toLocaleTimeString(),
-    time,
-    speed,
-    accuracy,
-    wins,
-  };
-
-  console.log('🚀 ~ checkWinner ~ wins', wins);
 
   return (
     <div
