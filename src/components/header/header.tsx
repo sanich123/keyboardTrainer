@@ -26,9 +26,11 @@ export function Header() {
         <LoginNavigation />
       </div>
       <div className={styles.mobileMenu}>
-        <RiMenu3Fill onClick={() => setShow(!show)} />
+        <button type="button" onClick={() => setShow(!show)}>
+          <RiMenu3Fill />
+        </button>
         <div className={`${styles.mobileNav} ${active}`}>
-          <Navigation />
+          <Navigation setShow={setShow}/>
         </div>
       </div>
     </header>

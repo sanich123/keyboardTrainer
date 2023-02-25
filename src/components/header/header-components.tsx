@@ -5,13 +5,21 @@ import { langsData } from '../Settings/LangSwitch/langsData';
 import { useAuth0 } from '@auth0/auth0-react';
 import { RiUser3Fill } from 'react-icons/ri';
 import styles from './header-components.module.scss';
+import { useEffect } from 'react';
+import { addEscListener } from '../../utils/event-listeners';
 
-export function Navigation() {
+export function Navigation({setShow}:{setShow?: (arg: boolean) => void}) {
   const { isRu } = useThemeLang();
   const { ru, en } = LANG_VALUES;
   const lang = isRu ? ru : en;
   const { isAuthenticated } = useAuth0();
   const { about, race, stats } = langsData[lang].menuMain as { [key: string]: string };
+
+  useEffect(() => {
+    if (setShow) {
+      addEscListener(setShow);
+    }
+  });
 
   return (
     <nav className={styles.headerNav}>

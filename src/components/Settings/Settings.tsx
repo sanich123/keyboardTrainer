@@ -6,6 +6,7 @@ import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 import { RiSettings2Fill } from 'react-icons/ri';
 import styles from './Settings.module.scss';
 import { AnyAction } from '@reduxjs/toolkit';
+import { addClickOnOutsideListener, addEscListener } from '../../utils/event-listeners';
 
 export interface SettingsProps {
   dispatch: Dispatch<AnyAction>,
@@ -21,19 +22,10 @@ export function Settings() {
   const active = show ? styles.active : '';
 
   useEffect(() => {
-    document.addEventListener('keydown', ({ code }) => {
-      if (code === 'Escape') {
-        setShow(false);
-      }
-    }, { once: true });
-    document.addEventListener('click', ({ target }) => {
-      if (target instanceof HTMLElement) {
-        if (!target.className.includes('Lang') && !target.className.includes('Theme') && !target.className.includes('Settings')) {
-          setShow(false);
-        }
-      }
-    });
-  });
+    addEscListener(setShow);
+    addClickOnOutsideListener(setShow);
+  },[]);
+
   return (
     <div className={styles.Settings}>
       <div className={styles.buttonWrap}>

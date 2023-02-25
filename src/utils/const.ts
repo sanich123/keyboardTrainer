@@ -4,9 +4,6 @@ export const ROUTES = {
   cabinet: '/cabinet',
 };
 
-export const CARDS_ON_PAGE = 9;
-export const COMMENTS_ON_PAGE = 3;
-
 export const BASE_URL = 'https://server-keyboard-trainer-git-main-sanich123.vercel.app';
 
 export const THEME_VALUES = {
