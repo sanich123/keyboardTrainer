@@ -50,7 +50,7 @@ export function Game() {
       //   console.log(error);
       // });
     }
-    if (isGame && idx >= text.length - 2) {
+    if (!isGame && idx >= text.length - 2) {
       // toast.warn('Гонка закончилась');
       sendData();
     }
