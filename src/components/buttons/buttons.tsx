@@ -2,17 +2,27 @@ import styles from './buttons.module.scss';
 
 type TextBtn = {
   text: string
+  setModal: (arg: boolean) => void
 };
 
-export function BtnSecondary(text: TextBtn) {
+type TextBtnPr = {
+  text: string
+};
+
+export function BtnSecondary({ text, setModal }: TextBtn) {
   return (
-    <button className={styles.btnSecondary}>{text.text}</button>
+    <button
+      className={styles.btnSecondary}
+      onClick={() => setModal(true)}
+    >
+      {text}
+    </button>
   );
 }
 
-export function BtnPrinary(text: TextBtn) {
+export function BtnPrinary({ text }: TextBtnPr) {
   return (
-    <button className={styles.btnPrimary} >{text.text}
+    <button className={styles.btnPrimary} >{text}
     </button>
   );
 }

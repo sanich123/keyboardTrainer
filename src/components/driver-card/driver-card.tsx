@@ -1,19 +1,24 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
 import { useGetStatisticsQuery } from '../../redux/keyboard-trainer-api';
-import { ROUTES } from '../../utils/const';
+import { LANG_VALUES, ROUTES } from '../../utils/const';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 import { BtnPrinary, BtnSecondary } from '../buttons/buttons';
 import { langsData } from '../Settings';
 import './driver-card.scss';
 import GetDriverStatus from './driver-status';
 
-export default function DriverCard() {
+type Modal = {
+  setModal: (arg: boolean) => void
+};
+
+export default function DriverCard({ setModal }: Modal) {
   const { user } = useAuth0();
   const { isRu, isLight } = useThemeLang();
-  const { data: statisticData, isLoading } = useGetStatisticsQuery(user?.nickname);
+  const { data: statisticData, isLoading, error } = useGetStatisticsQuery(user?.nickname);
 
-  const lang = isRu ? 'ru' : 'en';
+  const { ru, en } = LANG_VALUES;
+  const lang = isRu ? ru : en;
 
   return (
     <div
@@ -38,12 +43,13 @@ export default function DriverCard() {
           {`${langsData[lang].pageStatistic.start}`}
           {isLoading && <span className="span-driver">Loading...</span>}
           {statisticData && <span className="span-driver">{statisticData.firstRace.slice(0, 10)}</span>}
+          {error && <span className="span-driver">{`${langsData[lang].dataStatus.noDataFirstRace}`}</span>}
         </p>
         <div
           className="btns-driver"
-          style={{ color: `${isLight ? '#FFFFFF' : '#000000'}` }}
+          // style={{ color: `${isLight ? '#FFFFFF' : '#000000'}` }}
         >
-          <BtnSecondary text={`${langsData[lang].pageHome.btnRules}`}/>
+          <BtnSecondary setModal={setModal} text={`${langsData[lang].pageHome.btnRules}`}/>
           <Link to={ROUTES.game}>
             <BtnPrinary text={`${langsData[lang].pageStatistic.startRace}`} />
           </Link>

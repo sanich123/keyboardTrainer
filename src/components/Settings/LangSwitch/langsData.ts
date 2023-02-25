@@ -36,7 +36,6 @@ export const langsData: LangData = {
         en: 'Layout: En',
       },
       newGameBtn: 'New Game',
-
     },
     pageStatistic: {
       h1: 'Statistic',
@@ -89,8 +88,16 @@ export const langsData: LangData = {
     footer: {
       sign: '© 2023. Special for RS School',
     },
+    dataStatus: {
+      noDataFirstRace: 'Not started yet',
+      noDataTenRaces: 'To get statistics, you must complete the race.',
+    },
     misc: {
       loading: 'Loading...',
+    },
+    modal: {
+      modalName: 'Rules',
+      modalText: 'To start the game, go to the "Race" section. Click on the box and print the suggested text. If you win, your results are saved (only available to authorized users). You can track them in the "Statistics" section. And also get awards for your best races!',
     },
   },
   ru: {
@@ -174,8 +181,16 @@ export const langsData: LangData = {
     footer: {
       sign: '© 2023. Специально для RS School',
     },
+    dataStatus: {
+      noDataFirstRace: 'Ещё не стартовал',
+      noDataTenRaces: 'Для получения статистики необходимо закончить заезд.',
+    },
     misc: {
       loading: 'Загрузка...',
+    },
+    modal: {
+      modalName: 'Правила',
+      modalText: 'Чтобы начать игру заходи в раздел "Гонка". Кликай на окошко и печетай предложенный текст. В случае победы твои результаты сохраняются (доступно только авторизованным пользователям). Отследить их ты можешь в разделе "Статистика". А также получить награды за свои лучшие заезды!',
     },
   },
 };

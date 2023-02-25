@@ -9,7 +9,7 @@ jest.mock('@auth0/auth0-react');
 describe('Driver-card', () => {
   it('should correctly render', async () => {
     (useAuth0 as jest.Mock).mockReturnValue(isLoading);
-    renderWithProviders(<DriverCard/>);
+    renderWithProviders(<DriverCard setModal={()=> {}}/>);
     expect(screen.getAllByRole('button')).toHaveLength(2);
     expect(screen.getByText(/status/i)).toBeInTheDocument();
     expect(screen.getByText(/first st/i)).toBeInTheDocument();

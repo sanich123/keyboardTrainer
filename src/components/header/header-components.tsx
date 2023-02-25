@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../../utils/const';
+import { LANG_VALUES, ROUTES } from '../../utils/const';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 import { langsData } from '../Settings/LangSwitch/langsData';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -8,7 +8,8 @@ import styles from './header-components.module.scss';
 
 export function Navigation() {
   const { isRu } = useThemeLang();
-  const lang = isRu ? 'ru' : 'en';
+  const { ru, en } = LANG_VALUES;
+  const lang = isRu ? ru : en;
   const { isAuthenticated } = useAuth0();
   const { about, race, stats } = langsData[lang].menuMain as { [key: string]: string };
 
@@ -34,7 +35,8 @@ export function LoginNavigation() {
   const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
     useAuth0();
 
-  const lang = isRu ? 'ru' : 'en';
+  const { ru, en } = LANG_VALUES;
+  const lang = isRu ? ru : en;
   const { logIn, logOut } = langsData[lang].menuLogin as { [key: string]: string };
   const { loading } = langsData[lang].misc as { [key: string]: string };
   const themeImg = <RiUser3Fill className={styles.imgUser} />;
@@ -62,6 +64,7 @@ export function LoginNavigation() {
       </Link>
       {isAuthenticated && (
         <button
+          className={styles.logoutBtn}
           onClick={() =>
             logout({ logoutParams: { returnTo: window.location.origin } })}
         >

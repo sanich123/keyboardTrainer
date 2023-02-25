@@ -1,5 +1,6 @@
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 import { DEVELOPERS } from '../../data/developers-info';
+import { LANG_VALUES } from '../../utils/const';
 import logo from '../../assets/img/logo.svg';
 import logoRss from '../../assets/img/logo-rss.svg';
 import { langsData } from '../Settings';
@@ -8,7 +9,8 @@ import styles from './footer.module.scss';
 
 export function Footer() {
   const { isRu } = useThemeLang();
-  const lang = isRu ? 'ru' : 'en';
+  const { ru, en } = LANG_VALUES;
+  const lang = isRu ? ru : en;
 
   return (
     <section className={styles.footerSection}>

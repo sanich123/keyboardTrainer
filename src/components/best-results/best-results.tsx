@@ -4,13 +4,15 @@ import { BestIndex } from './best-results-components';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useGetStatisticsQuery } from '../../redux/keyboard-trainer-api';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
+import { LANG_VALUES } from '../../utils/const';
 
 
 export default function BestResults() {
   const { isRu } = useThemeLang();
   const { user } = useAuth0();
-  const { data: statisticData, isLoading } = useGetStatisticsQuery(user?.nickname);
-  const lang = isRu ? 'ru' : 'en';
+  const { data: statisticData, isLoading, error } = useGetStatisticsQuery(user?.nickname);
+  const { ru, en } = LANG_VALUES;
+  const lang = isRu ? ru : en;
 
   return (
     <div className="all-div-best">
@@ -27,15 +29,16 @@ export default function BestResults() {
             <BestIndex
               name={`${langsData[lang].pageStatistic.speed}`}
               color={'#FFE39C'}
-              result={Number(statisticData?.averageSpeed)}
+              result={Math.round(Number(statisticData?.averageSpeed))}
             />
             <BestIndex
               name={`${langsData[lang].pageStatistic.accuracy}`}
               color={'#B0FF9C'}
-              result={Number(statisticData?.averageMistakes)}
+              result={Math.round(Number(statisticData?.averageMistakes))}
             />
           </>
         )}
+        {error && <h1>{`${langsData[lang].dataStatus.noDataTenRaces}`}</h1>}
       </div>
     </div>
   );

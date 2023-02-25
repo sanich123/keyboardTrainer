@@ -45,7 +45,7 @@ interface StatsData {
 
 export default function GetDataChartLine(arrData: StatsData[]) {
 
-  const labels = arrData.map((data) => data.date);
+  const labels = arrData.map(({ date }) => date.slice(0, 10));
 
   return (
     {
@@ -53,13 +53,13 @@ export default function GetDataChartLine(arrData: StatsData[]) {
       datasets: [
         {
           label: 'Speed',
-          data: arrData.map((info) => info.speed),
+          data: arrData.map(({ speed }) => speed),
           borderColor: '#D96C6C',
           backgroundColor: '#FF9C9C',
         },
         {
           label: 'Accuracy',
-          data: arrData.map((info) => info.mistakes),
+          data: arrData.map(({ mistakes }) => mistakes),
           borderColor: '#81BC72',
           backgroundColor: '#B0FF9C',
         },

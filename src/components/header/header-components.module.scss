@@ -42,15 +42,18 @@
   cursor: pointer;
   transition: var(--transition);
 
-  &:hover {
-    color: var(--primary-color);
-  }
+  // &:hover {
+  //   color: var(--primary-color);
+  // }
 }
 
 .textLogin {
 
+  margin-right: 20px;
+
   &:hover {
     text-decoration: underline;
+    color: var(--primary-color);
   }
 
   @media screen and (width <=$mobile) {
@@ -69,5 +72,12 @@
     font-size: 25px;
     width: 25px;
     height: 25px;
+  }
+}
+
+.logoutBtn {
+  &:hover {
+    text-decoration: underline;
+    color: var(--primary-color);
   }
 }
