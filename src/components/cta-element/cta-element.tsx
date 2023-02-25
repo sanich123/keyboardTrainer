@@ -5,7 +5,6 @@ import { BtnPrinary, BtnSecondary } from '../buttons/buttons';
 import { langsData } from '../Settings';
 import styles from './cta-element.module.scss';
 
-
 type Modal = {
   setModal: (arg: boolean) => void
 };

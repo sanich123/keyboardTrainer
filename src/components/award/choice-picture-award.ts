@@ -7,11 +7,8 @@ import Sp300Off from '../../assets/img/awards/sp300-off.webp';
 import AccOn from '../../assets/img/awards/acc-on.webp';
 import AccOff from '../../assets/img/awards/acc-off.webp';
 
-
 export default function ChoicePicture(name: string) {
-
   let res = '';
-
   switch (name) {
   case 'acc-on':
     res = AccOn;

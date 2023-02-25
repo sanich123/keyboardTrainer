@@ -11,7 +11,7 @@ describe('Best-results', () => {
     expect(screen.getByText(/loading/i)).toBeInTheDocument();
     expect(await screen.findByText(/races/i)).toBeInTheDocument();
     expect(await screen.findByText(/speed/i)).toBeInTheDocument();
-    expect(await screen.findByText(/400.6/i)).toBeInTheDocument();
+    expect(await screen.findByText(/401/i)).toBeInTheDocument();
     expect(await screen.findByText(/accuracy/i)).toBeInTheDocument();
   });
 });

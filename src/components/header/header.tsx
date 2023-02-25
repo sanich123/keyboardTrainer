@@ -1,7 +1,4 @@
 import { Settings } from '../Settings';
-// import { useAuth0 } from '@auth0/auth0-react';
-// import { Link } from 'react-router-dom';
-// import { ROUTES } from '../../utils/const';
 import { LoginNavigation, Navigation } from './header-components';
 import logo from '../../assets/img/logo.svg';
 import styles from './header.module.scss';

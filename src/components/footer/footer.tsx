@@ -6,7 +6,6 @@ import logoRss from '../../assets/img/logo-rss.svg';
 import { langsData } from '../Settings';
 import styles from './footer.module.scss';
 
-
 export function Footer() {
   const { isRu } = useThemeLang();
   const { ru, en } = LANG_VALUES;

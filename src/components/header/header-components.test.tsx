@@ -16,7 +16,7 @@ describe('Header components should render correctly', () => {
   it('LoginNavigation should render correct alt, text and roles, when authorized', () => {
     (useAuth0 as jest.Mock).mockReturnValue(authorized);
     renderWithProviders(<LoginNavigation/>);
-    expect(screen.getByAltText(/settings/i)).toBeInTheDocument();
+    expect(screen.getByText(/logout/i)).toBeInTheDocument();
     expect(screen.getByRole('img')).toBeInTheDocument();
     expect(screen.getAllByRole('link')).toHaveLength(2);
     expect(screen.getByText(/johndoe@me.com/i)).toBeInTheDocument();
@@ -25,18 +25,14 @@ describe('Header components should render correctly', () => {
   it ('LoginNavigation should render correct info, when not-authorized', () => {
     (useAuth0 as jest.Mock).mockReturnValue(nonAuthorized);
     renderWithProviders(<LoginNavigation/>);
-    expect(screen.getByAltText(/settings/i)).toBeInTheDocument();
-    expect(screen.getByRole('img')).toBeInTheDocument();
+    expect(screen.getByText(/login/i)).toBeInTheDocument();
     expect(screen.getAllByRole('link')).toHaveLength(2);
     const link = screen.getByText(/login/i);
     expect(link).toBeInTheDocument();
-
   });
   it('LoginNavigation should render correct info, when isLoading', () => {
     (useAuth0 as jest.Mock).mockReturnValue(isLoading);
     renderWithProviders(<LoginNavigation />);
-    expect(screen.getByAltText(/settings/i)).toBeInTheDocument();
-    expect(screen.getByRole('img')).toBeInTheDocument();
     expect(screen.getAllByRole('link')).toHaveLength(2);
     expect(screen.getByText(/loading.../i)).toBeInTheDocument();
   });

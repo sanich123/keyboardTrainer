@@ -1,7 +1,6 @@
 import './award.scss';
 import ChoicePicture from './choice-picture-award';
 
-
 interface PropsAward {
   nameAward: string
   text: string

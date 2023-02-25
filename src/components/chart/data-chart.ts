@@ -1,24 +1,6 @@
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 export const options = {
   responsive: true,
@@ -40,11 +22,9 @@ interface StatsData {
   speed: number
   __v: number
   _id: string
-
 }
 
 export default function GetDataChartLine(arrData: StatsData[]) {
-
   const labels = arrData.map(({ date }) => date.slice(0, 10));
 
   return (

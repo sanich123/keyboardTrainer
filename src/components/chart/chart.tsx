@@ -1,19 +1,9 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { useGetStatisticsQuery } from '../../redux/keyboard-trainer-api';
 import GetDataChartLine from './data-chart';
 import { options } from './data-chart';
-
 
 ChartJS.register(
   CategoryScale,
@@ -25,7 +15,6 @@ ChartJS.register(
   Legend,
 );
 
-
 interface StatsData {
   date: string
   mistakes: number
@@ -33,7 +22,6 @@ interface StatsData {
   speed: number
   __v: number
   _id: string
-
 }
 
 export default function ChartStats() {

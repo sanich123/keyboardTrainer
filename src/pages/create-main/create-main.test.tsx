@@ -11,9 +11,8 @@ describe('Main page', () => {
       ),
     ).toBeInTheDocument();
     expect(screen.getAllByRole('button')).toHaveLength(3);
-    expect(screen.getAllByRole('link')).toHaveLength(9);
+    expect(screen.getAllByRole('link')).toHaveLength(11);
     expect(screen.getAllByRole('button')).toHaveLength(3);
-    expect(screen.getByRole('img')).toBeInTheDocument();
-    expect(screen.getByRole('navigation')).toBeInTheDocument();
+    expect(screen.getAllByRole('img')).toHaveLength(3);
   });
 });

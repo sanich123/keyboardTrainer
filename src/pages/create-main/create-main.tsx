@@ -4,6 +4,7 @@ import CtaElement from '../../components/cta-element/cta-element';
 import styles from './create-main.module.scss';
 import { useState } from 'react';
 import ModalRules from '../../components/modal-rules/modal';
+import { FocusOn } from 'react-focus-on';
 
 
 export default function CreateMainPage() {
@@ -12,10 +13,14 @@ export default function CreateMainPage() {
 
   return (
     <>
-      { modal && <ModalRules setModal={setModal}/> }
+      {modal && (
+        <FocusOn onEscapeKey={() => setModal(false)}>
+          <ModalRules setModal={setModal} />
+        </FocusOn>
+      )}
       <main className={`base ${styles.mainpageDiv}`}>
         <Header />
-        <CtaElement setModal={setModal}/>
+        <CtaElement setModal={setModal} />
         <Footer />
       </main>
     </>

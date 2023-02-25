@@ -5,7 +5,6 @@ import { NUM_RACES_STATUS } from '../../utils/const';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 
 export default function GetDriverStatus() {
-
   const { user } = useAuth0();
   const { data: statisticData, error } = useGetStatisticsQuery(user?.nickname);
   const { isRu } = useThemeLang();

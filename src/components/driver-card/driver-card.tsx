@@ -16,7 +16,6 @@ export default function DriverCard({ setModal }: Modal) {
   const { user } = useAuth0();
   const { isRu, isLight } = useThemeLang();
   const { data: statisticData, isLoading, error } = useGetStatisticsQuery(user?.nickname);
-
   const { ru, en } = LANG_VALUES;
   const lang = isRu ? ru : en;
 
@@ -45,10 +44,7 @@ export default function DriverCard({ setModal }: Modal) {
           {statisticData && <span className="span-driver">{statisticData.firstRace.slice(0, 10)}</span>}
           {error && <span className="span-driver">{`${langsData[lang].dataStatus.noDataFirstRace}`}</span>}
         </p>
-        <div
-          className="btns-driver"
-          // style={{ color: `${isLight ? '#FFFFFF' : '#000000'}` }}
-        >
+        <div className="btns-driver">
           <BtnSecondary setModal={setModal} text={`${langsData[lang].pageHome.btnRules}`}/>
           <Link to={ROUTES.game}>
             <BtnPrinary text={`${langsData[lang].pageStatistic.startRace}`} />
