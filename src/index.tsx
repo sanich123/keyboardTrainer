@@ -11,8 +11,8 @@ const root = createRoot(document.getElementById('root') as HTMLDivElement);
 root.render(
   <Provider store={setupStore()}>
     <Auth0Provider
-      domain="dev-kkpxuz5wno1xyv3k.us.auth0.com"
-      clientId="gioM2svcUzYfHdAp4EpdjrZJzP76h3gA"
+      domain="dev-v2mpr5nywd3h7ltk.us.auth0.com"
+      clientId="83cHOW4g36w70PXgsUrdhvvrfgmDuvyX"
       authorizationParams={{
         // eslint-disable-next-line camelcase
         redirect_uri: window.location.origin,
