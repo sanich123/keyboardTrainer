@@ -1,6 +1,7 @@
 import { LANG_VALUES } from '../../utils/const';
 import { useThemeLang } from '../../utils/hooks/use-theme-lang/use-theme-lang';
 import { langsData } from '../Settings';
+import { FocusOn } from 'react-focus-on';
 import './modal.scss';
 
 type Modal = {
@@ -14,16 +15,23 @@ export default function ModalRules({ setModal }: Modal) {
 
   return (
     <div className="modal-all" onClick={() => setModal(false)}>
-      <div
-        className={`modal-container ${isLight ? '' : 'darck-modal'}`}
-        onClick={(e) => e.stopPropagation()}
+      <FocusOn
+        onEscapeKey={() => setModal(false)}
+        onClickOutside={() => setModal(false)}
       >
-        <div className="modal-header">
-          <h1 className="h1-modal">{`${langsData[lang].modal.modalName}`}</h1>
-          <button className="span-close" onClick={() => setModal(false)}>&#x2718;</button>
+        <div
+          className={`modal-container ${isLight ? '' : 'darck-modal'}`}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="modal-header">
+            <h1 className="h1-modal">{`${langsData[lang].modal.modalName}`}</h1>
+            <button className="span-close" onClick={() => setModal(false)}>
+              &#x2718;
+            </button>
+          </div>
+          <p className="p-modal-text">{`${langsData[lang].modal.modalText}`}</p>
         </div>
-        <p className="p-modal-text">{`${langsData[lang].modal.modalText}`}</p>
-      </div>
+      </FocusOn>
     </div>
   );
 }

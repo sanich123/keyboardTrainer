@@ -40,10 +40,12 @@ export function Settings() {
           </span>
         </button>
       </div>
-      <div className={`${styles.menu} ${active}`}>
-        <LangSwitch {...{ dispatch, theme, lang }} />
-        <ThemeSwitch {...{ dispatch, theme, lang }} />
-      </div>
+      {show && (
+        <div className={`${styles.menu} ${active}`}>
+          <LangSwitch {...{ dispatch, theme, lang }} />
+          <ThemeSwitch {...{ dispatch, theme, lang }} />
+        </div>
+      )}
     </div>
   );
 }
