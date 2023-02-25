@@ -112,7 +112,7 @@
 
     --home-bg-color: transparent;
 
-    --body-bg: url('../../../assets/img/background.png') no-repeat transparent;
+    --body-bg: url('../../../assets/img/background.webp') no-repeat transparent;
 
   }
 
@@ -179,6 +179,6 @@
 
     --home-bg-color: #312f2f;
 
-    --body-bg: url('../../../assets/img/background.png') no-repeat var(--primary-bg-color);
+    --body-bg: url('../../../assets/img/background.webp') no-repeat var(--primary-bg-color);
   }
 }
