@@ -1,4 +1,4 @@
-import { Dispatch, useState } from 'react';
+import { Dispatch, useState, useEffect } from 'react';
 import LangSwitch, { langsData } from './LangSwitch';
 import ThemeSwitch from './ThemeSwitch';
 import { LANG_VALUES, THEME_VALUES } from '../../utils/const';
@@ -20,10 +20,28 @@ export function Settings() {
   const theme = isLight ? THEME_VALUES.light : THEME_VALUES.dark;
   const active = show ? styles.active : '';
 
+  useEffect(() => {
+    document.addEventListener('keydown', ({ code }) => {
+      if (code === 'Escape') {
+        setShow(false);
+      }
+    }, { once: true });
+    document.addEventListener('click', ({ target }) => {
+      if (target instanceof HTMLElement) {
+        if (!target.className.includes('Lang') && !target.className.includes('Theme') && !target.className.includes('Settings')) {
+          setShow(false);
+        }
+      }
+    });
+  });
   return (
     <div className={styles.Settings}>
       <div className={styles.buttonWrap}>
-        <button type="button" className={`${styles.btn} ${active}`} onClick={() => setShow(!show)}>
+        <button
+          type="button"
+          className={`${styles.btn} ${active}`}
+          onClick={() => setShow(!show)}
+        >
           <RiSettings2Fill className={styles.buttonIcon} />
           <span className={styles.btnText}>
             {`${langsData[lang].menuSettings.settingsBtn}`}

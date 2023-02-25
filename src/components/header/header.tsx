@@ -4,6 +4,8 @@ import logo from '../../assets/img/logo.svg';
 import styles from './header.module.scss';
 import { RiMenu3Fill } from 'react-icons/ri';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ROUTES } from '../../utils/const';
 
 export function Header() {
   const [show, setShow] = useState(false);
@@ -12,7 +14,9 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.header__leftSide}>
-        <img src={logo} className={styles.headerLogo} alt="logo" />
+        <Link to={ROUTES.main}>
+          <img src={logo} className={styles.headerLogo} alt="logo" />
+        </Link>
         <div className={styles.header__nav}>
           <Navigation />
         </div>

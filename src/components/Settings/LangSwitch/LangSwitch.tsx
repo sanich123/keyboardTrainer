@@ -10,14 +10,14 @@ export default function LangSwitch({ dispatch, lang }: SettingsProps) {
   const { enBtn, ruBtn } = langsData[lang].menuSettings;
   return (
     <div className={`${style.LangSwitch}`} onClick={() => dispatch(changeLanguage())}>
-      <div className={`${style.selectLangEn} ${!isRu ? style.active : ''}`}>
+      <button className={`${style.selectLangEn} ${!isRu ? style.active : ''}`}>
         <RiTranslate2 className={`${style.icon}`} />
         {`${enBtn}`}
-      </div>
-      <div className={`${style.selectLangEn} ${isRu ? style.active : ''}`}>
-        < RiTranslate2 className={`${style.icon}`} />
+      </button>
+      <button className={`${style.selectLangEn} ${isRu ? style.active : ''}`}>
+        <RiTranslate2 className={`${style.icon}`} />
         {`${ruBtn}`}
-      </div >
+      </button >
     </div >
   );
 }

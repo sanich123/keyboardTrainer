@@ -13,14 +13,14 @@ export default function ThemeSwitch({ dispatch, theme, lang }: SettingsProps) {
 
   return (
     <div className={style.ThemeSwitch} onClick={() => { dispatch(changeTheme()); }}>
-      <div className={`${style['select-theme-light']} ${isLight ? style.active : ''}`}>
+      <button className={`${style['select-theme-light']} ${isLight ? style.active : ''}`}>
         <RiSunFill className={`${style.icon}`} />
         {`${lightBtn}`}
-      </div>
-      <div className={`${style['select-theme-dark']} ${!isLight ? style.active : ''}`}>
+      </button>
+      <button className={`${style['select-theme-dark']} ${!isLight ? style.active : ''}`}>
         <RiMoonFill className={`${style.icon}`} />
         {`${darkBtn}`}
-      </div>
+      </button>
     </div>
   );
 }
