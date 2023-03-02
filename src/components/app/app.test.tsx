@@ -18,8 +18,8 @@ describe('App', () => {
   });
   it('has proper elements by their roles', () => {
     render(<Provider store={setupStore()}><App /></Provider>);
-    expect(screen.getAllByRole('link')).toHaveLength(10);
-    expect(screen.getAllByRole('button')).toHaveLength(1);
+    expect(screen.getAllByRole('link')).toHaveLength(11);
+    expect(screen.getAllByRole('button')).toHaveLength(6);
   });
   history.push('j;lkj;lk');
   it('should render 404 page', async () => {

@@ -10,9 +10,9 @@ describe('Main page', () => {
         /Start your race! Find out your typing speed and accuracy. Do various races, improve your skills and compete with others. Try different languages and see your results in the "Statistics" section./i,
       ),
     ).toBeInTheDocument();
-    expect(screen.getAllByRole('button')).toHaveLength(3);
-    expect(screen.getAllByRole('link')).toHaveLength(11);
-    expect(screen.getAllByRole('button')).toHaveLength(3);
+    expect(screen.getAllByRole('button')).toHaveLength(8);
+    expect(screen.getAllByRole('link')).toHaveLength(12);
+    expect(screen.getAllByRole('button')).toHaveLength(8);
     expect(screen.getAllByRole('img')).toHaveLength(3);
   });
 });

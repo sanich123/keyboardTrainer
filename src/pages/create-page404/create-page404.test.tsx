@@ -7,8 +7,8 @@ describe('Page 404', () => {
     renderWithProviders(<CreatePage404/>);
     expect(screen.getByText(/page not found/i)).toBeInTheDocument();
     expect(screen.getByText(/settings/i)).toBeInTheDocument();
-    expect(screen.getAllByRole('link')).toHaveLength(10);
-    expect(screen.getByRole('button')).toBeInTheDocument();
+    expect(screen.getAllByRole('link')).toHaveLength(11);
+    expect(screen.getAllByRole('button')).toHaveLength(6);
     expect(screen.getAllByRole('img')).toHaveLength(4);
     expect(screen.getAllByRole('listitem')).toHaveLength(4);
     expect(screen.getByText(/loading.../i)).toBeInTheDocument();

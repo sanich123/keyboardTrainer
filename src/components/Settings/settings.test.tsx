@@ -10,6 +10,6 @@ describe('Settings', () => {
     expect(screen.getByText(/settings/i)).toBeInTheDocument();
     expect(screen.getByText(/light/i)).toBeInTheDocument();
     expect(screen.getByText(/dark/i)).toBeInTheDocument();
-    expect(screen.getByRole('button')).toBeInTheDocument();
+    expect(screen.getAllByRole('button')).toHaveLength(5);
   });
 });

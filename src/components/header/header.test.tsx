@@ -11,8 +11,8 @@ describe('Header', () => {
     (useAuth0 as jest.Mock).mockReturnValue(isLoading);
     renderWithProviders(<Header />);
     expect(screen.getByText(/settings/i)).toBeInTheDocument();
-    expect(screen.getAllByRole('link')).toHaveLength(6);
-    expect(screen.getByRole('button')).toBeInTheDocument();
+    expect(screen.getAllByRole('link')).toHaveLength(7);
+    expect(screen.getAllByRole('button')).toHaveLength(6);
     expect(screen.getByRole('img')).toBeInTheDocument();
     expect(screen.getAllByRole('listitem')).toHaveLength(4);
     expect(screen.getByText(/loading.../i)).toBeInTheDocument();
@@ -21,8 +21,8 @@ describe('Header', () => {
     (useAuth0 as jest.Mock).mockReturnValue(authorized);
     renderWithProviders(<Header />);
     expect(screen.getByText(/settings/i)).toBeInTheDocument();
-    expect(screen.getAllByRole('link')).toHaveLength(8);
-    expect(screen.getAllByRole('button')).toHaveLength(2);
+    expect(screen.getAllByRole('link')).toHaveLength(9);
+    expect(screen.getAllByRole('button')).toHaveLength(7);
     expect(screen.getAllByRole('img')).toHaveLength(2);
     expect(screen.getAllByRole('listitem')).toHaveLength(6);
   });
@@ -30,8 +30,8 @@ describe('Header', () => {
     (useAuth0 as jest.Mock).mockReturnValue(nonAuthorized);
     renderWithProviders(<Header />);
     expect(screen.getByText(/settings/i)).toBeInTheDocument();
-    expect(screen.getAllByRole('link')).toHaveLength(6);
-    expect(screen.getByRole('button')).toBeInTheDocument();
+    expect(screen.getAllByRole('link')).toHaveLength(7);
+    expect(screen.getAllByRole('button')).toHaveLength(6);
     expect(screen.getByRole('img')).toBeInTheDocument();
     expect(screen.getAllByRole('listitem')).toHaveLength(4);
     expect(screen.getByText(/login/i)).toBeInTheDocument();
