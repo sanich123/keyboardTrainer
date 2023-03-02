@@ -1,0 +1,77 @@
+@import "../../styles/vars.scss";
+
+.Settings {
+  position: relative;
+  color: var(--font-color);
+  width: max-content;
+  margin-left: auto;
+
+  .buttonWrap {
+    color: var(--primary-font-color);
+
+    .btn {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      background: transparent;
+      padding: 10px;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      cursor: pointer;
+
+      &:hover,
+      &.active {
+        color: var(--primary-color);
+        text-decoration: underline;
+      }
+
+      .btnText {
+        @media screen and (width <=$mobile) {
+          display: none;
+        }
+      }
+
+      .buttonIcon {
+        width: 20px;
+        height: auto;
+
+        @media screen and (width <=$mobile) {
+          width: 25px;
+        }
+      }
+    }
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    right: 0;
+    padding: 20px 20px;
+    margin-top: 10px;
+    transform: translateY(-100%);
+    z-index: -1;
+    transition: var(--transition-menu-close);
+    opacity: 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    background: var(--primary-bg-color);
+
+    @media screen and (max-width: 850px) {
+      right: -137px;
+    }
+
+    &.active {
+      transform: translateY(0);
+      transition: var(--transition-menu-open);
+      opacity: 1;
+      z-index: 10;
+    }
+  }
+
+
+}

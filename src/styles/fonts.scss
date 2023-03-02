@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Droid Sans";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("../assets/fonts/droid-sans.woff2") format("woff2"), url("../assets/fonts/droid-sans.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("../assets/fonts/open-sans.woff2") format("woff2"), url("../assets/fonts/open-sans.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Baloo";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("../assets/fonts/baloo.woff") format("woff");
+}
