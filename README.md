@@ -1,6 +1,7 @@
 
 <h1 align="center">KEYBOARD TRAINER</h1>
-<h2 align="center">Our team work with [predmaxim](https://github.com/predmaxim), [irinaid](https://github.com/IrinaIID)</h2>
+
+In collaboration with: [predmaxim](https://github.com/predmaxim), [irinaid](https://github.com/IrinaIID)
 
 1. How to launch on the local machine: `git clone [ssh reference] project`, `cd project`, `npm i`, `npm run dev`
 2. Screenshot: 
