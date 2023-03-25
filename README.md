@@ -1,4 +1,3 @@
-
 <h1 align="center">KEYBOARD TRAINER</h1>
 
 In collaboration with: [predmaxim](https://github.com/predmaxim), [irinaid](https://github.com/IrinaIID)
