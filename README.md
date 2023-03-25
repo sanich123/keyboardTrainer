@@ -1,5 +1,50 @@
-# keyboardTrainer
-To launch project you should clone project via **git clone [link to the project]** and install dependencies **npm i**
-- To launch the project, type **npm start**
-- To run tests, type **npm run test**
+<h1 align="center">KEYBOARD TRAINER</h1>
 
+In collaboration with: [predmaxim](https://github.com/predmaxim), [irinaid](https://github.com/IrinaIID)
+
+1. How to launch on the local machine: `git clone [ssh reference] project`, `cd project`, `npm i`, `npm run dev`
+2. Screenshot: 
+![Снимок экрана от 2023-02-26 17-48-52](https://user-images.githubusercontent.com/62261839/221411407-80a4583b-10f5-432a-b481-4ade9a1c4085.png)
+![Group 282](https://user-images.githubusercontent.com/101494885/221437607-20bcdee5-7b13-44fa-b752-0bcca16a1bbc.png)
+3. Deploy: [https://visionary-heliotrope-66de37.netlify.app](https://visionary-heliotrope-66de37.netlify.app/)
+4. Done 21.02.2023
+5. Link to the backend-app: [server](https://github.com/sanich123/serverKeyboardTrainer).
+
+### Tech stack:
+**Front-end:** 
+Create React App, React, Redux, Typescript, Sass/Tailwind, Auth0, Jest, React Testing Library, Framer Motion, React Icons, Chart.js, 
+
+**Back-end:** 
+Node.js, Express, Mongoose.
+
+### Implemented:
++ Есть возможность управление приложением/игрой с клавиатуры или наличие более пяти hot keys.
+*Процесс игры основан на использовании клавиатурных событий. Модальные окна реагируют на закрытие esc*
++ Есть возможность переключения 2 и более языков.
+*Два языка интерфейса, самого текста игры и визуальной клавиатуры: англ., русс.*
++ Есть хотя бы один модальный диалог.
+*По клику на кнопку "Правила" появляется модальное окно*
++ Реализован routing (без перезагрузки страницы приложения).
++ Возможность кастомизации приложения, настроек пользователя.
+*Выбор языка и темы приложения*
++ Реализовано больше трёх анимаций, для создания которых используются ключевые кадры или svg-анимация.
+*Анимация движения машинок в гонке. Анимация модальных окон настроек и графиков статистики*
++ Приложение выполнено в едином стиле
++ Приложение работает на телефоне/планшете/PC.
+*Адаптивность приложения до разрешения 360px*
++ Есть статистика, которая отображает прогресс работы приложения, процент выполнения задания etc.
+*Страница статистики, графики, лучшие результаты. Ход игры (печать текста) интерактивно отображается на визуальной клавиатуре и подсвечивается печатаемый текст*
++ Есть не меньше двадцати Unit test.
++ Сохранение и загрузка чего-либо с использованием Local storage.
+*Сохраняется выбранная тема и язык приложения*
++ Приложение/игра написана на TypeScript.
++ Авторизация реализована с помощью Auth0
+
+**Back-end:**
++ Использован REST API.
++ Подключение и работа с БД.
++ Используется ORM(mongoose).
++ Приложение разбито на микросервисы.
++ Приложение отображает какую-либо статистику/графики/таблицы, данные для которых получает от бекенда. (50 points)
+*Результаты заездов зарегистрированных пользователей отправляются на сервер. В кабинете пользователя отображается статистика данного пользователя и информация о пользователе согласно полученным данным при регистрации*
++ Реализован nodejs и express.

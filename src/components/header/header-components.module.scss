@@ -1,0 +1,83 @@
+@import "../../styles/vars.scss";
+
+.headerNav {
+  display: flex;
+  gap: 30px;
+
+  @media screen and (width <=$notebook) {
+    gap: 30px;
+  }
+
+  @media screen and (width <=$tablet) {
+    gap: 25px;
+  }
+
+  @media screen and (width <=$mobile) {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.liMmargin {
+  margin-right: 30px;
+
+  @media screen and (width <=$tablet) {
+    margin-right: 15px;
+  }
+}
+
+.liNavigation {
+  transition: var(--transition);
+
+  &:hover {
+    text-decoration: underline;
+    color: var(--primary-color);
+  }
+}
+
+.divLoginNavigation {
+  display: flex;
+  align-items: center;
+  color: var(--font-color);
+  cursor: pointer;
+  transition: var(--transition);
+
+  // &:hover {
+  //   color: var(--primary-color);
+  // }
+}
+
+.textLogin {
+
+  margin-right: 20px;
+
+  &:hover {
+    text-decoration: underline;
+    color: var(--primary-color);
+  }
+
+  @media screen and (width <=$mobile) {
+    display: none;
+  }
+}
+
+.imgUser {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  border-radius: 100%;
+
+  @media screen and (width <=$mobile) {
+    font-size: 25px;
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.logoutBtn {
+  &:hover {
+    text-decoration: underline;
+    color: var(--primary-color);
+  }
+}

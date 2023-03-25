@@ -1,0 +1,115 @@
+@import '../../../styles/vars.scss';
+
+
+.TrafficLight {
+  transition: var(--transition);
+
+  .yellowTextInfo,
+  .greenTextInfo,
+  .redTextInfo {
+    line-height: 1;
+  }
+
+  .redLight,
+  .greenLight,
+  .yellowLight {
+    display: flex;
+    flex-direction: row-reverse;
+    border-radius: 65px;
+    align-items: center;
+    justify-content: left;
+    width: max-content;
+  }
+
+  .red,
+  .green,
+  .yellow {
+    border-radius: 50%;
+    font-size: 25px;
+    font-weight: 700;
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .yellowTextDesc,
+  .greenTextDesc,
+  .redTextDesc {
+    display: block;
+    font-weight: 700;
+    color: var(--traffic-light-font-color-desc);
+    font-size: 20px;
+    padding: 0 50px 0 30px;
+
+    @media screen and (width <=$notebook) {
+      font-size: 16px;
+    }
+
+    @media screen and (width <=$tablet) {
+      font-size: 16px;
+      padding: 0 30px 0 15px;
+      display: none;
+    }
+
+    @media screen and (width <=$mobile) {}
+  }
+
+  .red {
+    background: var(--traffic-light-bg-red);
+
+    .unit {
+      color: var(--traffic-light-font-color-red);
+    }
+  }
+
+  .redLight {
+    background: var(--traffic-light-bg-red-light);
+  }
+
+  .redTextInfo {
+    color: var(--traffic-light-font-color-red);
+  }
+
+  .green {
+    background: var(--traffic-light-bg-green);
+
+    .unit {
+      color: var(--traffic-light-font-color-green);
+    }
+  }
+
+  .greenLight {
+    background: var(--traffic-light-bg-green-light);
+  }
+
+  .greenTextInfo {
+    color: var(--traffic-light-font-color-green);
+  }
+
+  .yellow {
+    background: var(--traffic-light-bg-yellow);
+
+    .unit {
+      color: var(--traffic-light-font-color-yellow);
+    }
+  }
+
+  .yellowLight {
+    background: var(--traffic-light-bg-yellow-light);
+  }
+
+  .yellowTextInfo {
+    color: var(--traffic-light-font-color-yellow);
+  }
+
+  .unit {
+    text-align: left;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 400;
+  }
+
+}

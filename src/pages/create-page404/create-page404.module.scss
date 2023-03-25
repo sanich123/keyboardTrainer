@@ -1,0 +1,61 @@
+@import '../../styles/vars.scss';
+
+.CreatePage404 {
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  grid-template-rows: min-content 1fr min-content;
+  overflow-x: hidden;
+
+  .page404 {
+    margin: auto;
+    width: 100%;
+    max-width: $desktop;
+    padding: var(--padding-desktop);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (width <=$notebook) {
+      padding: var(--padding-notebook);
+      max-width: $notebook;
+      margin: 30px auto;
+    }
+
+    @media screen and (width <=$tablet) {
+      padding: var(--padding-tablet);
+      max-width: $tablet;
+      margin: 20px auto;
+    }
+
+    @media screen and (width <=$mobile) {
+      padding: var(--padding-mobile);
+      max-width: $mobile;
+      margin: 0 auto;
+    }
+
+    .badge404 {
+      background: var(--traffic-light-bg-red);
+      color: var(--traffic-light-font-color-red);
+      border: 15px solid var(--primary-bg-color);
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 60px;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    .h1 {
+      font-size: var(--h2-font-size);
+      color: var(--font-color);
+      font-weight: 700;
+      margin-bottom: 45px;
+      align-items: center;
+    }
+  }
+}

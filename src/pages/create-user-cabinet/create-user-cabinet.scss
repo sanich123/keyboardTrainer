@@ -1,0 +1,126 @@
+.all-main-cabinet {
+  width: 100%;
+  margin: auto;
+}
+
+.main-cabinet {
+  grid-area: main;
+  padding: 60px 60px;
+  max-width: 1600px;
+  margin: auto;
+
+  @media screen and (max-width: 850px) {
+    padding: 40px 10px;
+  }
+}
+
+.light-theme {
+  color: #514B4B;
+  font-weight: 700;
+  font-family: 'Open Sans';
+  background: url('../../assets/img/bg-light404.webp');
+  background-size: cover;
+}
+
+.darck-theme {
+  color: #FFFFFF;
+  text-shadow: 6px 3px 8px rgba(0, 0, 0, 0.25);
+  font-weight: 700;
+  font-family: 'Open Sans';
+  background: url('../../assets/img/bg-darck404.webp');
+  background-size: cover;
+}
+
+.best-first-section {
+  width: 100%;
+  display: flex;
+  margin-bottom: 60px;
+
+  @media screen and (max-width: 1100px) {
+    flex-direction: column;
+  }
+}
+
+.h2-awards{
+  font-size: 27px;
+  font-weight: 700;
+  margin-right: 80px;
+
+  @media screen and (max-width: 1400px) {
+    margin-bottom: 30px;
+  }
+}
+
+.awaards-section {
+  display: flex;
+
+  @media screen and (max-width: 1400px) {
+    flex-direction: column;
+  }
+}
+
+.all-awards {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  @media screen and (max-width: 370px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.chart-section {
+  width: 100%;
+  display: flex;
+  margin: 100px 0px;
+
+  @media screen and (max-width: 1400px) {
+    margin: 60px 0px;
+  }
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+  }
+}
+
+.chart {
+  width: 70%;
+  height: 500px;
+
+  @media screen and (max-width: 1400px) {
+    height: 400px;
+  }
+
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+  }
+}
+
+.h2-chart {
+  width: 30%;
+  padding-top: 20px;
+  margin-right: 20px;
+  font-size: 27px;
+  font-weight: 700;
+
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+  }
+}
+
+.block-driver {
+  width: 100%;
+}
+
+.darck-theme-chart {
+  background-color: rgba(255, 255, 255, 0.71);
+  padding: 10px;
+  border-radius: 10px;
+  color: #FFFFFF;
+}
+
+.p-noinfo-chart {
+  margin-top: 30px;
+}
