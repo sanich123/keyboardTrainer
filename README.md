@@ -14,7 +14,7 @@ In collaboration with: [predmaxim](https://github.com/predmaxim), [irinaid](http
 
 *or you can use deployed version:* [Deployed](https://visionary-heliotrope-66de37.netlify.app/)
 
-2. Screenshot: 
+2. Screenshots: 
 ![Снимок экрана от 2023-02-26 17-48-52](https://user-images.githubusercontent.com/62261839/221411407-80a4583b-10f5-432a-b481-4ade9a1c4085.png)
 ![Group 282](https://user-images.githubusercontent.com/101494885/221437607-20bcdee5-7b13-44fa-b752-0bcca16a1bbc.png)
 3. Done 21.02.2023
