@@ -1,3 +1,7 @@
+
+<h1 align="center">KEYBOARD TRAINER</h1>
+<h2 align="center">Our team work with [predmaxim](https://github.com/predmaxim), [irinaid](https://github.com/IrinaIID)</h2>
+
 1. How to launch on the local machine: `git clone [ssh reference] project`, `cd project`, `npm i`, `npm run dev`
 2. Screenshot: 
 ![Снимок экрана от 2023-02-26 17-48-52](https://user-images.githubusercontent.com/62261839/221411407-80a4583b-10f5-432a-b481-4ade9a1c4085.png)
@@ -5,7 +9,6 @@
 3. Deploy: [https://visionary-heliotrope-66de37.netlify.app](https://visionary-heliotrope-66de37.netlify.app/)
 4. Done 21.02.2023
 5. Link to the backend-app: [server](https://github.com/sanich123/serverKeyboardTrainer).
-
 
 ### Tech stack:
 **Front-end:** 
