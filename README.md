@@ -2,13 +2,23 @@
 
 In collaboration with: [predmaxim](https://github.com/predmaxim), [irinaid](https://github.com/IrinaIID)
 
-1. How to launch on the local machine: `git clone [ssh reference] project`, `cd project`, `npm i`, `npm run dev`
+1. How to launch: 
+
+`git clone [ssh reference] project`
+
+`cd project`
+
+`npm i`
+
+`npm start`
+
+*or you can use deployed version:* [Deployed](https://visionary-heliotrope-66de37.netlify.app/)
+
 2. Screenshot: 
 ![Снимок экрана от 2023-02-26 17-48-52](https://user-images.githubusercontent.com/62261839/221411407-80a4583b-10f5-432a-b481-4ade9a1c4085.png)
 ![Group 282](https://user-images.githubusercontent.com/101494885/221437607-20bcdee5-7b13-44fa-b752-0bcca16a1bbc.png)
-3. Deploy: [https://visionary-heliotrope-66de37.netlify.app](https://visionary-heliotrope-66de37.netlify.app/)
-4. Done 21.02.2023
-5. Link to the backend-app: [server](https://github.com/sanich123/serverKeyboardTrainer).
+3. Done 21.02.2023
+4. Link to the backend-app: [server](https://github.com/sanich123/serverKeyboardTrainer).
 
 ### Tech stack:
 **Front-end:** 
