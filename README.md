@@ -19,6 +19,7 @@ In collaboration with: [predmaxim](https://github.com/predmaxim), [irinaid](http
 ![Group 282](https://user-images.githubusercontent.com/101494885/221437607-20bcdee5-7b13-44fa-b752-0bcca16a1bbc.png)
 3. Done 21.02.2023
 4. Link to the backend-app: [server](https://github.com/sanich123/serverKeyboardTrainer).
+5. [Projects](https://github.com/users/sanich123/projects/1)
 
 ### Tech stack:
 **Front-end:** 
