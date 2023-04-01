@@ -4,7 +4,7 @@ In collaboration with: [predmaxim](https://github.com/predmaxim), [irinaid](http
 
 1. How to launch: 
 
-copy and past into your code-editor: `git clone git@github.com:sanich123/keyboardTrainer.git project&&cd project&&npm i&&npm start`
+copy and past into your code-editor command-line: `git clone git@github.com:sanich123/keyboardTrainer.git project&&cd project&&npm i&&npm start`
 
 *or you can use deployed version:* [Deployed](https://visionary-heliotrope-66de37.netlify.app/)
 
